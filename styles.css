@@ -40,6 +40,7 @@ body {
     color: var(--black);
     background: var(--white);
     line-height: 1.5;
+    padding-top: calc(var(--header-height) + var(--announcement-height));
 }
 
 body.no-scroll {
@@ -72,6 +73,10 @@ img {
    Announcement Bar
    ========================================= */
 .announcement-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
     height: var(--announcement-height);
     background: var(--black);
     color: var(--white);
@@ -81,6 +86,7 @@ img {
     font-size: 11px;
     letter-spacing: 0.5px;
     text-transform: uppercase;
+    z-index: 1001;
 }
 
 /* =========================================
@@ -100,6 +106,12 @@ img {
 
 .header.scrolled {
     top: 0;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.header.scrolled+.announcement-bar,
+body.scrolled .announcement-bar {
+    transform: translateY(-100%);
 }
 
 .nav {
@@ -316,7 +328,7 @@ img {
     height: 100vh;
     min-height: 600px;
     position: relative;
-    margin-top: calc(var(--header-height) + var(--announcement-height));
+    margin-top: 0;
 }
 
 .hero-slide {
@@ -2326,6 +2338,7 @@ img {
         grid-template-columns: repeat(2, 1fr);
     }
 }
+
 /* =========================================
    Auth Pages (Login, Register)
    ========================================= */
@@ -2642,12 +2655,35 @@ img {
     border-radius: 2px;
 }
 
-.status-pending { background: #fef3c7; color: #92400e; }
-.status-paid { background: #d1fae5; color: #065f46; }
-.status-processing { background: #dbeafe; color: #1e40af; }
-.status-shipped { background: #e0e7ff; color: #3730a3; }
-.status-delivered { background: #d1fae5; color: #065f46; }
-.status-cancelled { background: #fee2e2; color: #b91c1c; }
+.status-pending {
+    background: #fef3c7;
+    color: #92400e;
+}
+
+.status-paid {
+    background: #d1fae5;
+    color: #065f46;
+}
+
+.status-processing {
+    background: #dbeafe;
+    color: #1e40af;
+}
+
+.status-shipped {
+    background: #e0e7ff;
+    color: #3730a3;
+}
+
+.status-delivered {
+    background: #d1fae5;
+    color: #065f46;
+}
+
+.status-cancelled {
+    background: #fee2e2;
+    color: #b91c1c;
+}
 
 .order-items {
     display: flex;
