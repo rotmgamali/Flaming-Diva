@@ -176,6 +176,47 @@ function initCollectionTabs() {
     });
 }
 
+// Global toggle functions for inline onclick handlers (mobile-friendly)
+function toggleMobileMenu() {
+    const menu = document.getElementById('mobile-menu');
+    const toggle = document.getElementById('nav-toggle');
+
+    if (!menu || !toggle) return;
+
+    const isActive = menu.classList.contains('active');
+
+    if (isActive) {
+        menu.classList.remove('active');
+        document.body.classList.remove('no-scroll');
+        toggle.querySelector('span:first-child').style.transform = '';
+        toggle.querySelector('span:last-child').style.transform = '';
+    } else {
+        menu.classList.add('active');
+        document.body.classList.add('no-scroll');
+        toggle.querySelector('span:first-child').style.transform = 'rotate(45deg) translate(4px, 4px)';
+        toggle.querySelector('span:last-child').style.transform = 'rotate(-45deg)';
+    }
+}
+
+function toggleCart() {
+    const cartDrawer = document.getElementById('cart-drawer');
+    const overlay = document.getElementById('overlay');
+
+    if (!cartDrawer) return;
+
+    const isActive = cartDrawer.classList.contains('active');
+
+    if (isActive) {
+        cartDrawer.classList.remove('active');
+        if (overlay) overlay.classList.remove('active');
+        document.body.classList.remove('no-scroll');
+    } else {
+        cartDrawer.classList.add('active');
+        if (overlay) overlay.classList.add('active');
+        document.body.classList.add('no-scroll');
+    }
+}
+
 // Header scroll behavior - Fear of God Style
 // Homepage: invisible at top, solid on scroll
 // Other pages: semi-transparent at top, solid on scroll
