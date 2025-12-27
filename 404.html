@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Page Not Found - Flaming Diva">
+    <title>Page Not Found | Flaming Diva</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Announcement Bar -->
+    <div class="announcement-bar">
+        <div class="announcement-slider">
+            <p>Complimentary Shipping & Returns</p>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="header" id="header">
+        <nav class="nav">
+            <div class="nav-left"></div>
+            <a href="index.html" class="logo">FLAMING DIVA</a>
+            <div class="nav-right">
+                <a href="collections.html" class="nav-link nav-link-right">Shop</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 404 Page -->
+    <main class="error-page">
+        <div class="error-container">
+            <h1>404</h1>
+            <p class="error-title">Page Not Found</p>
+            <p class="error-subtitle">The page you're looking for doesn't exist or has been moved.</p>
+            <div class="error-actions">
+                <a href="index.html" class="error-btn">Back to Home</a>
+                <a href="collections.html" class="error-btn error-btn-secondary">Shop Collection</a>
+            </div>
+        </div>
+    </main>
+
+    <style>
+        .error-page {
+            min-height: calc(100vh - var(--header-height) - var(--announcement-height) - 100px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 60px 20px;
+            margin-top: calc(var(--header-height) + var(--announcement-height));
+        }
+
+        .error-container h1 {
+            font-size: 120px;
+            font-weight: 300;
+            letter-spacing: 10px;
+            margin-bottom: 16px;
+            line-height: 1;
+        }
+
+        .error-title {
+            font-size: 18px;
+            font-weight: 500;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+
+        .error-subtitle {
+            font-size: 14px;
+            color: var(--gray-600);
+            margin-bottom: 40px;
+        }
+
+        .error-actions {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .error-btn {
+            padding: 14px 32px;
+            font-size: 11px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            background: var(--black);
+            color: var(--white);
+            transition: opacity 0.2s;
+        }
+
+        .error-btn:hover {
+            opacity: 0.8;
+        }
+
+        .error-btn-secondary {
+            background: transparent;
+            color: var(--black);
+            border: 1px solid var(--black);
+        }
+
+        @media (max-width: 768px) {
+            .error-container h1 {
+                font-size: 80px;
+            }
+        }
+    </style>
+</body>
+
+</html>

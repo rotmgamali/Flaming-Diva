@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Checkout - Flaming Diva Premium Custom Jackets">
+    <title>Checkout | Flaming Diva</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Announcement Bar -->
+    <div class="announcement-bar">
+        <div class="announcement-slider">
+            <p>Complimentary Shipping & Returns</p>
+        </div>
+    </div>
+
+    <!-- Simple Header for Checkout -->
+    <header class="header" id="header">
+        <nav class="nav">
+            <a href="index.html" class="logo" style="position: relative; left: 0; transform: none;">FLAMING DIVA</a>
+            <div class="nav-right">
+                <a href="collections.html" class="nav-link nav-link-right">Continue Shopping</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Checkout Page -->
+    <main class="checkout-page" id="checkout-main">
+        <div class="checkout-form">
+            <section class="checkout-section">
+                <h2>Secure Checkout</h2>
+                <p style="font-size: 14px; color: var(--gray-600); margin-bottom: 24px;">
+                    Review your order and proceed to payment. You'll be redirected to our secure payment provider
+                    (Stripe) to complete your purchase.
+                </p>
+
+                <div class="form-row full">
+                    <div class="form-group">
+                        <label for="email">Email (for order confirmation)</label>
+                        <input type="email" id="email" placeholder="Enter your email" required>
+                    </div>
+                </div>
+            </section>
+
+            <section class="checkout-section">
+                <h2>Order Items</h2>
+                <div id="checkout-items" class="checkout-items-list">
+                    <!-- Items populated by JS -->
+                </div>
+            </section>
+
+            <div class="checkout-info-box">
+                <h4>What happens next?</h4>
+                <ul>
+                    <li>You'll be redirected to Stripe's secure checkout</li>
+                    <li>Enter your shipping address and payment details</li>
+                    <li>Receive order confirmation via email</li>
+                    <li>Track your order in your account</li>
+                </ul>
+            </div>
+        </div>
+
+        <aside class="order-summary">
+            <h3>Order Summary</h3>
+            <div class="order-items" id="order-items">
+                <!-- Items populated by JS -->
+            </div>
+            <div class="order-totals">
+                <div class="order-row">
+                    <span>Subtotal</span>
+                    <span id="subtotal">$0.00</span>
+                </div>
+                <div class="order-row">
+                    <span>Shipping</span>
+                    <span>Calculated at checkout</span>
+                </div>
+                <div class="order-row">
+                    <span>Taxes</span>
+                    <span>Calculated at checkout</span>
+                </div>
+                <div class="order-row total">
+                    <span>Estimated Total</span>
+                    <span id="total">$0.00</span>
+                </div>
+            </div>
+            <button class="place-order-btn" id="checkout-btn">
+                <span id="btn-text">Proceed to Payment</span>
+                <span id="btn-loading" style="display: none;">Processing...</span>
+            </button>
+            <p class="secure-note"
+                style="font-size: 11px; color: var(--gray-500); text-align: center; margin-top: 16px;">
+                🔒 Secure checkout powered by Stripe
+            </p>
+        </aside>
+    </main>
+
+    <!-- Empty Cart Message -->
+    <div id="empty-cart" style="display: none;" class="checkout-page">
+        <div style="text-align: center; grid-column: 1 / -1; padding: 80px 20px;">
+            <h1 style="font-size: 28px; font-weight: 300; letter-spacing: 4px; margin-bottom: 16px;">YOUR CART IS EMPTY
+            </h1>
+            <p style="font-size: 14px; color: #737373; margin-bottom: 32px;">Add some items to your cart before checking
+                out.</p>
+            <a href="collections.html"
+                style="font-size: 11px; letter-spacing: 1px; text-transform: uppercase; padding: 14px 32px; background: #000; color: #fff; display: inline-block;">Shop
+                Collection</a>
+        </div>
+    </div>
+
+    <style>
+        .checkout-items-list {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .checkout-item {
+            display: flex;
+            gap: 16px;
+            padding: 16px;
+            background: var(--gray-100);
+        }
+
+        .checkout-item-image {
+            width: 80px;
+            height: 100px;
+            background: var(--white);
+        }
+
+        .checkout-item-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .checkout-item-details {
+            flex: 1;
+        }
+
+        .checkout-item-name {
+            font-size: 14px;
+            margin-bottom: 4px;
+        }
+
+        .checkout-item-variant {
+            font-size: 12px;
+            color: var(--gray-500);
+        }
+
+        .checkout-item-price {
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .checkout-info-box {
+            background: var(--gray-100);
+            padding: 24px;
+            margin-top: 32px;
+        }
+
+        .checkout-info-box h4 {
+            font-size: 12px;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+        }
+
+        .checkout-info-box ul {
+            list-style: none;
+        }
+
+        .checkout-info-box li {
+            font-size: 13px;
+            color: var(--gray-600);
+            padding-left: 20px;
+            position: relative;
+            margin-bottom: 8px;
+        }
+
+        .checkout-info-box li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #059669;
+        }
+    </style>
+
+    <script type="module">
+        import { getStripe, formatPrice } from './src/lib/stripe.js'
+        import { getUser } from './src/lib/supabase.js'
+
+        document.addEventListener('DOMContentLoaded', async () => {
+            const checkoutMain = document.getElementById('checkout-main')
+            const emptyCart = document.getElementById('empty-cart')
+            const orderItems = document.getElementById('order-items')
+            const checkoutItems = document.getElementById('checkout-items')
+            const subtotalEl = document.getElementById('subtotal')
+            const totalEl = document.getElementById('total')
+            const checkoutBtn = document.getElementById('checkout-btn')
+            const btnText = document.getElementById('btn-text')
+            const btnLoading = document.getElementById('btn-loading')
+
+            // Load cart from localStorage
+            let cart = []
+            try {
+                const saved = localStorage.getItem('flamingDivaCart')
+                if (saved) cart = JSON.parse(saved)
+            } catch (e) {
+                console.warn('Could not load cart:', e)
+            }
+
+            // Show empty cart message if no items
+            if (cart.length === 0) {
+                checkoutMain.style.display = 'none'
+                emptyCart.style.display = 'grid'
+                return
+            }
+
+            // Get current user
+            const { user } = await getUser()
+
+            // Calculate totals and render items
+            let subtotal = 0
+            let orderHtml = ''
+            let checkoutHtml = ''
+
+            cart.forEach(item => {
+                // Parse price - handle both "$1,295 USD" format and cents
+                let priceInCents = item.priceInCents
+                if (!priceInCents && item.price) {
+                    const numericPrice = parseInt(item.price.replace(/[^0-9]/g, '')) || 0
+                    priceInCents = numericPrice * 100
+                }
+
+                const qty = item.quantity || 1
+                const itemTotal = (priceInCents / 100) * qty
+                subtotal += itemTotal
+
+                // Order summary (sidebar)
+                orderHtml += `
+                    <div class="order-item">
+                        <div class="order-item-image">
+                            ${item.image ? `<img src="${item.image}" alt="${item.name}">` : ''}
+                            <span class="order-item-qty">${qty}</span>
+                        </div>
+                        <div class="order-item-details">
+                            <p class="order-item-name">${item.name}</p>
+                            <p class="order-item-variant">Size: ${item.size || 'One Size'}</p>
+                        </div>
+                        <p class="order-item-price">$${itemTotal.toLocaleString()}</p>
+                    </div>
+                `
+
+                // Checkout items list
+                checkoutHtml += `
+                    <div class="checkout-item">
+                        <div class="checkout-item-image">
+                            ${item.image ? `<img src="${item.image}" alt="${item.name}">` : ''}
+                        </div>
+                        <div class="checkout-item-details">
+                            <p class="checkout-item-name">${item.name}</p>
+                            <p class="checkout-item-variant">Size: ${item.size || 'One Size'} × ${qty}</p>
+                        </div>
+                        <p class="checkout-item-price">$${itemTotal.toLocaleString()}</p>
+                    </div>
+                `
+            })
+
+            orderItems.innerHTML = orderHtml
+            checkoutItems.innerHTML = checkoutHtml
+            subtotalEl.textContent = `$${subtotal.toLocaleString()} USD`
+            totalEl.textContent = `$${subtotal.toLocaleString()} USD`
+
+            // Pre-fill email if logged in
+            if (user?.email) {
+                document.getElementById('email').value = user.email
+            }
+
+            // Handle checkout button click
+            checkoutBtn.addEventListener('click', async () => {
+                const email = document.getElementById('email').value
+
+                if (!email) {
+                    alert('Please enter your email address')
+                    return
+                }
+
+                // Format cart items for API
+                const items = cart.map(item => {
+                    let priceInCents = item.priceInCents
+                    if (!priceInCents && item.price) {
+                        priceInCents = parseInt(item.price.replace(/[^0-9]/g, '')) * 100
+                    }
+                    return {
+                        name: item.name,
+                        price: priceInCents,
+                        size: item.size || 'One Size',
+                        quantity: item.quantity || 1,
+                        image: item.image
+                    }
+                })
+
+                btnText.style.display = 'none'
+                btnLoading.style.display = 'inline'
+                checkoutBtn.disabled = true
+
+                try {
+                    // Call your serverless function
+                    const response = await fetch('/api/create-checkout-session', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            items,
+                            customerEmail: email,
+                            userId: user?.id || 'guest'
+                        })
+                    })
+
+                    const data = await response.json()
+
+                    if (data.url) {
+                        // Redirect to Stripe Checkout
+                        window.location.href = data.url
+                    } else if (data.sessionId) {
+                        // Use Stripe.js redirect
+                        const stripe = await getStripe()
+                        await stripe.redirectToCheckout({ sessionId: data.sessionId })
+                    } else {
+                        throw new Error(data.error || 'Failed to create checkout session')
+                    }
+
+                } catch (error) {
+                    console.error('Checkout error:', error)
+                    alert('There was an error processing your checkout. Please try again.')
+                    btnText.style.display = 'inline'
+                    btnLoading.style.display = 'none'
+                    checkoutBtn.disabled = false
+                }
+            })
+        })
+    </script>
+</body>
+
+</html>

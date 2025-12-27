@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Your Flaming Diva Orders">
+    <title>My Orders | Flaming Diva</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Announcement Bar -->
+    <div class="announcement-bar">
+        <div class="announcement-slider">
+            <p>Complimentary Shipping & Returns</p>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="header" id="header">
+        <nav class="nav">
+            <div class="nav-left">
+                <button class="nav-toggle" id="nav-toggle" aria-label="Menu">
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul class="nav-menu">
+                    <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                    <li class="nav-item"><a href="collections.html" class="nav-link">Shop All</a></li>
+                    <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+                    <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+                </ul>
+            </div>
+            <a href="index.html" class="logo">FLAMING DIVA</a>
+            <div class="nav-right">
+                <button class="nav-icon search-btn" aria-label="Search">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="1.5">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <path d="m21 21-4.35-4.35"></path>
+                    </svg>
+                </button>
+                <button class="nav-icon cart-btn" id="cart-toggle" aria-label="Cart">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="1.5">
+                        <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                        <path d="M16 10a4 4 0 0 1-8 0"></path>
+                    </svg>
+                    <span class="cart-count">0</span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Orders Page -->
+    <main class="account-page">
+        <div class="account-sidebar">
+            <h1>My Account</h1>
+            <nav class="account-nav">
+                <a href="account.html" class="account-nav-link">Profile</a>
+                <a href="orders.html" class="account-nav-link active">Orders</a>
+                <a href="wishlist.html" class="account-nav-link">Wishlist</a>
+                <button class="account-nav-link" id="sign-out-btn">Sign Out</button>
+            </nav>
+        </div>
+
+        <div class="account-content">
+            <section class="account-section">
+                <h2>Order History</h2>
+
+                <div id="loading-state" class="account-loading">
+                    <p>Loading your orders...</p>
+                </div>
+
+                <div id="orders-empty" class="orders-empty" style="display: none;">
+                    <p>You haven't placed any orders yet.</p>
+                    <a href="collections.html" class="account-btn" style="display: inline-block;">Start Shopping</a>
+                </div>
+
+                <div id="orders-list" class="orders-list" style="display: none;"></div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Cart Drawer -->
+    <div class="cart-drawer" id="cart-drawer">
+        <div class="cart-header">
+            <h3>SHOPPING CART</h3>
+            <button class="cart-close" id="cart-close">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+        </div>
+        <div class="cart-content" id="cart-content">
+            <div class="cart-empty">
+                <p>Your cart is currently empty.</p>
+                <a href="collections.html" class="continue-shopping">Continue Shopping</a>
+            </div>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-subtotal">
+                <span>Subtotal</span>
+                <span id="cart-total">$0.00</span>
+            </div>
+            <p class="cart-note">Shipping & taxes calculated at checkout</p>
+            <button class="checkout-btn" id="checkout-btn" disabled>Checkout</button>
+        </div>
+    </div>
+    <div class="overlay" id="overlay"></div>
+
+    <script src="script.js"></script>
+    <script type="module">
+        import { getUser, getOrders, signOut } from './src/lib/supabase.js'
+
+        document.addEventListener('DOMContentLoaded', async () => {
+            const loadingEl = document.getElementById('loading-state')
+            const emptyEl = document.getElementById('orders-empty')
+            const listEl = document.getElementById('orders-list')
+
+            // Check if user is logged in
+            const { user } = await getUser()
+            if (!user) {
+                window.location.href = 'login.html?redirect=orders.html'
+                return
+            }
+
+            // Load orders
+            const { data: orders, error } = await getOrders()
+            loadingEl.style.display = 'none'
+
+            if (!orders || orders.length === 0) {
+                emptyEl.style.display = 'block'
+                return
+            }
+
+            // Render orders
+            listEl.innerHTML = orders.map(order => `
+                <div class="order-card">
+                    <div class="order-header">
+                        <div>
+                            <span class="order-number">${order.order_number}</span>
+                            <span class="order-date">${new Date(order.created_at).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</span>
+                        </div>
+                        <span class="order-status status-${order.status}">${order.status.charAt(0).toUpperCase() + order.status.slice(1)}</span>
+                    </div>
+                    <div class="order-items">
+                        ${order.order_items.map(item => `
+                            <div class="order-item">
+                                <div class="order-item-image">
+                                    <img src="${item.product_image || 'images/product-1.jpg'}" alt="${item.product_name}">
+                                </div>
+                                <div class="order-item-details">
+                                    <p class="order-item-name">${item.product_name}</p>
+                                    <p class="order-item-variant">Size: ${item.size} | Qty: ${item.quantity}</p>
+                                </div>
+                                <p class="order-item-price">$${(item.price / 100).toLocaleString()}</p>
+                            </div>
+                        `).join('')}
+                    </div>
+                    <div class="order-footer">
+                        <span>Total: <strong>$${(order.total / 100).toLocaleString()}</strong></span>
+                        ${order.tracking_number ? `<a href="${order.tracking_url || '#'}" class="track-link">Track Order</a>` : ''}
+                    </div>
+                </div>
+            `).join('')
+
+            listEl.style.display = 'block'
+
+            // Sign out
+            document.getElementById('sign-out-btn').addEventListener('click', async () => {
+                await signOut()
+                window.location.href = 'index.html'
+            })
+        })
+    </script>
+</body>
+
+</html>

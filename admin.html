@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Admin Dashboard | Flaming Diva</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --admin-sidebar: 260px;
+        }
+
+        .admin-layout {
+            display: grid;
+            grid-template-columns: var(--admin-sidebar) 1fr;
+            min-height: 100vh;
+        }
+
+        .admin-sidebar {
+            background: var(--black);
+            color: var(--white);
+            padding: 24px;
+            position: fixed;
+            width: var(--admin-sidebar);
+            height: 100vh;
+            overflow-y: auto;
+        }
+
+        .admin-logo {
+            font-size: 14px;
+            font-weight: 500;
+            letter-spacing: 2px;
+            margin-bottom: 8px;
+        }
+
+        .admin-badge {
+            font-size: 10px;
+            background: #ef4444;
+            padding: 4px 8px;
+            border-radius: 2px;
+            display: inline-block;
+            margin-bottom: 32px;
+        }
+
+        .admin-nav {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .admin-nav-link {
+            padding: 12px 16px;
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.7);
+            border-radius: 4px;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .admin-nav-link:hover,
+        .admin-nav-link.active {
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--white);
+        }
+
+        .admin-nav-link svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        .admin-main {
+            margin-left: var(--admin-sidebar);
+            padding: 32px;
+            background: #fafafa;
+        }
+
+        .admin-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 32px;
+        }
+
+        .admin-header h1 {
+            font-size: 24px;
+            font-weight: 500;
+        }
+
+        .admin-actions {
+            display: flex;
+            gap: 12px;
+        }
+
+        .admin-btn {
+            padding: 10px 20px;
+            font-size: 12px;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .admin-btn-primary {
+            background: var(--black);
+            color: var(--white);
+        }
+
+        .admin-btn-secondary {
+            background: var(--white);
+            color: var(--black);
+            border: 1px solid var(--gray-300);
+        }
+
+        .admin-stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+            margin-bottom: 32px;
+        }
+
+        .stat-card {
+            background: var(--white);
+            padding: 24px;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .stat-label {
+            font-size: 12px;
+            color: var(--gray-500);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 8px;
+        }
+
+        .stat-value {
+            font-size: 28px;
+            font-weight: 600;
+        }
+
+        .stat-change {
+            font-size: 12px;
+            margin-top: 8px;
+        }
+
+        .stat-change.positive {
+            color: #059669;
+        }
+
+        .stat-change.negative {
+            color: #dc2626;
+        }
+
+        .admin-card {
+            background: var(--white);
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            margin-bottom: 24px;
+        }
+
+        .admin-card-header {
+            padding: 20px 24px;
+            border-bottom: 1px solid var(--gray-200);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .admin-card-header h2 {
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .admin-table {
+            width: 100%;
+        }
+
+        .admin-table th {
+            text-align: left;
+            padding: 12px 24px;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--gray-500);
+            border-bottom: 1px solid var(--gray-200);
+            background: var(--gray-100);
+        }
+
+        .admin-table td {
+            padding: 16px 24px;
+            font-size: 13px;
+            border-bottom: 1px solid var(--gray-100);
+        }
+
+        .admin-table tr:hover {
+            background: var(--gray-50);
+        }
+
+        .order-status {
+            padding: 4px 10px;
+            font-size: 11px;
+            border-radius: 12px;
+            font-weight: 500;
+        }
+
+        .status-pending {
+            background: #fef3c7;
+            color: #92400e;
+        }
+
+        .status-paid {
+            background: #d1fae5;
+            color: #065f46;
+        }
+
+        .status-processing {
+            background: #dbeafe;
+            color: #1e40af;
+        }
+
+        .status-shipped {
+            background: #e0e7ff;
+            color: #3730a3;
+        }
+
+        .status-delivered {
+            background: #d1fae5;
+            color: #065f46;
+        }
+
+        .admin-link {
+            color: var(--black);
+            text-decoration: underline;
+            font-size: 12px;
+        }
+
+        .tracking-input {
+            display: flex;
+            gap: 8px;
+        }
+
+        .tracking-input input {
+            padding: 6px 10px;
+            font-size: 12px;
+            border: 1px solid var(--gray-300);
+            flex: 1;
+        }
+
+        .tracking-input button {
+            padding: 6px 12px;
+            font-size: 11px;
+            background: var(--black);
+            color: var(--white);
+            border: none;
+            cursor: pointer;
+        }
+
+        .admin-loading {
+            text-align: center;
+            padding: 60px;
+            color: var(--gray-500);
+        }
+
+        .admin-empty {
+            text-align: center;
+            padding: 40px;
+            color: var(--gray-500);
+        }
+
+        .logout-btn {
+            position: absolute;
+            bottom: 24px;
+            left: 24px;
+            right: 24px;
+            padding: 12px;
+            background: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: var(--white);
+            font-size: 12px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .logout-btn:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        @media (max-width: 1024px) {
+            .admin-stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .admin-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .admin-sidebar {
+                display: none;
+            }
+
+            .admin-main {
+                margin-left: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="admin-layout">
+        <!-- Sidebar -->
+        <aside class="admin-sidebar">
+            <div class="admin-logo">FLAMING DIVA</div>
+            <span class="admin-badge">ADMIN</span>
+
+            <nav class="admin-nav">
+                <a href="#dashboard" class="admin-nav-link active" data-tab="dashboard">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"></path>
+                    </svg>
+                    Dashboard
+                </a>
+                <a href="#orders" class="admin-nav-link" data-tab="orders">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4H6z"></path>
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                    </svg>
+                    Orders
+                </a>
+                <a href="#products" class="admin-nav-link" data-tab="products">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <rect x="3" y="3" width="7" height="7"></rect>
+                        <rect x="14" y="3" width="7" height="7"></rect>
+                        <rect x="14" y="14" width="7" height="7"></rect>
+                        <rect x="3" y="14" width="7" height="7"></rect>
+                    </svg>
+                    Products
+                </a>
+                <a href="#customers" class="admin-nav-link" data-tab="customers">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"></path>
+                        <circle cx="9" cy="7" r="4"></circle>
+                        <path d="M23 21v-2a4 4 0 00-3-3.87"></path>
+                        <path d="M16 3.13a4 4 0 010 7.75"></path>
+                    </svg>
+                    Customers
+                </a>
+            </nav>
+
+            <button class="logout-btn" id="logout-btn">Sign Out</button>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="admin-main">
+            <!-- Dashboard Tab -->
+            <div id="dashboard-tab" class="admin-tab">
+                <div class="admin-header">
+                    <h1>Dashboard</h1>
+                    <span id="admin-date"></span>
+                </div>
+
+                <div class="admin-stats" id="stats-container">
+                    <div class="stat-card">
+                        <div class="stat-label">Total Revenue</div>
+                        <div class="stat-value" id="stat-revenue">$0</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-label">Orders</div>
+                        <div class="stat-value" id="stat-orders">0</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-label">Customers</div>
+                        <div class="stat-value" id="stat-customers">0</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-label">Products</div>
+                        <div class="stat-value" id="stat-products">0</div>
+                    </div>
+                </div>
+
+                <div class="admin-card">
+                    <div class="admin-card-header">
+                        <h2>Recent Orders</h2>
+                        <a href="#orders" class="admin-link" data-tab="orders">View All</a>
+                    </div>
+                    <table class="admin-table" id="recent-orders-table">
+                        <thead>
+                            <tr>
+                                <th>Order</th>
+                                <th>Customer</th>
+                                <th>Status</th>
+                                <th>Total</th>
+                                <th>Date</th>
+                            </tr>
+                        </thead>
+                        <tbody id="recent-orders">
+                            <tr>
+                                <td colspan="5" class="admin-loading">Loading...</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Orders Tab -->
+            <div id="orders-tab" class="admin-tab" style="display: none;">
+                <div class="admin-header">
+                    <h1>Orders</h1>
+                </div>
+
+                <div class="admin-card">
+                    <table class="admin-table">
+                        <thead>
+                            <tr>
+                                <th>Order</th>
+                                <th>Customer</th>
+                                <th>Items</th>
+                                <th>Status</th>
+                                <th>Total</th>
+                                <th>Tracking</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="all-orders">
+                            <tr>
+                                <td colspan="7" class="admin-loading">Loading...</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Products Tab -->
+            <div id="products-tab" class="admin-tab" style="display: none;">
+                <div class="admin-header">
+                    <h1>Products</h1>
+                    <div class="admin-actions">
+                        <button class="admin-btn admin-btn-primary" id="add-product-btn">Add Product</button>
+                    </div>
+                </div>
+
+                <div class="admin-card">
+                    <table class="admin-table">
+                        <thead>
+                            <tr>
+                                <th>Product</th>
+                                <th>Category</th>
+                                <th>Price</th>
+                                <th>Stock</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="all-products">
+                            <tr>
+                                <td colspan="5" class="admin-loading">Loading...</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Customers Tab -->
+            <div id="customers-tab" class="admin-tab" style="display: none;">
+                <div class="admin-header">
+                    <h1>Customers</h1>
+                </div>
+
+                <div class="admin-card">
+                    <table class="admin-table">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Orders</th>
+                                <th>Total Spent</th>
+                                <th>Joined</th>
+                            </tr>
+                        </thead>
+                        <tbody id="all-customers">
+                            <tr>
+                                <td colspan="5" class="admin-loading">Loading...</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script type="module">
+        import { supabase, getUser, signOut } from './src/lib/supabase.js'
+
+        // Admin email(s) - add your admin emails here
+        const ADMIN_EMAILS = [
+            'diva@flamingdiva.com',
+            'ivybound.labs@gmail.com'  // Owner account
+        ]
+
+        // Check if user is admin
+        async function checkAdmin() {
+            const { user } = await getUser()
+            if (!user || !ADMIN_EMAILS.includes(user.email)) {
+                alert('Access denied. Admin only.')
+                window.location.href = '/login.html'
+                return null
+            }
+            return user
+        }
+
+        // Tab navigation
+        function setupTabs() {
+            const links = document.querySelectorAll('[data-tab]')
+            links.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault()
+                    const tabId = link.dataset.tab
+
+                    // Update active nav
+                    document.querySelectorAll('.admin-nav-link').forEach(l => l.classList.remove('active'))
+                    document.querySelector(`[data-tab="${tabId}"]`)?.classList.add('active')
+
+                    // Show tab
+                    document.querySelectorAll('.admin-tab').forEach(t => t.style.display = 'none')
+                    document.getElementById(`${tabId}-tab`).style.display = 'block'
+                })
+            })
+        }
+
+        // Load dashboard stats
+        async function loadStats() {
+            try {
+                // Get orders
+                const { data: orders } = await supabase.from('orders').select('*')
+                const totalRevenue = orders?.reduce((sum, o) => sum + (o.total || 0), 0) || 0
+
+                // Get customers
+                const { data: customers } = await supabase.from('profiles').select('*')
+
+                // Get products
+                const { data: products } = await supabase.from('products').select('*')
+
+                // Update stats
+                document.getElementById('stat-revenue').textContent = `$${(totalRevenue / 100).toLocaleString()}`
+                document.getElementById('stat-orders').textContent = orders?.length || 0
+                document.getElementById('stat-customers').textContent = customers?.length || 0
+                document.getElementById('stat-products').textContent = products?.length || 0
+
+            } catch (err) {
+                console.error('Error loading stats:', err)
+            }
+        }
+
+        // Load recent orders
+        async function loadRecentOrders() {
+            try {
+                const { data: orders, error } = await supabase
+                    .from('orders')
+                    .select('*')
+                    .order('created_at', { ascending: false })
+                    .limit(5)
+
+                const tbody = document.getElementById('recent-orders')
+
+                if (!orders || orders.length === 0) {
+                    tbody.innerHTML = '<tr><td colspan="5" class="admin-empty">No orders yet</td></tr>'
+                    return
+                }
+
+                tbody.innerHTML = orders.map(order => `
+                    <tr>
+                        <td><strong>${order.order_number}</strong></td>
+                        <td>${order.shipping_name || order.shipping_email || 'Guest'}</td>
+                        <td><span class="order-status status-${order.status}">${order.status}</span></td>
+                        <td>$${((order.total || 0) / 100).toLocaleString()}</td>
+                        <td>${new Date(order.created_at).toLocaleDateString()}</td>
+                    </tr>
+                `).join('')
+
+            } catch (err) {
+                console.error('Error loading orders:', err)
+            }
+        }
+
+        // Load all orders
+        async function loadAllOrders() {
+            try {
+                const { data: orders } = await supabase
+                    .from('orders')
+                    .select('*')
+                    .order('created_at', { ascending: false })
+
+                const tbody = document.getElementById('all-orders')
+
+                if (!orders || orders.length === 0) {
+                    tbody.innerHTML = '<tr><td colspan="7" class="admin-empty">No orders yet</td></tr>'
+                    return
+                }
+
+                tbody.innerHTML = orders.map(order => `
+                    <tr data-id="${order.id}">
+                        <td><strong>${order.order_number}</strong></td>
+                        <td>
+                            ${order.shipping_name || 'Guest'}<br>
+                            <small>${order.shipping_email || ''}</small>
+                        </td>
+                        <td>-</td>
+                        <td>
+                            <select class="status-select" data-id="${order.id}">
+                                <option value="pending" ${order.status === 'pending' ? 'selected' : ''}>Pending</option>
+                                <option value="paid" ${order.status === 'paid' ? 'selected' : ''}>Paid</option>
+                                <option value="processing" ${order.status === 'processing' ? 'selected' : ''}>Processing</option>
+                                <option value="shipped" ${order.status === 'shipped' ? 'selected' : ''}>Shipped</option>
+                                <option value="delivered" ${order.status === 'delivered' ? 'selected' : ''}>Delivered</option>
+                            </select>
+                        </td>
+                        <td>$${((order.total || 0) / 100).toLocaleString()}</td>
+                        <td>
+                            <div class="tracking-input">
+                                <input type="text" placeholder="Tracking #" value="${order.tracking_number || ''}" data-id="${order.id}">
+                                <button class="save-tracking" data-id="${order.id}">Save</button>
+                            </div>
+                        </td>
+                        <td>
+                            <a href="mailto:${order.shipping_email}" class="admin-link">Email</a>
+                        </td>
+                    </tr>
+                `).join('')
+
+                // Status change handlers
+                document.querySelectorAll('.status-select').forEach(select => {
+                    select.addEventListener('change', async (e) => {
+                        const id = e.target.dataset.id
+                        const status = e.target.value
+                        await supabase.from('orders').update({ status }).eq('id', id)
+                    })
+                })
+
+                // Tracking save handlers
+                document.querySelectorAll('.save-tracking').forEach(btn => {
+                    btn.addEventListener('click', async (e) => {
+                        const id = e.target.dataset.id
+                        const input = document.querySelector(`input[data-id="${id}"]`)
+                        await supabase.from('orders').update({ tracking_number: input.value }).eq('id', id)
+                        alert('Tracking number saved!')
+                    })
+                })
+
+            } catch (err) {
+                console.error('Error loading orders:', err)
+            }
+        }
+
+        // Load products
+        async function loadProducts() {
+            try {
+                const { data: products } = await supabase
+                    .from('products')
+                    .select('*')
+                    .order('created_at', { ascending: false })
+
+                const tbody = document.getElementById('all-products')
+
+                if (!products || products.length === 0) {
+                    tbody.innerHTML = '<tr><td colspan="5" class="admin-empty">No products yet</td></tr>'
+                    return
+                }
+
+                tbody.innerHTML = products.map(p => `
+                    <tr>
+                        <td><strong>${p.name}</strong></td>
+                        <td>${p.category || '-'}</td>
+                        <td>$${((p.price || 0) / 100).toLocaleString()}</td>
+                        <td>${p.stock_quantity ?? 'Unlimited'}</td>
+                        <td>
+                            <a href="/product.html?id=${p.id}" class="admin-link">View</a>
+                        </td>
+                    </tr>
+                `).join('')
+
+            } catch (err) {
+                console.error('Error loading products:', err)
+            }
+        }
+
+        // Load customers
+        async function loadCustomers() {
+            try {
+                const { data: customers } = await supabase
+                    .from('profiles')
+                    .select('*')
+                    .order('created_at', { ascending: false })
+
+                const tbody = document.getElementById('all-customers')
+
+                if (!customers || customers.length === 0) {
+                    tbody.innerHTML = '<tr><td colspan="5" class="admin-empty">No customers yet</td></tr>'
+                    return
+                }
+
+                tbody.innerHTML = customers.map(c => `
+                    <tr>
+                        <td><strong>${c.first_name || ''} ${c.last_name || ''}</strong></td>
+                        <td>${c.email || '-'}</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>${new Date(c.created_at).toLocaleDateString()}</td>
+                    </tr>
+                `).join('')
+
+            } catch (err) {
+                console.error('Error loading customers:', err)
+            }
+        }
+
+        // Initialize
+        async function init() {
+            const user = await checkAdmin()
+            if (!user) return
+
+            // Set date
+            document.getElementById('admin-date').textContent = new Date().toLocaleDateString('en-US', {
+                weekday: 'long',
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+            })
+
+            setupTabs()
+
+            // Load all data
+            await Promise.all([
+                loadStats(),
+                loadRecentOrders(),
+                loadAllOrders(),
+                loadProducts(),
+                loadCustomers()
+            ])
+
+            // Logout
+            document.getElementById('logout-btn').addEventListener('click', async () => {
+                await signOut()
+                window.location.href = '/login.html'
+            })
+        }
+
+        init()
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Your Flaming Diva Account">
+    <title>My Account | Flaming Diva</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Announcement Bar -->
+    <div class="announcement-bar">
+        <div class="announcement-slider">
+            <p>Complimentary Shipping & Returns</p>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="header" id="header">
+        <nav class="nav">
+            <div class="nav-left">
+                <button class="nav-toggle" id="nav-toggle" aria-label="Menu">
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul class="nav-menu">
+                    <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                    <li class="nav-item"><a href="collections.html" class="nav-link">Shop All</a></li>
+                    <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+                    <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+                </ul>
+            </div>
+            <a href="index.html" class="logo">FLAMING DIVA</a>
+            <div class="nav-right">
+                <button class="nav-icon search-btn" aria-label="Search">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="1.5">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <path d="m21 21-4.35-4.35"></path>
+                    </svg>
+                </button>
+                <button class="nav-icon cart-btn" id="cart-toggle" aria-label="Cart">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="1.5">
+                        <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                        <path d="M16 10a4 4 0 0 1-8 0"></path>
+                    </svg>
+                    <span class="cart-count">0</span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobile-menu">
+        <div class="mobile-menu-content">
+            <a href="index.html" class="mobile-link">Home</a>
+            <a href="collections.html" class="mobile-link">Shop All</a>
+            <a href="about.html" class="mobile-link">About</a>
+            <a href="contact.html" class="mobile-link">Contact</a>
+            <div class="mobile-divider"></div>
+            <a href="account.html" class="mobile-link-sm">Account</a>
+            <a href="orders.html" class="mobile-link-sm">Orders</a>
+        </div>
+    </div>
+
+    <!-- Account Page -->
+    <main class="account-page">
+        <div class="account-sidebar">
+            <h1>My Account</h1>
+            <nav class="account-nav">
+                <a href="account.html" class="account-nav-link active">Profile</a>
+                <a href="orders.html" class="account-nav-link">Orders</a>
+                <a href="wishlist.html" class="account-nav-link">Wishlist</a>
+                <button class="account-nav-link" id="sign-out-btn">Sign Out</button>
+            </nav>
+        </div>
+
+        <div class="account-content">
+            <div id="loading-state" class="account-loading">
+                <p>Loading your account...</p>
+            </div>
+
+            <div id="account-details" style="display: none;">
+                <section class="account-section">
+                    <h2>Profile Information</h2>
+                    <form id="profile-form" class="account-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="firstName">First Name</label>
+                                <input type="text" id="firstName">
+                            </div>
+                            <div class="form-group">
+                                <label for="lastName">Last Name</label>
+                                <input type="text" id="lastName">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" disabled>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone</label>
+                            <input type="tel" id="phone">
+                        </div>
+                        <button type="submit" class="account-btn">Save Changes</button>
+                    </form>
+                </section>
+
+                <section class="account-section">
+                    <h2>Shipping Address</h2>
+                    <form id="address-form" class="account-form">
+                        <div class="form-group">
+                            <label for="address1">Address Line 1</label>
+                            <input type="text" id="address1">
+                        </div>
+                        <div class="form-group">
+                            <label for="address2">Address Line 2</label>
+                            <input type="text" id="address2">
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="city">City</label>
+                                <input type="text" id="city">
+                            </div>
+                            <div class="form-group">
+                                <label for="state">State</label>
+                                <input type="text" id="state">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="postal">Postal Code</label>
+                                <input type="text" id="postal">
+                            </div>
+                            <div class="form-group">
+                                <label for="country">Country</label>
+                                <select id="country">
+                                    <option value="US">United States</option>
+                                    <option value="CA">Canada</option>
+                                    <option value="UK">United Kingdom</option>
+                                    <option value="AU">Australia</option>
+                                    <option value="VN">Vietnam</option>
+                                </select>
+                            </div>
+                        </div>
+                        <button type="submit" class="account-btn">Save Address</button>
+                    </form>
+                </section>
+
+                <section class="account-section">
+                    <h2>Change Password</h2>
+                    <form id="password-form" class="account-form">
+                        <div class="form-group">
+                            <label for="newPassword">New Password</label>
+                            <input type="password" id="newPassword" minlength="8">
+                        </div>
+                        <div class="form-group">
+                            <label for="confirmPassword">Confirm New Password</label>
+                            <input type="password" id="confirmPassword">
+                        </div>
+                        <button type="submit" class="account-btn">Update Password</button>
+                    </form>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- Cart Drawer -->
+    <div class="cart-drawer" id="cart-drawer">
+        <div class="cart-header">
+            <h3>SHOPPING CART</h3>
+            <button class="cart-close" id="cart-close">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+        </div>
+        <div class="cart-content" id="cart-content">
+            <div class="cart-empty">
+                <p>Your cart is currently empty.</p>
+                <a href="collections.html" class="continue-shopping">Continue Shopping</a>
+            </div>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-subtotal">
+                <span>Subtotal</span>
+                <span id="cart-total">$0.00</span>
+            </div>
+            <p class="cart-note">Shipping & taxes calculated at checkout</p>
+            <button class="checkout-btn" id="checkout-btn" disabled>Checkout</button>
+        </div>
+    </div>
+    <div class="overlay" id="overlay"></div>
+
+    <script src="script.js"></script>
+    <script type="module">
+        import { getUser, getProfile, updateProfile, updatePassword, signOut } from './src/lib/supabase.js'
+
+        document.addEventListener('DOMContentLoaded', async () => {
+            const loadingEl = document.getElementById('loading-state')
+            const detailsEl = document.getElementById('account-details')
+
+            // Check if user is logged in
+            const { user, error } = await getUser()
+
+            if (!user) {
+                window.location.href = 'login.html?redirect=account.html'
+                return
+            }
+
+            // Load profile
+            const { data: profile } = await getProfile()
+
+            // Populate form
+            document.getElementById('email').value = user.email || ''
+            if (profile) {
+                document.getElementById('firstName').value = profile.first_name || ''
+                document.getElementById('lastName').value = profile.last_name || ''
+                document.getElementById('phone').value = profile.phone || ''
+                document.getElementById('address1').value = profile.address_line1 || ''
+                document.getElementById('address2').value = profile.address_line2 || ''
+                document.getElementById('city').value = profile.city || ''
+                document.getElementById('state').value = profile.state || ''
+                document.getElementById('postal').value = profile.postal_code || ''
+                if (profile.country) document.getElementById('country').value = profile.country
+            }
+
+            loadingEl.style.display = 'none'
+            detailsEl.style.display = 'block'
+
+            // Handle profile form
+            document.getElementById('profile-form').addEventListener('submit', async (e) => {
+                e.preventDefault()
+                const btn = e.target.querySelector('button')
+                btn.textContent = 'Saving...'
+
+                await updateProfile({
+                    first_name: document.getElementById('firstName').value,
+                    last_name: document.getElementById('lastName').value,
+                    phone: document.getElementById('phone').value
+                })
+
+                btn.textContent = 'Saved!'
+                setTimeout(() => btn.textContent = 'Save Changes', 2000)
+            })
+
+            // Handle address form
+            document.getElementById('address-form').addEventListener('submit', async (e) => {
+                e.preventDefault()
+                const btn = e.target.querySelector('button')
+                btn.textContent = 'Saving...'
+
+                await updateProfile({
+                    address_line1: document.getElementById('address1').value,
+                    address_line2: document.getElementById('address2').value,
+                    city: document.getElementById('city').value,
+                    state: document.getElementById('state').value,
+                    postal_code: document.getElementById('postal').value,
+                    country: document.getElementById('country').value
+                })
+
+                btn.textContent = 'Saved!'
+                setTimeout(() => btn.textContent = 'Save Address', 2000)
+            })
+
+            // Handle password form
+            document.getElementById('password-form').addEventListener('submit', async (e) => {
+                e.preventDefault()
+                const newPassword = document.getElementById('newPassword').value
+                const confirmPassword = document.getElementById('confirmPassword').value
+                const btn = e.target.querySelector('button')
+
+                if (newPassword !== confirmPassword) {
+                    alert('Passwords do not match')
+                    return
+                }
+
+                btn.textContent = 'Updating...'
+                const { error } = await updatePassword(newPassword)
+
+                if (error) {
+                    alert(error.message)
+                    btn.textContent = 'Update Password'
+                } else {
+                    btn.textContent = 'Updated!'
+                    document.getElementById('newPassword').value = ''
+                    document.getElementById('confirmPassword').value = ''
+                    setTimeout(() => btn.textContent = 'Update Password', 2000)
+                }
+            })
+
+            // Handle sign out
+            document.getElementById('sign-out-btn').addEventListener('click', async () => {
+                await signOut()
+                window.location.href = 'index.html'
+            })
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,19 @@
+{
+  "name": "flaming-diva",
+  "version": "1.0.0",
+  "description": "Flaming Diva - Premium Custom Jackets E-Commerce",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "keywords": ["fashion", "jackets", "ecommerce"],
+  "author": "Flaming Diva",
+  "license": "ISC",
+  "dependencies": {
+    "@stripe/stripe-js": "^4.11.0",
+    "@supabase/supabase-js": "^2.47.12",
+    "vite": "^6.0.6"
+  }
+}

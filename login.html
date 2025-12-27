@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Sign in to your Flaming Diva account">
+    <title>Sign In | Flaming Diva</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Announcement Bar -->
+    <div class="announcement-bar">
+        <div class="announcement-slider">
+            <p>Complimentary Shipping & Returns</p>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="header" id="header">
+        <nav class="nav">
+            <div class="nav-left"></div>
+            <a href="index.html" class="logo">FLAMING DIVA</a>
+            <div class="nav-right">
+                <a href="collections.html" class="nav-link nav-link-right">Shop</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Login Page -->
+    <main class="auth-page">
+        <div class="auth-container">
+            <h1>Sign In</h1>
+            <p class="auth-subtitle">Enter your email and password to access your account.</p>
+
+            <form class="auth-form" id="login-form">
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" required autocomplete="email">
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" required autocomplete="current-password">
+                </div>
+                <div class="form-row-inline">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="remember">
+                        <span>Remember me</span>
+                    </label>
+                    <a href="#" class="forgot-link" id="forgot-password">Forgot password?</a>
+                </div>
+                <div id="auth-error" class="auth-error" style="display: none;"></div>
+                <button type="submit" class="auth-btn" id="login-btn">Sign In</button>
+            </form>
+
+            <div class="auth-divider">
+                <span>or</span>
+            </div>
+
+            <button class="auth-btn auth-btn-secondary" id="magic-link-btn">
+                Sign in with Magic Link
+            </button>
+
+            <p class="auth-footer">
+                Don't have an account? <a href="register.html">Create one</a>
+            </p>
+        </div>
+    </main>
+
+    <script type="module">
+        import { signIn, resetPassword, supabase } from './src/lib/supabase.js'
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const form = document.getElementById('login-form')
+            const errorEl = document.getElementById('auth-error')
+            const loginBtn = document.getElementById('login-btn')
+            const forgotLink = document.getElementById('forgot-password')
+            const magicLinkBtn = document.getElementById('magic-link-btn')
+
+            // Handle login form submission
+            form.addEventListener('submit', async (e) => {
+                e.preventDefault()
+                const email = document.getElementById('email').value
+                const password = document.getElementById('password').value
+
+                loginBtn.textContent = 'Signing in...'
+                loginBtn.disabled = true
+                errorEl.style.display = 'none'
+
+                const { data, error } = await signIn(email, password)
+
+                if (error) {
+                    errorEl.textContent = error.message
+                    errorEl.style.display = 'block'
+                    loginBtn.textContent = 'Sign In'
+                    loginBtn.disabled = false
+                } else {
+                    // Redirect to account or previous page
+                    const redirect = new URLSearchParams(window.location.search).get('redirect') || 'account.html'
+                    window.location.href = redirect
+                }
+            })
+
+            // Handle forgot password
+            forgotLink.addEventListener('click', async (e) => {
+                e.preventDefault()
+                const email = document.getElementById('email').value
+
+                if (!email) {
+                    errorEl.textContent = 'Please enter your email address'
+                    errorEl.style.display = 'block'
+                    return
+                }
+
+                const { error } = await resetPassword(email)
+
+                if (error) {
+                    errorEl.textContent = error.message
+                    errorEl.style.display = 'block'
+                } else {
+                    errorEl.style.display = 'none'
+                    alert('Password reset email sent! Check your inbox.')
+                }
+            })
+
+            // Handle magic link
+            magicLinkBtn.addEventListener('click', async () => {
+                const email = document.getElementById('email').value
+
+                if (!email) {
+                    errorEl.textContent = 'Please enter your email address'
+                    errorEl.style.display = 'block'
+                    return
+                }
+
+                magicLinkBtn.textContent = 'Sending...'
+                magicLinkBtn.disabled = true
+
+                const { error } = await supabase.auth.signInWithOtp({
+                    email,
+                    options: {
+                        emailRedirectTo: `${window.location.origin}/account.html`
+                    }
+                })
+
+                if (error) {
+                    errorEl.textContent = error.message
+                    errorEl.style.display = 'block'
+                } else {
+                    alert('Magic link sent! Check your email.')
+                }
+
+                magicLinkBtn.textContent = 'Sign in with Magic Link'
+                magicLinkBtn.disabled = false
+            })
+        })
+    </script>
+</body>
+
+</html>
