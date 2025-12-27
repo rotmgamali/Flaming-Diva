@@ -181,20 +181,28 @@ function toggleMobileMenu() {
     const menu = document.getElementById('mobile-menu');
     const toggle = document.getElementById('nav-toggle');
 
-    if (!menu || !toggle) return;
+    console.log('toggleMobileMenu called', menu, toggle);
+
+    if (!menu) {
+        console.error('mobile-menu not found');
+        return;
+    }
 
     const isActive = menu.classList.contains('active');
+    console.log('isActive:', isActive);
 
     if (isActive) {
         menu.classList.remove('active');
         document.body.classList.remove('no-scroll');
-        toggle.querySelector('span:first-child').style.transform = '';
-        toggle.querySelector('span:last-child').style.transform = '';
+        if (toggle) {
+            toggle.classList.remove('active');
+        }
     } else {
         menu.classList.add('active');
         document.body.classList.add('no-scroll');
-        toggle.querySelector('span:first-child').style.transform = 'rotate(45deg) translate(4px, 4px)';
-        toggle.querySelector('span:last-child').style.transform = 'rotate(-45deg)';
+        if (toggle) {
+            toggle.classList.add('active');
+        }
     }
 }
 
