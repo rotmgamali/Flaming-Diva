@@ -376,7 +376,13 @@ img {
     display: none;
     flex-direction: column;
     gap: 5px;
-    padding: 5px;
+    padding: 15px;
+    margin: -10px;
+    cursor: pointer;
+    z-index: 1001;
+    position: relative;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
 }
 
 .nav-toggle span {
@@ -384,6 +390,7 @@ img {
     height: 1.5px;
     background: var(--black);
     transition: 0.3s;
+    pointer-events: none;
 }
 
 .nav-menu {
@@ -516,8 +523,12 @@ img {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 5px;
+    padding: 12px;
+    margin: -7px;
     transition: opacity 0.2s;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
 }
 
 .nav-icon:hover {
@@ -526,6 +537,7 @@ img {
 
 .cart-btn {
     position: relative;
+    z-index: 1001;
 }
 
 .cart-count {
