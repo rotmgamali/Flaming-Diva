@@ -135,11 +135,46 @@ document.addEventListener('DOMContentLoaded', () => {
     initCart();
     initNewsletter();
     initFilters();
+    initCollectionTabs();
     initSorting();
     initQuickAdd();
     initSizeGuide();
     loadCartFromStorage();
 });
+
+// Collection Tabs Filtering
+function initCollectionTabs() {
+    const tabs = document.querySelectorAll('.collection-tab');
+    const products = document.querySelectorAll('.product-card[data-collection]');
+    const countEl = document.querySelector('.collection-count');
+
+    if (tabs.length === 0) return;
+
+    tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            // Update active state
+            tabs.forEach(t => t.classList.remove('active'));
+            tab.classList.add('active');
+
+            const collection = tab.dataset.collection;
+            let visibleCount = 0;
+
+            products.forEach(product => {
+                if (collection === 'all' || product.dataset.collection === collection) {
+                    product.style.display = '';
+                    visibleCount++;
+                } else {
+                    product.style.display = 'none';
+                }
+            });
+
+            // Update product count
+            if (countEl) {
+                countEl.textContent = `${visibleCount} Products`;
+            }
+        });
+    });
+}
 
 // Header scroll behavior - Fear of God Style
 // Homepage: invisible at top, solid on scroll

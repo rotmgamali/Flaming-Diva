@@ -92,22 +92,20 @@
     <!-- Collection Page -->
     <main class="collection-page">
         <div class="collection-header">
-            <h1>All Jackets</h1>
-            <p class="collection-count">8 Products</p>
+            <h1>Collections</h1>
+            <p class="collection-count">12 Products</p>
+        </div>
+
+        <!-- Collection Filter Tabs -->
+        <div class="collection-tabs">
+            <button class="collection-tab active" data-collection="all">All</button>
+            <button class="collection-tab" data-collection="inferno">Inferno</button>
+            <button class="collection-tab" data-collection="midnight">Midnight</button>
+            <button class="collection-tab" data-collection="vintage">Vintage</button>
+            <button class="collection-tab" data-collection="rebel">Rebel</button>
         </div>
 
         <div class="collection-controls">
-            <div class="filter-toggle" id="filter-toggle">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                    <line x1="4" y1="21" x2="4" y2="14"></line>
-                    <line x1="4" y1="10" x2="4" y2="3"></line>
-                    <line x1="12" y1="21" x2="12" y2="12"></line>
-                    <line x1="12" y1="8" x2="12" y2="3"></line>
-                    <line x1="20" y1="21" x2="20" y2="16"></line>
-                    <line x1="20" y1="12" x2="20" y2="3"></line>
-                </svg>
-                <span>Filter</span>
-            </div>
             <div class="sort-dropdown">
                 <select id="sort-select">
                     <option value="featured">Featured</option>
@@ -118,122 +116,177 @@
             </div>
         </div>
 
-        <div class="collection-grid">
-            <!-- Product 1 -->
-            <article class="product-card" data-id="1">
-                <a href="product.html?id=1" class="product-link">
+        <div class="collection-grid" id="collection-grid">
+            <!-- Inferno Collection -->
+            <article class="product-card" data-id="101" data-collection="inferno">
+                <a href="product.html?id=101" class="product-link">
                     <div class="product-image">
-                        <img src="images/product-1.jpg" alt="Third Eye Patched Leather">
-                        <img src="images/product-1-hover.jpg" alt="Third Eye Patched Leather - Back"
-                            class="product-hover">
+                        <img src="images/inferno-1.png" alt="Inferno Leather">
                     </div>
                     <div class="product-info">
-                        <h3 class="product-name">Third Eye Patched Leather</h3>
+                        <p class="product-collection">Inferno</p>
+                        <h3 class="product-name">Blaze Leather Jacket</h3>
+                        <p class="product-price">$1,495 USD</p>
+                    </div>
+                </a>
+                <button class="quick-add-btn" data-product-id="101">+ Quick Add</button>
+            </article>
+
+            <article class="product-card" data-id="102" data-collection="inferno">
+                <a href="product.html?id=102" class="product-link">
+                    <div class="product-image">
+                        <img src="images/inferno-2.png" alt="Ember Bomber">
+                    </div>
+                    <div class="product-info">
+                        <p class="product-collection">Inferno</p>
+                        <h3 class="product-name">Ember Suede Bomber</h3>
                         <p class="product-price">$1,295 USD</p>
                     </div>
                 </a>
-                <button class="quick-add-btn" data-product-id="1">+ Quick Add</button>
+                <button class="quick-add-btn" data-product-id="102">+ Quick Add</button>
             </article>
 
-            <!-- Product 2 -->
-            <article class="product-card" data-id="2">
-                <a href="product.html?id=2" class="product-link">
+            <article class="product-card" data-id="103" data-collection="inferno">
+                <a href="product.html?id=103" class="product-link">
                     <div class="product-image">
-                        <img src="images/product-2.jpg" alt="Hip-Hop Legends Bomber">
-                        <img src="images/product-2-hover.jpg" alt="Hip-Hop Legends Bomber - Back" class="product-hover">
+                        <img src="images/inferno-3.png" alt="Flame Rider">
                     </div>
                     <div class="product-info">
-                        <h3 class="product-name">Hip-Hop Legends Bomber</h3>
-                        <p class="product-price">$895 USD</p>
+                        <p class="product-collection">Inferno</p>
+                        <h3 class="product-name">Flame Rider Moto</h3>
+                        <p class="product-price">$1,395 USD</p>
                     </div>
                 </a>
-                <button class="quick-add-btn" data-product-id="2">+ Quick Add</button>
+                <button class="quick-add-btn" data-product-id="103">+ Quick Add</button>
             </article>
 
-            <!-- Product 3 -->
-            <article class="product-card" data-id="3">
-                <a href="product.html?id=3" class="product-link">
+            <!-- Midnight Collection -->
+            <article class="product-card" data-id="201" data-collection="midnight">
+                <a href="product.html?id=201" class="product-link">
                     <div class="product-image">
-                        <img src="images/product-3.jpg" alt="Rock Icons Varsity">
-                        <img src="images/product-3-hover.jpg" alt="Rock Icons Varsity - Back" class="product-hover">
+                        <img src="images/midnight-1.png" alt="Shadow Satin">
                     </div>
                     <div class="product-info">
-                        <h3 class="product-name">Rock Icons Varsity</h3>
-                        <p class="product-price">$695 USD</p>
-                    </div>
-                </a>
-                <button class="quick-add-btn" data-product-id="3">+ Quick Add</button>
-            </article>
-
-            <!-- Product 4 -->
-            <article class="product-card" data-id="4">
-                <a href="product.html?id=4" class="product-link">
-                    <div class="product-image">
-                        <img src="images/product-4.jpg" alt="Cosmic Visions Trucker">
-                        <img src="images/product-4-hover.jpg" alt="Cosmic Visions Trucker - Back" class="product-hover">
-                    </div>
-                    <div class="product-info">
-                        <h3 class="product-name">Cosmic Visions Trucker</h3>
+                        <p class="product-collection">Midnight</p>
+                        <h3 class="product-name">Shadow Satin Bomber</h3>
                         <p class="product-price">$995 USD</p>
                     </div>
                 </a>
-                <button class="quick-add-btn" data-product-id="4">+ Quick Add</button>
+                <button class="quick-add-btn" data-product-id="201">+ Quick Add</button>
             </article>
 
-            <!-- Product 5 -->
-            <article class="product-card" data-id="5">
-                <a href="product.html?id=5" class="product-link">
+            <article class="product-card" data-id="202" data-collection="midnight">
+                <a href="product.html?id=202" class="product-link">
                     <div class="product-image">
-                        <img src="images/essential-1.jpg" alt="Snake & Skull Denim">
+                        <img src="images/midnight-2.png" alt="Noir Varsity">
                     </div>
                     <div class="product-info">
-                        <h3 class="product-name">Snake & Skull Denim</h3>
+                        <p class="product-collection">Midnight</p>
+                        <h3 class="product-name">Noir Varsity</h3>
+                        <p class="product-price">$1,095 USD</p>
+                    </div>
+                </a>
+                <button class="quick-add-btn" data-product-id="202">+ Quick Add</button>
+            </article>
+
+            <article class="product-card" data-id="203" data-collection="midnight">
+                <a href="product.html?id=203" class="product-link">
+                    <div class="product-image">
+                        <img src="images/midnight-3.png" alt="Eclipse Tech">
+                    </div>
+                    <div class="product-info">
+                        <p class="product-collection">Midnight</p>
+                        <h3 class="product-name">Eclipse Technical</h3>
+                        <p class="product-price">$895 USD</p>
+                    </div>
+                </a>
+                <button class="quick-add-btn" data-product-id="203">+ Quick Add</button>
+            </article>
+
+            <!-- Vintage Collection -->
+            <article class="product-card" data-id="301" data-collection="vintage">
+                <a href="product.html?id=301" class="product-link">
+                    <div class="product-image">
+                        <img src="images/vintage-1.png" alt="Heritage Trucker">
+                    </div>
+                    <div class="product-info">
+                        <p class="product-collection">Vintage</p>
+                        <h3 class="product-name">Heritage Denim Trucker</h3>
+                        <p class="product-price">$695 USD</p>
+                    </div>
+                </a>
+                <button class="quick-add-btn" data-product-id="301">+ Quick Add</button>
+            </article>
+
+            <article class="product-card" data-id="302" data-collection="vintage">
+                <a href="product.html?id=302" class="product-link">
+                    <div class="product-image">
+                        <img src="images/vintage-2.png" alt="Americana Canvas">
+                    </div>
+                    <div class="product-info">
+                        <p class="product-collection">Vintage</p>
+                        <h3 class="product-name">Americana Canvas Work</h3>
                         <p class="product-price">$595 USD</p>
                     </div>
                 </a>
-                <button class="quick-add-btn" data-product-id="5">+ Quick Add</button>
+                <button class="quick-add-btn" data-product-id="302">+ Quick Add</button>
             </article>
 
-            <!-- Product 6 -->
-            <article class="product-card" data-id="6">
-                <a href="product.html?id=6" class="product-link">
+            <article class="product-card" data-id="303" data-collection="vintage">
+                <a href="product.html?id=303" class="product-link">
                     <div class="product-image">
-                        <img src="images/essential-2.jpg" alt="Grateful Spirit Canvas">
+                        <img src="images/vintage-3.png" alt="Retro Corduroy">
                     </div>
                     <div class="product-info">
-                        <h3 class="product-name">Grateful Spirit Canvas</h3>
-                        <p class="product-price">$495 USD</p>
+                        <p class="product-collection">Vintage</p>
+                        <h3 class="product-name">Retro Corduroy Varsity</h3>
+                        <p class="product-price">$645 USD</p>
                     </div>
                 </a>
-                <button class="quick-add-btn" data-product-id="6">+ Quick Add</button>
+                <button class="quick-add-btn" data-product-id="303">+ Quick Add</button>
             </article>
 
-            <!-- Product 7 -->
-            <article class="product-card" data-id="7">
-                <a href="product.html?id=7" class="product-link">
+            <!-- Rebel Collection -->
+            <article class="product-card" data-id="401" data-collection="rebel">
+                <a href="product.html?id=401" class="product-link">
                     <div class="product-image">
-                        <img src="images/essential-3.jpg" alt="Zen Master Coach">
+                        <img src="images/rebel-1.png" alt="Punk Moto">
                     </div>
                     <div class="product-info">
-                        <h3 class="product-name">Zen Master Coach</h3>
-                        <p class="product-price">$395 USD</p>
+                        <p class="product-collection">Rebel</p>
+                        <h3 class="product-name">Punk Studded Moto</h3>
+                        <p class="product-price">$1,195 USD</p>
                     </div>
                 </a>
-                <button class="quick-add-btn" data-product-id="7">+ Quick Add</button>
+                <button class="quick-add-btn" data-product-id="401">+ Quick Add</button>
             </article>
 
-            <!-- Product 8 -->
-            <article class="product-card" data-id="8">
-                <a href="product.html?id=8" class="product-link">
+            <article class="product-card" data-id="402" data-collection="rebel">
+                <a href="product.html?id=402" class="product-link">
                     <div class="product-image">
-                        <img src="images/essential-4.jpg" alt="Acid Trip Field Jacket">
+                        <img src="images/rebel-2.png" alt="Distressed Biker">
                     </div>
                     <div class="product-info">
-                        <h3 class="product-name">Acid Trip Field Jacket</h3>
-                        <p class="product-price">$450 USD</p>
+                        <p class="product-collection">Rebel</p>
+                        <h3 class="product-name">Distressed Biker</h3>
+                        <p class="product-price">$1,095 USD</p>
                     </div>
                 </a>
-                <button class="quick-add-btn" data-product-id="8">+ Quick Add</button>
+                <button class="quick-add-btn" data-product-id="402">+ Quick Add</button>
+            </article>
+
+            <article class="product-card" data-id="403" data-collection="rebel">
+                <a href="product.html?id=403" class="product-link">
+                    <div class="product-image">
+                        <img src="images/rebel-3.png" alt="Classic Perfecto">
+                    </div>
+                    <div class="product-info">
+                        <p class="product-collection">Rebel</p>
+                        <h3 class="product-name">Classic Perfecto</h3>
+                        <p class="product-price">$1,295 USD</p>
+                    </div>
+                </a>
+                <button class="quick-add-btn" data-product-id="403">+ Quick Add</button>
             </article>
         </div>
     </main>
