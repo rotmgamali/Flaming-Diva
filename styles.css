@@ -585,6 +585,12 @@ img {
     font-weight: 300;
     padding: 12px 0;
     letter-spacing: 0.5px;
+    color: var(--black);
+    transition: color 0.2s ease;
+}
+
+.mobile-link:hover {
+    color: var(--flame-orange);
 }
 
 .mobile-divider {
