@@ -40,7 +40,8 @@ body {
     color: var(--black);
     background: var(--white);
     line-height: 1.5;
-    padding-top: calc(var(--header-height) + var(--announcement-height));
+    /* No padding-top - hero goes edge-to-edge like Fear of God */
+    padding-top: 0;
 }
 
 body.no-scroll {
@@ -70,7 +71,7 @@ img {
 }
 
 /* =========================================
-   Announcement Bar
+   Announcement Bar - Hidden by default (Fear of God style)
    ========================================= */
 .announcement-bar {
     position: fixed;
@@ -87,31 +88,76 @@ img {
     letter-spacing: 0.5px;
     text-transform: uppercase;
     z-index: 1001;
+    /* Hidden by default - only shows when scrolled */
+    transform: translateY(-100%);
+    transition: transform 0.3s ease;
+}
+
+.announcement-bar.visible {
+    transform: translateY(0);
 }
 
 /* =========================================
-   Header
+   Header - Fear of God Style (Invisible until scroll)
    ========================================= */
 .header {
     position: fixed;
-    top: var(--announcement-height);
+    top: 0;
     left: 0;
     right: 0;
     height: var(--header-height);
-    background: var(--white);
+    /* Transparent by default */
+    background: transparent;
     z-index: 1000;
-    border-bottom: 1px solid var(--gray-200);
-    transition: top 0.3s ease;
+    border-bottom: none;
+    transition: background 0.3s ease, box-shadow 0.3s ease, top 0.3s ease;
 }
 
+/* When scrolled - solid white background appears */
 .header.scrolled {
-    top: 0;
+    top: var(--announcement-height);
+    background: var(--white);
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid var(--gray-200);
 }
 
-.header.scrolled+.announcement-bar,
-body.scrolled .announcement-bar {
-    transform: translateY(-100%);
+/* Nav links change color based on scroll state */
+.header .nav-link,
+.header .logo,
+.header .nav-icon,
+.header .nav-toggle span {
+    color: var(--white);
+    transition: color 0.3s ease;
+}
+
+.header .nav-icon svg {
+    stroke: var(--white);
+    transition: stroke 0.3s ease;
+}
+
+.header.scrolled .nav-link,
+.header.scrolled .logo,
+.header.scrolled .nav-icon {
+    color: var(--black);
+}
+
+.header.scrolled .nav-icon svg {
+    stroke: var(--black);
+}
+
+.header.scrolled .nav-toggle span {
+    background: var(--black);
+}
+
+/* Initially white hamburger lines for transparent header */
+.header:not(.scrolled) .nav-toggle span {
+    background: var(--white);
+}
+
+/* Cart count styling */
+.header:not(.scrolled) .cart-count {
+    background: var(--white);
+    color: var(--black);
 }
 
 .nav {

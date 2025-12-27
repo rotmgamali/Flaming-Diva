@@ -141,18 +141,38 @@ document.addEventListener('DOMContentLoaded', () => {
     loadCartFromStorage();
 });
 
-// Header scroll behavior
+// Header scroll behavior - Fear of God Style
+// Navbar is invisible/transparent at top, appears with solid background when scrolling
 function initHeader() {
     const header = document.getElementById('header');
-    const announcementHeight = 36;
+    const announcementBar = document.querySelector('.announcement-bar');
+    const scrollThreshold = 100; // How far to scroll before header appears
+
+    if (!header) return;
 
     window.addEventListener('scroll', () => {
-        if (window.scrollY > announcementHeight) {
+        if (window.scrollY > scrollThreshold) {
+            // User has scrolled - show solid header and announcement bar
             header.classList.add('scrolled');
+            if (announcementBar) {
+                announcementBar.classList.add('visible');
+            }
         } else {
+            // At top of page - transparent header, no announcement bar
             header.classList.remove('scrolled');
+            if (announcementBar) {
+                announcementBar.classList.remove('visible');
+            }
         }
     });
+
+    // Initial state check (in case page loads scrolled)
+    if (window.scrollY > scrollThreshold) {
+        header.classList.add('scrolled');
+        if (announcementBar) {
+            announcementBar.classList.add('visible');
+        }
+    }
 }
 
 // Mobile menu
