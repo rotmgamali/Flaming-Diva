@@ -112,6 +112,23 @@
         </div>
     </div>
 
+    <!-- Inline Mobile Menu Script (guaranteed to work) -->
+    <script>
+        function toggleMobileMenu() {
+            var menu = document.getElementById('mobile-menu');
+            var toggle = document.getElementById('nav-toggle');
+            if (menu.classList.contains('active')) {
+                menu.classList.remove('active');
+                document.body.classList.remove('no-scroll');
+                if (toggle) toggle.classList.remove('active');
+            } else {
+                menu.classList.add('active');
+                document.body.classList.add('no-scroll');
+                if (toggle) toggle.classList.add('active');
+            }
+        }
+    </script>
+
     <!-- Hero Section - Full Screen -->
     <section class="hero">
         <div class="hero-slide active">
