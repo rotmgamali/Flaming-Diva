@@ -46,7 +46,7 @@
                 </ul>
             </div>
 
-            <a href="index.html" class="logo">FLAMING DIVA</a>
+            <a href="index.html" class="logo"><img src="images/logo.png" alt="Flaming Diva" class="logo-img"></a>
 
             <div class="nav-right">
                 <button class="nav-icon search-btn" aria-label="Search">
@@ -120,8 +120,8 @@
 
         <div class="collection-grid">
             <!-- Product 1 -->
-            <article class="product-card">
-                <a href="product.html" class="product-link">
+            <article class="product-card" data-id="1">
+                <a href="product.html?id=1" class="product-link">
                     <div class="product-image">
                         <img src="images/product-1.jpg" alt="Third Eye Patched Leather">
                         <img src="images/product-1-hover.jpg" alt="Third Eye Patched Leather - Back"
@@ -132,12 +132,12 @@
                         <p class="product-price">$1,295 USD</p>
                     </div>
                 </a>
-                <button class="quick-add-btn">+ Quick Add</button>
+                <button class="quick-add-btn" data-product-id="1">+ Quick Add</button>
             </article>
 
             <!-- Product 2 -->
-            <article class="product-card">
-                <a href="product.html" class="product-link">
+            <article class="product-card" data-id="2">
+                <a href="product.html?id=2" class="product-link">
                     <div class="product-image">
                         <img src="images/product-2.jpg" alt="Hip-Hop Legends Bomber">
                         <img src="images/product-2-hover.jpg" alt="Hip-Hop Legends Bomber - Back" class="product-hover">
@@ -147,12 +147,12 @@
                         <p class="product-price">$895 USD</p>
                     </div>
                 </a>
-                <button class="quick-add-btn">+ Quick Add</button>
+                <button class="quick-add-btn" data-product-id="2">+ Quick Add</button>
             </article>
 
             <!-- Product 3 -->
-            <article class="product-card">
-                <a href="product.html" class="product-link">
+            <article class="product-card" data-id="3">
+                <a href="product.html?id=3" class="product-link">
                     <div class="product-image">
                         <img src="images/product-3.jpg" alt="Rock Icons Varsity">
                         <img src="images/product-3-hover.jpg" alt="Rock Icons Varsity - Back" class="product-hover">
@@ -162,12 +162,12 @@
                         <p class="product-price">$695 USD</p>
                     </div>
                 </a>
-                <button class="quick-add-btn">+ Quick Add</button>
+                <button class="quick-add-btn" data-product-id="3">+ Quick Add</button>
             </article>
 
             <!-- Product 4 -->
-            <article class="product-card">
-                <a href="product.html" class="product-link">
+            <article class="product-card" data-id="4">
+                <a href="product.html?id=4" class="product-link">
                     <div class="product-image">
                         <img src="images/product-4.jpg" alt="Cosmic Visions Trucker">
                         <img src="images/product-4-hover.jpg" alt="Cosmic Visions Trucker - Back" class="product-hover">
@@ -177,12 +177,12 @@
                         <p class="product-price">$995 USD</p>
                     </div>
                 </a>
-                <button class="quick-add-btn">+ Quick Add</button>
+                <button class="quick-add-btn" data-product-id="4">+ Quick Add</button>
             </article>
 
             <!-- Product 5 -->
-            <article class="product-card">
-                <a href="product.html" class="product-link">
+            <article class="product-card" data-id="5">
+                <a href="product.html?id=5" class="product-link">
                     <div class="product-image">
                         <img src="images/essential-1.jpg" alt="Snake & Skull Denim">
                     </div>
@@ -191,12 +191,12 @@
                         <p class="product-price">$595 USD</p>
                     </div>
                 </a>
-                <button class="quick-add-btn">+ Quick Add</button>
+                <button class="quick-add-btn" data-product-id="5">+ Quick Add</button>
             </article>
 
             <!-- Product 6 -->
-            <article class="product-card">
-                <a href="product.html" class="product-link">
+            <article class="product-card" data-id="6">
+                <a href="product.html?id=6" class="product-link">
                     <div class="product-image">
                         <img src="images/essential-2.jpg" alt="Grateful Spirit Canvas">
                     </div>
@@ -205,12 +205,12 @@
                         <p class="product-price">$495 USD</p>
                     </div>
                 </a>
-                <button class="quick-add-btn">+ Quick Add</button>
+                <button class="quick-add-btn" data-product-id="6">+ Quick Add</button>
             </article>
 
             <!-- Product 7 -->
-            <article class="product-card">
-                <a href="product.html" class="product-link">
+            <article class="product-card" data-id="7">
+                <a href="product.html?id=7" class="product-link">
                     <div class="product-image">
                         <img src="images/essential-3.jpg" alt="Zen Master Coach">
                     </div>
@@ -219,12 +219,12 @@
                         <p class="product-price">$395 USD</p>
                     </div>
                 </a>
-                <button class="quick-add-btn">+ Quick Add</button>
+                <button class="quick-add-btn" data-product-id="7">+ Quick Add</button>
             </article>
 
             <!-- Product 8 -->
-            <article class="product-card">
-                <a href="product.html" class="product-link">
+            <article class="product-card" data-id="8">
+                <a href="product.html?id=8" class="product-link">
                     <div class="product-image">
                         <img src="images/essential-4.jpg" alt="Acid Trip Field Jacket">
                     </div>
@@ -233,13 +233,18 @@
                         <p class="product-price">$450 USD</p>
                     </div>
                 </a>
-                <button class="quick-add-btn">+ Quick Add</button>
+                <button class="quick-add-btn" data-product-id="8">+ Quick Add</button>
             </article>
         </div>
     </main>
 
     <!-- Footer -->
     <footer class="footer">
+        <div class="footer-logo">
+            <a href="index.html">
+                <img src="images/logo.png" alt="Flaming Diva" class="footer-logo-img">
+            </a>
+        </div>
         <div class="footer-main">
             <div class="footer-column">
                 <h4>Shop</h4>

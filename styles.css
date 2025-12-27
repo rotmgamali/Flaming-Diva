@@ -24,6 +24,19 @@
     --gray-800: #262626;
     --gray-900: #171717;
 
+    /* Flame Theme Colors */
+    --flame-orange: #FF6B35;
+    --flame-ember: #FF4500;
+    --flame-gold: #FFB347;
+    --flame-deep: #D4380D;
+    --flame-glow: rgba(255, 107, 53, 0.4);
+    --flame-glow-soft: rgba(255, 107, 53, 0.15);
+
+    /* Gradient definitions */
+    --flame-gradient: linear-gradient(135deg, var(--flame-ember) 0%, var(--flame-orange) 50%, var(--flame-gold) 100%);
+    --flame-gradient-subtle: linear-gradient(135deg, var(--flame-deep) 0%, var(--flame-orange) 100%);
+    --ember-glow: 0 0 20px var(--flame-glow), 0 0 40px var(--flame-glow-soft);
+
     --font-main: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
     --header-height: 60px;
     --announcement-height: 36px;
@@ -68,6 +81,79 @@ img {
     max-width: 100%;
     height: auto;
     display: block;
+}
+
+/* =========================================
+   Flame Theme Animations & Effects
+   ========================================= */
+@keyframes flameGlow {
+
+    0%,
+    100% {
+        box-shadow: 0 0 5px var(--flame-glow-soft), 0 0 15px var(--flame-glow-soft);
+    }
+
+    50% {
+        box-shadow: 0 0 15px var(--flame-glow), 0 0 30px var(--flame-glow-soft);
+    }
+}
+
+@keyframes gradientShimmer {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@keyframes emberPulse {
+
+    0%,
+    100% {
+        opacity: 0.6;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+/* Flame text effect for headings */
+.flame-text {
+    background: var(--flame-gradient);
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: gradientShimmer 3s ease infinite;
+}
+
+/* Flame border effect */
+.flame-border {
+    position: relative;
+}
+
+.flame-border::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    background: var(--flame-gradient);
+    background-size: 200% 200%;
+    border-radius: inherit;
+    z-index: -1;
+    animation: gradientShimmer 3s ease infinite;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.flame-border:hover::before {
+    opacity: 1;
 }
 
 /* =========================================
@@ -152,6 +238,19 @@ img {
 /* Initially white hamburger lines for transparent header */
 .header:not(.scrolled) .nav-toggle span {
     background: var(--white);
+}
+
+/* Semi-transparent header for non-homepage pages */
+.header.semi-transparent {
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.header.semi-transparent.scrolled {
+    background: var(--white);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
 }
 
 /* Cart count styling */
@@ -266,13 +365,39 @@ img {
 
 /* Logo */
 .logo {
-    font-size: 13px;
-    font-weight: 600;
-    letter-spacing: 3px;
-    text-transform: uppercase;
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo-img {
+    height: 40px;
+    width: auto;
+    transition: all 0.3s ease;
+}
+
+.logo:hover .logo-img {
+    transform: scale(1.05);
+}
+
+/* Footer Logo */
+.footer-logo {
+    text-align: center;
+    padding: 40px 20px 20px;
+}
+
+.footer-logo-img {
+    height: 60px;
+    width: auto;
+    transition: all 0.3s ease;
+}
+
+.footer-logo a:hover .footer-logo-img {
+    transform: scale(1.05);
 }
 
 /* Nav Right */
@@ -395,12 +520,72 @@ img {
     width: 100%;
     height: 100%;
     background: #1a1a1a;
+    overflow: hidden;
+    position: relative;
 }
 
-.hero-image img {
+/* Background layer - heavy psychedelic animation */
+.hero-image .hero-bg {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    animation: psychedelicBackground 10s ease-in-out infinite;
+    filter: saturate(1.1);
+}
+
+/* Person layer - more subtle, slightly out of sync */
+.hero-image .hero-person {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    animation: personBreath 8s ease-in-out infinite;
+    pointer-events: none;
+}
+
+/* Background psychedelic animation - more intense */
+@keyframes psychedelicBackground {
+    0% {
+        transform: scale(1);
+        filter: saturate(1.1) hue-rotate(0deg);
+    }
+
+    25% {
+        transform: scale(1.06);
+        filter: saturate(1.4) hue-rotate(8deg);
+    }
+
+    50% {
+        transform: scale(1.03);
+        filter: saturate(1.2) hue-rotate(-5deg);
+    }
+
+    75% {
+        transform: scale(1.08);
+        filter: saturate(1.5) hue-rotate(12deg);
+    }
+
+    100% {
+        transform: scale(1);
+        filter: saturate(1.1) hue-rotate(0deg);
+    }
+}
+
+/* Person subtle animation - different timing creates dissociation */
+@keyframes personBreath {
+    0% {
+        transform: scale(1) translateY(0);
+    }
+
+    50% {
+        transform: scale(1.01) translateY(-2px);
+    }
+
+    100% {
+        transform: scale(1) translateY(0);
+    }
 }
 
 .hero-content {
@@ -436,12 +621,32 @@ img {
     padding: 14px 32px;
     border: 1px solid var(--white);
     display: inline-block;
-    transition: all 0.3s ease;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-cta::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    background: var(--flame-gradient);
+    background-size: 200% 200%;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    animation: gradientShimmer 3s ease infinite;
 }
 
 .hero-cta:hover {
-    background: var(--white);
-    color: var(--black);
+    background: transparent;
+    color: var(--white);
+    border-color: transparent;
+    box-shadow: var(--ember-glow);
+}
+
+.hero-cta:hover::before {
+    opacity: 1;
 }
 
 /* =========================================
@@ -549,6 +754,12 @@ img {
     text-transform: uppercase;
     border-bottom: 1px solid rgba(255, 255, 255, 0.5);
     padding-bottom: 2px;
+    transition: color 0.3s ease, border-color 0.3s ease;
+}
+
+.lookbook-link:hover .lookbook-cta {
+    color: var(--flame-gold);
+    border-color: var(--flame-gold);
 }
 
 /* =========================================
@@ -581,12 +792,12 @@ img {
     color: var(--gray-500);
     border-bottom: 1px solid var(--gray-400);
     padding-bottom: 2px;
-    transition: all 0.2s;
+    transition: all 0.3s ease;
 }
 
 .view-all:hover {
-    color: var(--black);
-    border-color: var(--black);
+    color: var(--flame-orange);
+    border-color: var(--flame-orange);
 }
 
 .products-grid {
@@ -609,6 +820,11 @@ img {
     background: var(--gray-100);
     overflow: hidden;
     margin-bottom: 12px;
+    transition: box-shadow 0.4s ease;
+}
+
+.product-card:hover .product-image {
+    box-shadow: 0 8px 24px var(--flame-glow-soft);
 }
 
 .product-image img {
@@ -662,6 +878,7 @@ img {
     opacity: 0;
     transform: translateY(8px);
     transition: all 0.3s ease;
+    border: 1px solid transparent;
 }
 
 .product-card:hover .quick-add-btn {
@@ -672,6 +889,8 @@ img {
 .quick-add-btn:hover {
     background: var(--black);
     color: var(--white);
+    box-shadow: 0 4px 15px var(--flame-glow-soft);
+    border-color: var(--flame-orange);
 }
 
 /* =========================================
@@ -731,6 +950,12 @@ img {
     text-transform: uppercase;
     border-bottom: 1px solid rgba(255, 255, 255, 0.5);
     padding-bottom: 2px;
+    transition: color 0.3s ease, border-color 0.3s ease;
+}
+
+.category-card:hover .category-cta {
+    color: var(--flame-gold);
+    border-color: var(--flame-gold);
 }
 
 /* =========================================
@@ -769,11 +994,11 @@ img {
 .footer-column li a {
     font-size: 12px;
     color: var(--gray-400);
-    transition: color 0.2s;
+    transition: color 0.3s ease;
 }
 
 .footer-column li a:hover {
-    color: var(--white);
+    color: var(--flame-orange);
 }
 
 .footer-newsletter p {
@@ -785,6 +1010,12 @@ img {
 .newsletter-form {
     display: flex;
     border-bottom: 1px solid var(--gray-700);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.newsletter-form:focus-within {
+    border-color: var(--flame-orange);
+    box-shadow: 0 2px 10px var(--flame-glow-soft);
 }
 
 .newsletter-form input {
@@ -799,6 +1030,11 @@ img {
 
 .newsletter-form input::placeholder {
     color: var(--gray-500);
+    transition: color 0.3s ease;
+}
+
+.newsletter-form:focus-within input::placeholder {
+    color: var(--flame-gold);
 }
 
 .newsletter-form input:focus {
@@ -808,11 +1044,12 @@ img {
 .newsletter-form button {
     padding: 10px;
     color: var(--white);
-    transition: opacity 0.2s;
+    transition: color 0.3s ease, transform 0.3s ease;
 }
 
 .newsletter-form button:hover {
-    opacity: 0.6;
+    color: var(--flame-orange);
+    transform: translateX(3px);
 }
 
 .footer-bottom {
@@ -1123,7 +1360,8 @@ img {
     font-weight: 500;
     letter-spacing: 1px;
     text-transform: uppercase;
-    transition: opacity 0.2s;
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
 }
 
 .checkout-btn:disabled {
@@ -1132,7 +1370,11 @@ img {
 }
 
 .checkout-btn:not(:disabled):hover {
-    opacity: 0.8;
+    background: var(--flame-gradient-subtle);
+    background-size: 200% 200%;
+    animation: gradientShimmer 2s ease infinite;
+    box-shadow: 0 4px 20px var(--flame-glow);
+    border-color: var(--flame-orange);
 }
 
 /* Overlay */
@@ -1461,14 +1703,20 @@ img {
     font-weight: 500;
     letter-spacing: 1px;
     text-transform: uppercase;
-    border: none;
+    border: 1px solid transparent;
     cursor: pointer;
     transition: all 0.3s ease;
     margin-bottom: 32px;
+    position: relative;
+    overflow: hidden;
 }
 
 .add-to-bag-btn:hover {
-    background: var(--gray-800);
+    background: var(--flame-gradient-subtle);
+    background-size: 200% 200%;
+    animation: gradientShimmer 2s ease infinite;
+    box-shadow: 0 4px 25px var(--flame-glow);
+    border-color: var(--flame-orange);
 }
 
 .product-accordions {
@@ -3180,5 +3428,559 @@ img {
 @media (max-width: 768px) {
     .contact-info {
         grid-template-columns: 1fr;
+    }
+}
+
+/* =========================================
+   MYSTICAL PSYCHEDELIC EFFECTS
+   "Cosmic Minimalism" - Subtle, Trippy, Premium
+   ========================================= */
+
+/* Psychedelic Color Palette */
+:root {
+    --mystic-purple: #9333ea;
+    --cosmic-blue: #3b82f6;
+    --ethereal-pink: #ec4899;
+    --astral-cyan: #06b6d4;
+    --spirit-gold: #f59e0b;
+    --glow-intensity: 0.4;
+}
+
+/* Keyframe Animations */
+@keyframes colorShift {
+
+    0%,
+    100% {
+        filter: hue-rotate(0deg);
+    }
+
+    50% {
+        filter: hue-rotate(15deg);
+    }
+}
+
+@keyframes breathe {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.015);
+    }
+}
+
+@keyframes floatUp {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: -200% center;
+    }
+
+    100% {
+        background-position: 200% center;
+    }
+}
+
+@keyframes pulseGlow {
+
+    0%,
+    100% {
+        box-shadow: 0 0 20px rgba(147, 51, 234, 0.15),
+            0 0 40px rgba(59, 130, 246, 0.1);
+    }
+
+    50% {
+        box-shadow: 0 0 30px rgba(236, 72, 153, 0.2),
+            0 0 60px rgba(147, 51, 234, 0.15);
+    }
+}
+
+@keyframes borderFlow {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@keyframes subtleDrift {
+
+    0%,
+    100% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+
+    25% {
+        transform: translate(1px, -1px) rotate(0.5deg);
+    }
+
+    50% {
+        transform: translate(0, -2px) rotate(0deg);
+    }
+
+    75% {
+        transform: translate(-1px, -1px) rotate(-0.5deg);
+    }
+}
+
+@keyframes auroraBackground {
+
+    0%,
+    100% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+}
+
+/* Mystical Logo Effect */
+.logo {
+    background: linear-gradient(90deg,
+            var(--white) 0%,
+            var(--white) 40%,
+            rgba(147, 51, 234, 0.9) 50%,
+            var(--white) 60%,
+            var(--white) 100%);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    transition: all 0.6s ease;
+}
+
+.logo:hover {
+    animation: shimmer 2s ease infinite;
+    -webkit-text-fill-color: transparent;
+}
+
+.header.scrolled .logo {
+    background: linear-gradient(90deg,
+            var(--black) 0%,
+            var(--black) 40%,
+            var(--mystic-purple) 50%,
+            var(--black) 60%,
+            var(--black) 100%);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+}
+
+.header.scrolled .logo:hover {
+    animation: shimmer 2s ease infinite;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Ethereal Product Card Effects */
+.product-card {
+    transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1),
+        box-shadow 0.6s ease;
+}
+
+.product-card:hover {
+    animation: subtleDrift 4s ease-in-out infinite;
+}
+
+.product-image {
+    position: relative;
+    transition: all 0.5s ease;
+}
+
+.product-image::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    background: linear-gradient(45deg,
+            transparent 0%,
+            transparent 40%,
+            rgba(147, 51, 234, 0) 40%,
+            rgba(236, 72, 153, 0) 60%,
+            transparent 60%,
+            transparent 100%);
+    opacity: 0;
+    z-index: 1;
+    pointer-events: none;
+    transition: opacity 0.5s ease;
+}
+
+.product-card:hover .product-image::before {
+    opacity: 1;
+    background: linear-gradient(45deg,
+            transparent 0%,
+            rgba(147, 51, 234, 0.1) 20%,
+            rgba(236, 72, 153, 0.15) 40%,
+            rgba(59, 130, 246, 0.1) 60%,
+            rgba(6, 182, 212, 0.1) 80%,
+            transparent 100%);
+    background-size: 300% 300%;
+    animation: borderFlow 3s ease infinite;
+}
+
+/* Iridescent Border on Hover */
+.product-card:hover .product-image {
+    box-shadow:
+        0 0 0 1px rgba(147, 51, 234, 0.2),
+        0 20px 40px -15px rgba(0, 0, 0, 0.15),
+        0 0 60px -20px rgba(147, 51, 234, 0.3);
+}
+
+/* Mystical Quick Add Button */
+.quick-add-btn {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, var(--white) 0%, #faf5ff 100%);
+}
+
+.quick-add-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg,
+            transparent,
+            rgba(147, 51, 234, 0.1),
+            rgba(236, 72, 153, 0.1),
+            transparent);
+    transition: 0.5s;
+}
+
+.quick-add-btn:hover::before {
+    left: 100%;
+}
+
+.quick-add-btn:hover {
+    background: linear-gradient(135deg, var(--black) 0%, #1a1a2e 100%);
+    box-shadow: 0 0 20px rgba(147, 51, 234, 0.2);
+}
+
+/* Hero Section - Subtle Cosmic Overlay */
+.hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 40%;
+    background: linear-gradient(to top,
+            rgba(0, 0, 0, 0.4) 0%,
+            rgba(147, 51, 234, 0.05) 50%,
+            transparent 100%);
+    pointer-events: none;
+    z-index: 1;
+}
+
+.hero-content {
+    z-index: 2;
+}
+
+.hero-title {
+    text-shadow: 0 0 40px rgba(147, 51, 234, 0.3);
+}
+
+.hero-cta {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s ease, box-shadow 0.4s ease;
+}
+
+.hero-cta:hover {
+    box-shadow:
+        0 0 20px rgba(255, 255, 255, 0.3),
+        0 0 40px rgba(147, 51, 234, 0.2);
+    border-color: rgba(255, 255, 255, 0.8);
+}
+
+/* Mystical Section Headers */
+.products-header h2,
+.shop-look-header h2 {
+    position: relative;
+    display: inline-block;
+}
+
+.products-header h2::after,
+.shop-look-header h2::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: linear-gradient(90deg,
+            var(--mystic-purple),
+            var(--cosmic-blue),
+            var(--ethereal-pink));
+    transition: width 0.4s ease;
+}
+
+.products-header:hover h2::after,
+.shop-look-header:hover h2::after {
+    width: 100%;
+}
+
+/* Look Cards - Ethereal Hover */
+.look-card {
+    transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.look-card:hover {
+    transform: translateY(-4px);
+}
+
+.look-image::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg,
+            rgba(147, 51, 234, 0) 0%,
+            rgba(147, 51, 234, 0.1) 100%);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    pointer-events: none;
+}
+
+.look-card:hover .look-image::after {
+    opacity: 1;
+}
+
+/* Footer - Subtle Cosmic Glow */
+.footer {
+    position: relative;
+    overflow: hidden;
+}
+
+.footer::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(ellipse at 30% 20%,
+            rgba(147, 51, 234, 0.03) 0%,
+            transparent 50%),
+        radial-gradient(ellipse at 70% 80%,
+            rgba(59, 130, 246, 0.02) 0%,
+            transparent 50%);
+    pointer-events: none;
+}
+
+/* Newsletter Form - Mystical Focus */
+.newsletter-form input:focus {
+    outline: none;
+    border-bottom-color: var(--mystic-purple);
+    box-shadow: 0 2px 0 0 rgba(147, 51, 234, 0.5);
+}
+
+.newsletter-form button:hover svg {
+    filter: drop-shadow(0 0 4px rgba(147, 51, 234, 0.5));
+}
+
+/* Add to Bag Button - Psychedelic Press Effect */
+.add-to-bag-btn {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s ease;
+}
+
+.add-to-bag-btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: radial-gradient(circle,
+            rgba(147, 51, 234, 0.3) 0%,
+            transparent 70%);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s ease, height 0.6s ease;
+    pointer-events: none;
+}
+
+.add-to-bag-btn:active::before {
+    width: 300px;
+    height: 300px;
+}
+
+.add-to-bag-btn:hover {
+    box-shadow:
+        0 8px 25px -8px rgba(0, 0, 0, 0.3),
+        0 0 0 1px rgba(147, 51, 234, 0.1);
+}
+
+/* View All Link - Iridescent Underline */
+.view-all {
+    background: linear-gradient(90deg,
+            var(--gray-400),
+            var(--mystic-purple),
+            var(--ethereal-pink),
+            var(--gray-400));
+    background-size: 300% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    border-bottom: 1px solid var(--gray-400);
+    transition: all 0.4s ease;
+}
+
+.view-all:hover {
+    -webkit-text-fill-color: transparent;
+    animation: shimmer 2s ease infinite;
+    border-color: var(--mystic-purple);
+}
+
+/* Category Cards - Mystic Overlay */
+.category-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg,
+            rgba(147, 51, 234, 0) 0%,
+            rgba(147, 51, 234, 0.15) 100%);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.category-card:hover::before {
+    opacity: 1;
+}
+
+.category-content {
+    z-index: 2;
+}
+
+/* Product Detail Page - Mystical Enhancements */
+.product-title {
+    background: linear-gradient(90deg,
+            var(--black) 0%,
+            var(--gray-800) 50%,
+            var(--black) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+}
+
+/* Size Buttons - Cosmic Selection */
+.size-btn {
+    transition: all 0.3s ease;
+}
+
+.size-btn:not(.disabled):hover {
+    border-color: var(--mystic-purple);
+    box-shadow: 0 0 10px rgba(147, 51, 234, 0.2);
+}
+
+.size-btn.active {
+    background: linear-gradient(135deg, var(--black) 0%, #1a1a2e 100%);
+    border-color: transparent;
+    box-shadow: 0 0 15px rgba(147, 51, 234, 0.2);
+}
+
+/* Gallery Thumbnails - Ethereal Selection */
+.thumb {
+    transition: all 0.3s ease;
+}
+
+.thumb:hover {
+    border-color: rgba(147, 51, 234, 0.4);
+}
+
+.thumb.active {
+    border-color: var(--mystic-purple);
+    box-shadow: 0 0 10px rgba(147, 51, 234, 0.2);
+}
+
+/* Accordion - Subtle Glow */
+.accordion-header:hover {
+    color: var(--mystic-purple);
+}
+
+/* Cart Drawer - Cosmic Enhancement */
+.cart-drawer {
+    box-shadow: -10px 0 40px rgba(147, 51, 234, 0.05);
+}
+
+.checkout-btn:not(:disabled) {
+    background: linear-gradient(135deg, var(--black) 0%, #1a1a2e 100%);
+    transition: all 0.4s ease;
+}
+
+.checkout-btn:not(:disabled):hover {
+    box-shadow: 0 8px 25px -8px rgba(0, 0, 0, 0.4),
+        0 0 20px rgba(147, 51, 234, 0.15);
+}
+
+/* Quick Add Modal - Mystical */
+.quick-add-modal .quick-add-content {
+    box-shadow: 0 25px 80px -20px rgba(0, 0, 0, 0.3),
+        0 0 0 1px rgba(147, 51, 234, 0.05);
+}
+
+.quick-add-to-cart-btn {
+    background: linear-gradient(135deg, var(--black) 0%, #1a1a2e 100%);
+    transition: all 0.4s ease;
+}
+
+.quick-add-to-cart-btn:hover {
+    box-shadow: 0 8px 25px -8px rgba(0, 0, 0, 0.4),
+        0 0 20px rgba(147, 51, 234, 0.15);
+}
+
+/* Announcement Bar - Subtle Gradient */
+.announcement-bar {
+    background: linear-gradient(90deg,
+            var(--black) 0%,
+            #0a0a12 50%,
+            var(--black) 100%);
+}
+
+/* Search Overlay - Cosmic Feel */
+.search-overlay.active {
+    background: rgba(0, 0, 0, 0.95);
+}
+
+.search-form input {
+    border-bottom-color: rgba(147, 51, 234, 0.3);
+}
+
+.search-form input:focus {
+    border-bottom-color: var(--mystic-purple);
+    box-shadow: 0 2px 0 0 rgba(147, 51, 234, 0.3);
+}
+
+/* Collection Page - Mystical Filter Panel */
+.filter-panel {
+    box-shadow: 0 10px 40px -10px rgba(147, 51, 234, 0.1);
+}
+
+/* Reduce motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
     }
 }
