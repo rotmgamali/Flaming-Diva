@@ -23,10 +23,43 @@
     <!-- Header -->
     <header class="header" id="header">
         <nav class="nav">
-            <div class="nav-left"></div>
+            <div class="nav-left">
+                <button class="nav-toggle" id="nav-toggle" aria-label="Menu">
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul class="nav-menu">
+                    <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                    <li class="nav-item"><a href="collections.html" class="nav-link">Shop All</a></li>
+                    <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+                    <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+                </ul>
+            </div>
             <a href="index.html" class="logo">FLAMING DIVA</a>
             <div class="nav-right">
-                <a href="collections.html" class="nav-link nav-link-right">Shop</a>
+                <button class="nav-icon search-btn" aria-label="Search">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="1.5">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <path d="m21 21-4.35-4.35"></path>
+                    </svg>
+                </button>
+                <a href="account.html" class="nav-icon" aria-label="Account">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="1.5">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="12" cy="7" r="4"></circle>
+                    </svg>
+                </a>
+                <button class="nav-icon cart-btn" id="cart-toggle" aria-label="Cart">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="1.5">
+                        <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                        <path d="M16 10a4 4 0 0 1-8 0"></path>
+                    </svg>
+                    <span class="cart-count">0</span>
+                </button>
             </div>
         </nav>
     </header>
