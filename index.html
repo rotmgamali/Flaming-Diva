@@ -99,8 +99,17 @@
         </nav>
     </header>
 
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay" id="mobile-menu-overlay" onclick="toggleMobileMenu()"></div>
+
     <!-- Mobile Menu -->
     <div class="mobile-menu" id="mobile-menu">
+        <button class="mobile-menu-close" onclick="toggleMobileMenu()" aria-label="Close menu">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+        </button>
         <div class="mobile-menu-content">
             <a href="index.html" class="mobile-link">Home</a>
             <a href="collections.html" class="mobile-link">Shop All</a>
@@ -112,17 +121,22 @@
         </div>
     </div>
 
-    <!-- Inline Mobile Menu Script (guaranteed to work) -->
+    <!-- Inline Mobile Menu Script -->
     <script>
         function toggleMobileMenu() {
             var menu = document.getElementById('mobile-menu');
+            var overlay = document.getElementById('mobile-menu-overlay');
             var toggle = document.getElementById('nav-toggle');
-            if (menu.classList.contains('active')) {
+            var isActive = menu.classList.contains('active');
+
+            if (isActive) {
                 menu.classList.remove('active');
+                overlay.classList.remove('active');
                 document.body.classList.remove('no-scroll');
                 if (toggle) toggle.classList.remove('active');
             } else {
                 menu.classList.add('active');
+                overlay.classList.add('active');
                 document.body.classList.add('no-scroll');
                 if (toggle) toggle.classList.add('active');
             }
