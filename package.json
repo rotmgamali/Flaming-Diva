@@ -8,11 +8,15 @@
     "build": "vite build",
     "preview": "vite preview"
   },
-  "keywords": ["fashion", "jackets", "ecommerce"],
+  "keywords": [
+    "fashion",
+    "jackets",
+    "ecommerce"
+  ],
   "author": "Flaming Diva",
   "license": "ISC",
   "dependencies": {
-    "@stripe/stripe-js": "^4.11.0",
+    "@stripe/stripe-js": "^2.4.0",
     "@supabase/supabase-js": "^2.47.12",
     "vite": "^6.0.6"
   }
