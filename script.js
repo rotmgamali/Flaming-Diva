@@ -160,6 +160,71 @@ const productCatalog = [
         isNew: false,
         description: 'Tactical gear for the nebula. A multi-pocket field jacket featuring a subtle cosmic dust wash and utility straps.',
         features: ['Cosmic-wash cotton blend', '4 cargo pockets', 'Tactical d-rings', 'Packable hood', 'Adjustable field fit']
+    },
+    {
+        id: 32,
+        name: 'Orbit Tech Hoodie',
+        price: 195,
+        priceText: '$195 USD',
+        category: 'hoodie',
+        image: 'images/hoodie-space.jpg',
+        hoverImage: 'images/hoodie-space.jpg',
+        collection: 'space',
+        isNew: true,
+        description: 'Oversized tech-wear hoodie for zero-G relaxation. Features glowing neon accents and official space mission patches.',
+        features: ['Heavyweight tech-fleece', 'Integrated neon EL wire', 'Mission patches', 'Kangaroo pocket', 'Oversized fit']
+    },
+    {
+        id: 33,
+        name: 'Retro Sunset Hoodie',
+        price: 175,
+        priceText: '$175 USD',
+        category: 'hoodie',
+        image: 'images/hoodie-retro.jpg',
+        hoverImage: 'images/hoodie-retro.jpg',
+        collection: 'retro',
+        isNew: true,
+        description: 'A vintage-wash hoodie channeling the 80s retrowave aesthetic. Soft, distressed, and perfect for sunset drives.',
+        features: ['Vintage wash cotton', 'Retrowave graphic print', 'Distressed hems', 'Soft fleece lining', 'Relaxed fit']
+    },
+    {
+        id: 34,
+        name: 'Galaxy Mission Cap',
+        price: 85,
+        priceText: '$85 USD',
+        category: 'cap',
+        image: 'images/cap-space.jpg',
+        hoverImage: 'images/cap-space.jpg',
+        collection: 'space',
+        isNew: true,
+        description: 'Essential headwear for space travel. A classic trucker snapback adorned with a galaxy brim and multiple mission patches.',
+        features: ['Structured trucker mesh', 'Embroidered patches', 'Galaxy print brim', 'Snapback closure', 'One size fits all']
+    },
+    {
+        id: 35,
+        name: 'Neon Diva Dad Hat',
+        price: 75,
+        priceText: '$75 USD',
+        category: 'cap',
+        image: 'images/cap-retro.jpg',
+        hoverImage: 'images/cap-retro.jpg',
+        collection: 'retro',
+        isNew: true,
+        description: 'Low-profile dad hat with a distressed finish. Features the Flaming Diva logo in neon embroidery on a vintage denim base.',
+        features: ['Distressed denim', 'Neon 3D embroidery', 'Curved brim', 'Adjustable strap', 'Unstructured fit']
+    },
+    {
+        id: 36,
+        name: 'Nebula Patch Denim',
+        price: 495,
+        priceText: '$495 USD',
+        category: 'denim',
+        image: 'images/denim-nebula.jpg',
+        hoverImage: 'images/denim-nebula.jpg',
+        collection: 'space',
+        isNew: true,
+        description: 'A masterpiece of cosmic denim. Light wash jacket featuring a massive hand-painted nebula back patch and scattered space badges.',
+        features: ['Vintage light wash denim', 'Hand-painted back art', 'Assorted space patches', 'Button closure', 'Classic trucker fit']
     }
 ];
 
@@ -689,8 +754,16 @@ function createFilterPanel() {
             <h4>Category</h4>
             <div class="filter-options">
                 <label class="filter-option">
-                    <input type="checkbox" value="leather" onchange="applyFilter('category', 'leather', this.checked)">
-                    <span>Leather Jackets</span>
+                    <input type="checkbox" value="denim" onchange="applyFilter('category', 'denim', this.checked)">
+                    <span>Denim Jackets</span>
+                </label>
+                <label class="filter-option">
+                    <input type="checkbox" value="hoodie" onchange="applyFilter('category', 'hoodie', this.checked)">
+                    <span>Hoodies</span>
+                </label>
+                <label class="filter-option">
+                    <input type="checkbox" value="cap" onchange="applyFilter('category', 'cap', this.checked)">
+                    <span>Caps & Hats</span>
                 </label>
                 <label class="filter-option">
                     <input type="checkbox" value="bomber" onchange="applyFilter('category', 'bomber', this.checked)">
@@ -699,10 +772,6 @@ function createFilterPanel() {
                 <label class="filter-option">
                     <input type="checkbox" value="varsity" onchange="applyFilter('category', 'varsity', this.checked)">
                     <span>Varsity Jackets</span>
-                </label>
-                <label class="filter-option">
-                    <input type="checkbox" value="denim" onchange="applyFilter('category', 'denim', this.checked)">
-                    <span>Denim Jackets</span>
                 </label>
             </div>
         </div>
