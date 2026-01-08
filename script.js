@@ -6,225 +6,95 @@
 // Product catalog for search and filtering
 const productCatalog = [
     {
-        id: 20,
-        name: 'Synthwave Retro Varsity',
-        price: 895,
-        priceText: '$895 USD',
-        category: 'varsity',
-        image: 'images/retro-jacket.jpg',
-        hoverImage: 'images/retro-jacket.jpg',
-        collection: 'retro',
-        isNew: true,
-        description: 'A retrowave masterpiece fusing 80s nostalgia with futuristic materials. Features neon-reflective piping and a classic varsity silhouette reimagined for the cyber era.',
-        features: ['Premium vegan leather sleeves', 'Neon reflective piping', 'Digital-knit wool body', 'Cyber-vapor patch set', 'Quilted tech-lining']
-    },
-    {
-        id: 21,
-        name: 'Zero-G Holographic Bomber',
-        price: 1295,
-        priceText: '$1,295 USD',
-        category: 'bomber',
-        image: 'images/space-jacket.jpg',
-        hoverImage: 'images/space-jacket.jpg',
-        collection: 'space',
-        isNew: true,
-        description: 'Experience weightlessness in style. This holographic bomber features a shimmering shell that changes color with the viewing angle, mimicking the event horizon.',
-        features: ['Holographic tech-shell', 'Zero-gravity insulation', 'Vacuum-sealed pockets', 'NASA-grade velcro patches', 'Thermal regulation lining']
-    },
-    {
-        id: 22,
-        name: 'Sonic Wave Bomber',
-        price: 795,
-        priceText: '$795 USD',
-        category: 'bomber',
-        image: 'images/music-jacket.jpg',
-        hoverImage: 'images/music-jacket.jpg',
-        collection: 'music',
-        isNew: true,
-        description: 'Visualizing sound. The Sonic Wave Bomber parses audio frequencies into a visual textile pattern. Perfect for the audiophile who lives loud.',
-        features: ['Sound-wave quilted pattern', 'Acoustic-dampening foam', 'Speaker-mesh pockets', 'Equalizer LED trim', 'Headphone cable routing']
-    },
-    {
-        id: 23,
-        name: 'Geometric Void Limited',
-        price: 1595,
-        priceText: '$1,595 USD',
-        category: 'leather',
-        image: 'images/new-release-jacket.jpg',
-        hoverImage: 'images/new-release-jacket.jpg',
-        collection: 'new',
-        isNew: true,
-        description: 'Stare into the abyss. The Geometric Void features vantablack panels that absorb light, contrasted with stark white geometric structures. A limited edition masterpiece.',
-        features: ['Vantablack light-absorbing panels', 'Structured geometric shoulders', 'Minimalist hardware', 'Silk void lining', 'Limited edition numbering']
-    },
-    {
-        id: 24,
-        name: 'Aurora Tech Sports',
-        price: 695,
-        priceText: '$695 USD',
-        category: 'sports',
-        image: 'images/sports-jacket.jpg',
-        hoverImage: 'images/sports-jacket.jpg',
-        collection: 'sports',
-        isNew: false,
-        description: 'Performance meets the northern lights. This activewear shell features a gradient print inspired by the aurora borealis, designed for movement and speed.',
-        features: ['Hydrophobic gradient shell', 'Aerodynamic cut', 'Breathable mesh vents', 'Reflective safety strips', 'Packable hood']
-    },
-    {
-        id: 25,
-        name: 'Cosmic Explorer Kids',
-        price: 395,
-        priceText: '$395 USD',
-        category: 'kids',
-        image: 'images/kids-jacket.jpg',
-        hoverImage: 'images/kids-jacket.jpg',
-        collection: 'kids',
-        isNew: false,
-        description: 'For the next generation of astronauts. This durable, fun jacket features glow-in-the-dark star maps and patches from the galactic federation.',
-        features: ['Durable ripstop nylon', 'Glow-in-the-dark constellations', 'Grow-with-me cuffs', 'Secret treasure pocket', 'Machine washable']
-    },
-    {
-        id: 26,
-        name: 'Nebula Drifter',
-        price: 995,
-        priceText: '$995 USD',
-        category: 'bomber',
-        image: 'images/space-jacket-2.jpg',
-        hoverImage: 'images/space-jacket-2.jpg',
-        collection: 'space',
-        isNew: true,
-        description: 'Drift through the cosmos. The Nebula Drifter features a high-definition deep space print and embedded fiber-optic accents for a subtle glow.',
-        features: ['HD Nebula print', 'Fiber-optic accent piping', 'Rechargeable battery pack', 'Gravity-strap harness', 'Soft velvet collar']
-    },
-    {
-        id: 27,
-        name: 'Cyber Punk Rider',
-        price: 1195,
-        priceText: '$1,195 USD',
-        category: 'moto',
-        image: 'images/retro-jacket-2.jpg',
-        hoverImage: 'images/retro-jacket-2.jpg',
-        collection: 'retro',
-        isNew: false,
-        description: 'High-speed style for the neon city. This moto jacket combines armored aesthetics with street-ready comfort. The ultimate night-rider gear.',
-        features: ['Armored aesthetic panels', 'Neon pink racing stripes', 'Water-resistant tech fabric', 'Cyber-glyph prints', 'Adjustable waist belts']
-    },
-    {
-        id: 28,
-        name: 'Void Star Denim',
-        price: 595,
-        priceText: '$595 USD',
+        id: 40,
+        name: 'Rainbow Flame Denim',
+        price: 350,
+        priceText: '$350 USD',
         category: 'denim',
-        image: 'images/essential-1.jpg',
-        hoverImage: 'images/essential-1.jpg',
-        collection: 'space',
-        isNew: false,
-        description: 'The classic denim jacket, lost in space. Deep indigo dye with constellations embroidered in silver thread.',
-        features: ['Japanese raw denim', 'Silver thread embroidery', 'Meteorite-finish buttons', 'Selvedge details', 'Relaxed fit']
-    },
-    {
-        id: 29,
-        name: 'Lunar Canvas Work',
-        price: 495,
-        priceText: '$495 USD',
-        category: 'canvas',
-        image: 'images/essential-2.jpg',
-        hoverImage: 'images/essential-2.jpg',
-        collection: 'space',
-        isNew: false,
-        description: 'Workwear for the moon base. Heavy-duty silver canvas with industrial orange accents. Built to last under any atmosphere.',
-        features: ['Silver-coated heavy canvas', 'Industrial orange webbing', 'Utility tool pockets', 'Thermal lining', 'Reinforced elbows']
-    },
-    {
-        id: 30,
-        name: 'Orbit Tech Coach',
-        price: 395,
-        priceText: '$395 USD',
-        category: 'coach',
-        image: 'images/essential-3.jpg',
-        hoverImage: 'images/essential-3.jpg',
-        collection: 'space',
-        isNew: false,
-        description: 'Streamlined for orbit. A minimalist coach jacket in matte black with iridescent details that catch the starlight.',
-        features: ['Matte black tech-nylon', 'Iridescent logo print', 'Snap-front closure', 'Drawstring hem', 'Lightweight mesh lining']
-    },
-    {
-        id: 31,
-        name: 'Nebula Utility Field',
-        price: 450,
-        priceText: '$450 USD',
-        category: 'field',
-        image: 'images/essential-4.jpg',
-        hoverImage: 'images/essential-4.jpg',
-        collection: 'space',
-        isNew: false,
-        description: 'Tactical gear for the nebula. A multi-pocket field jacket featuring a subtle cosmic dust wash and utility straps.',
-        features: ['Cosmic-wash cotton blend', '4 cargo pockets', 'Tactical d-rings', 'Packable hood', 'Adjustable field fit']
-    },
-    {
-        id: 32,
-        name: 'Orbit Tech Hoodie',
-        price: 195,
-        priceText: '$195 USD',
-        category: 'hoodie',
-        image: 'images/hoodie-space.jpg',
-        hoverImage: 'images/hoodie-space.jpg',
-        collection: 'space',
-        isNew: true,
-        description: 'Oversized tech-wear hoodie for zero-G relaxation. Features glowing neon accents and official space mission patches.',
-        features: ['Heavyweight tech-fleece', 'Integrated neon EL wire', 'Mission patches', 'Kangaroo pocket', 'Oversized fit']
-    },
-    {
-        id: 33,
-        name: 'Retro Sunset Hoodie',
-        price: 175,
-        priceText: '$175 USD',
-        category: 'hoodie',
-        image: 'images/hoodie-retro.jpg',
-        hoverImage: 'images/hoodie-retro.jpg',
-        collection: 'retro',
-        isNew: true,
-        description: 'A vintage-wash hoodie channeling the 80s retrowave aesthetic. Soft, distressed, and perfect for sunset drives.',
-        features: ['Vintage wash cotton', 'Retrowave graphic print', 'Distressed hems', 'Soft fleece lining', 'Relaxed fit']
-    },
-    {
-        id: 34,
-        name: 'Galaxy Mission Cap',
-        price: 85,
-        priceText: '$85 USD',
-        category: 'cap',
-        image: 'images/cap-space.jpg',
-        hoverImage: 'images/cap-space.jpg',
-        collection: 'space',
-        isNew: true,
-        description: 'Essential headwear for space travel. A classic trucker snapback adorned with a galaxy brim and multiple mission patches.',
-        features: ['Structured trucker mesh', 'Embroidered patches', 'Galaxy print brim', 'Snapback closure', 'One size fits all']
-    },
-    {
-        id: 35,
-        name: 'Neon Diva Dad Hat',
-        price: 75,
-        priceText: '$75 USD',
-        category: 'cap',
-        image: 'images/cap-retro.jpg',
-        hoverImage: 'images/cap-retro.jpg',
-        collection: 'retro',
-        isNew: true,
-        description: 'Low-profile dad hat with a distressed finish. Features the Flaming Diva logo in neon embroidery on a vintage denim base.',
-        features: ['Distressed denim', 'Neon 3D embroidery', 'Curved brim', 'Adjustable strap', 'Unstructured fit']
-    },
-    {
-        id: 36,
-        name: 'Nebula Patch Denim',
-        price: 495,
-        priceText: '$495 USD',
-        category: 'denim',
-        image: 'images/denim-nebula.jpg',
+        image: 'images/denim-nebula.jpg', // Placeholder
         hoverImage: 'images/denim-nebula.jpg',
         collection: 'space',
         isNew: true,
-        description: 'A masterpiece of cosmic denim. Light wash jacket featuring a massive hand-painted nebula back patch and scattered space badges.',
-        features: ['Vintage light wash denim', 'Hand-painted back art', 'Assorted space patches', 'Button closure', 'Classic trucker fit']
+        description: 'A vintage light wash denim jacket rescued from the 90s, customized with our signature Rainbow Flame patch and drifting in a cosmic void.',
+        features: ['Vintage Levi\'s Denim (Thrifted)', 'Rainbow Flame Back Patch', 'Hand-distressed details', 'Cosmic wash treatment', 'Relaxed Fit']
+    },
+    {
+        id: 41,
+        name: 'Void Rocker Denim',
+        price: 295,
+        priceText: '$295 USD',
+        category: 'denim',
+        image: 'images/retro-jacket-2.jpg', // Placeholder
+        hoverImage: 'images/retro-jacket-2.jpg',
+        collection: 'retro',
+        isNew: false,
+        description: 'Black distressed denim jacket featuring a mystical rock band patch. Simple, dark, and infused with stardust.',
+        features: ['Upcycled Black Denim', 'Mystic Rock Patch', 'Raw Hem', 'Silver Buttons', 'Standard Fit']
+    },
+    {
+        id: 42,
+        name: 'Fractal Geometry Hoodie',
+        price: 150,
+        priceText: '$150 USD',
+        category: 'hoodie',
+        image: 'images/hoodie-space.jpg', // Placeholder
+        hoverImage: 'images/hoodie-space.jpg',
+        collection: 'space',
+        isNew: true,
+        description: 'Heavyweight black hoodie with a white embroidered fractal mandala. Minimalist streetwear for sacred geometry lovers.',
+        features: ['Heavyweight Cotton Fleece', 'Fractal Embroidery', 'Kangaroo Pocket', 'Double-lined Hood', 'Oversized Fit']
+    },
+    {
+        id: 43,
+        name: 'Psychedelic Drift Hoodie',
+        price: 165,
+        priceText: '$165 USD',
+        category: 'hoodie',
+        image: 'images/hoodie-retro.jpg', // Placeholder
+        hoverImage: 'images/hoodie-retro.jpg',
+        collection: 'retro',
+        isNew: true,
+        description: 'Vintage-wash purple hoodie featuring a trippy mushroom eye patch. Soft, worn-in feel like a favorite thrift find.',
+        features: ['Vintage Wash Purple', 'Psychedelic Patch', 'Distressed Cuffs', 'Soft French Terry', 'Relaxed Fit']
+    },
+    {
+        id: 44,
+        name: 'Interstellar Dad Hat',
+        price: 55,
+        priceText: '$55 USD',
+        category: 'cap',
+        image: 'images/cap-space.jpg', // Placeholder
+        hoverImage: 'images/cap-space.jpg',
+        collection: 'space',
+        isNew: false,
+        description: 'Classic black cotton dad hat with a simple "Interstellar" text patch. Low profile and ready for launch.',
+        features: ['100% Cotton Twill', 'Interstellar Text Patch', 'Curved Brim', 'Adjustable Brass Buckle', 'Unstructured']
+    },
+    {
+        id: 45,
+        name: 'Mystic Eye Cap',
+        price: 60,
+        priceText: '$60 USD',
+        category: 'cap',
+        image: 'images/cap-retro.jpg', // Placeholder
+        hoverImage: 'images/cap-retro.jpg',
+        collection: 'retro',
+        isNew: true,
+        description: 'Distressed denim cap with a mystical third eye pyramid patch. Worn, torn, and spiritually awakened.',
+        features: ['Distressed Blue Denim', 'Mystic Eye Patch', 'Frayed Brim', 'Snapback Closure', 'One Size']
+    },
+    {
+        id: 46,
+        name: 'Nebula Field Jacket',
+        price: 220,
+        priceText: '$220 USD',
+        category: 'jacket',
+        image: 'images/essential-4.jpg', // Placeholder
+        hoverImage: 'images/essential-4.jpg',
+        collection: 'space',
+        isNew: false,
+        description: 'Thrifted army green field jacket customized with a nebula back panel. Rugged utility meets cosmic mystery.',
+        features: ['Vintage Cotton Canvas', 'Nebula Fabric Panel', '4 Utility Pockets', 'Drawstring Waist', 'Classic Field Cut']
     }
 ];
 
@@ -398,132 +268,15 @@ function initMobileMenu() {
         link.addEventListener('click', () => {
             menu.classList.remove('active');
             document.body.classList.remove('no-scroll');
+            toggle.querySelector('span:first-child').style.transform = '';
+            toggle.querySelector('span:last-child').style.transform = '';
         });
     });
-}
 
-// Enhanced Search with live results
-function initSearch() {
-    const searchBtn = document.querySelector('.search-btn');
-    const searchOverlay = document.getElementById('search-overlay');
-    const searchClose = document.getElementById('search-close');
-    const searchInput = searchOverlay?.querySelector('input');
-
-    if (!searchBtn || !searchOverlay) return;
-
-    // Create search results container if it doesn't exist
-    let searchResults = searchOverlay.querySelector('.search-results');
-    if (!searchResults) {
-        searchResults = document.createElement('div');
-        searchResults.className = 'search-results';
-        const searchForm = searchOverlay.querySelector('.search-form');
-        if (searchForm) {
-            searchForm.parentNode.insertBefore(searchResults, searchForm.nextSibling);
-        }
-    }
-
-    searchBtn.addEventListener('click', () => {
-        searchOverlay.classList.add('active');
-        document.body.classList.add('no-scroll');
-        if (searchInput) setTimeout(() => searchInput.focus(), 100);
-    });
-
-    if (searchClose) {
-        searchClose.addEventListener('click', () => {
-            closeSearch();
-        });
-    }
-
-    // Live search
-    if (searchInput) {
-        searchInput.addEventListener('input', (e) => {
-            const query = e.target.value.toLowerCase().trim();
-            performSearch(query, searchResults);
-        });
-
-        // Search on enter
-        searchInput.addEventListener('keydown', (e) => {
-            if (e.key === 'Enter') {
-                e.preventDefault();
-                const query = searchInput.value.toLowerCase().trim();
-                if (query) {
-                    // Navigate to collections with search query
-                    window.location.href = `collections.html?search=${encodeURIComponent(query)}`;
-                }
-            }
-        });
-    }
-
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && searchOverlay.classList.contains('active')) {
-            closeSearch();
-        }
-    });
-
-    function closeSearch() {
-        searchOverlay.classList.remove('active');
-        document.body.classList.remove('no-scroll');
-        if (searchInput) searchInput.value = '';
-        if (searchResults) searchResults.innerHTML = '';
-    }
-}
-
-function performSearch(query, resultsContainer) {
-    if (!resultsContainer) return;
-
-    if (!query || query.length < 2) {
-        resultsContainer.innerHTML = '';
-        resultsContainer.style.display = 'none';
-        return;
-    }
-
-    const results = productCatalog.filter(product =>
-        product.name.toLowerCase().includes(query) ||
-        product.category.toLowerCase().includes(query) ||
-        product.collection.toLowerCase().includes(query)
-    );
-
-    if (results.length === 0) {
-        resultsContainer.innerHTML = `
-            <div class="search-no-results">
-                <p>No products found for "${query}"</p>
-            </div>
-        `;
-        resultsContainer.style.display = 'block';
-        return;
-    }
-
-    resultsContainer.innerHTML = `
-        <div class="search-results-header">
-            <span>Products (${results.length})</span>
-        </div>
-        <div class="search-results-grid">
-            ${results.slice(0, 6).map(product => `
-                <a href="product.html?id=${product.id}" class="search-result-item">
-                    <div class="search-result-image">
-                        <img src="${product.image}" alt="${product.name}">
-                    </div>
-                    <div class="search-result-info">
-                        <span class="search-result-name">${product.name}</span>
-                        <span class="search-result-price">${product.priceText}</span>
-                    </div>
-                </a>
-            `).join('')}
-        </div>
-        ${results.length > 6 ? `
-            <a href="collections.html?search=${encodeURIComponent(query)}" class="search-view-all">
-                View all ${results.length} results
-            </a>
-        ` : ''}
-    `;
-    resultsContainer.style.display = 'block';
-}
-
-// Cart drawer
-function initCart() {
-    const cartToggle = document.getElementById('cart-toggle');
+    // Cart toggle inside mobile menu
+    const cartToggle = document.getElementById('mobile-cart-toggle');
     const cartDrawer = document.getElementById('cart-drawer');
-    const cartClose = document.getElementById('cart-close');
+    const cartClose = document.querySelector('.cart-close');
     const overlay = document.getElementById('overlay');
     const checkoutBtn = document.querySelector('.checkout-btn');
 
@@ -766,12 +519,8 @@ function createFilterPanel() {
                     <span>Caps & Hats</span>
                 </label>
                 <label class="filter-option">
-                    <input type="checkbox" value="bomber" onchange="applyFilter('category', 'bomber', this.checked)">
-                    <span>Bomber Jackets</span>
-                </label>
-                <label class="filter-option">
-                    <input type="checkbox" value="varsity" onchange="applyFilter('category', 'varsity', this.checked)">
-                    <span>Varsity Jackets</span>
+                    <input type="checkbox" value="jacket" onchange="applyFilter('category', 'jacket', this.checked)">
+                    <span>Field Jackets</span>
                 </label>
             </div>
         </div>
@@ -784,18 +533,6 @@ function createFilterPanel() {
                 <label class="filter-option">
                     <input type="checkbox" value="retro" onchange="applyFilter('collection', 'retro', this.checked)">
                     <span>Retro Wave</span>
-                </label>
-                <label class="filter-option">
-                    <input type="checkbox" value="sports" onchange="applyFilter('collection', 'sports', this.checked)">
-                    <span>Sports Tech</span>
-                </label>
-                <label class="filter-option">
-                    <input type="checkbox" value="kids" onchange="applyFilter('collection', 'kids', this.checked)">
-                    <span>Space Kids</span>
-                </label>
-                <label class="filter-option">
-                    <input type="checkbox" value="music" onchange="applyFilter('collection', 'music', this.checked)">
-                    <span>Music Legends</span>
                 </label>
         </div>
         <div class="filter-section">
