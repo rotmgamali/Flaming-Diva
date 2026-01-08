@@ -6,125 +6,160 @@
 // Product catalog for search and filtering
 const productCatalog = [
     {
-        id: 1,
-        name: 'Third Eye Patched Leather',
-        price: 1295,
-        priceText: '$1,295 USD',
-        category: 'leather',
-        image: 'images/product-1.jpg',
-        hoverImage: 'images/product-1-hover.jpg',
-        collection: 'inferno',
-        isNew: true
-    },
-    {
-        id: 2,
-        name: 'Hip-Hop Legends Bomber',
+        id: 20,
+        name: 'Synthwave Retro Varsity',
         price: 895,
         priceText: '$895 USD',
-        category: 'bomber',
-        image: 'images/product-2.jpg',
-        hoverImage: 'images/product-2-hover.jpg',
-        collection: 'inferno',
-        isNew: true
+        category: 'varsity',
+        image: 'images/retro-jacket.jpg',
+        hoverImage: 'images/retro-jacket.jpg',
+        collection: 'retro',
+        isNew: true,
+        description: 'A retrowave masterpiece fusing 80s nostalgia with futuristic materials. Features neon-reflective piping and a classic varsity silhouette reimagined for the cyber era.',
+        features: ['Premium vegan leather sleeves', 'Neon reflective piping', 'Digital-knit wool body', 'Cyber-vapor patch set', 'Quilted tech-lining']
     },
     {
-        id: 3,
-        name: 'Rock Icons Varsity',
+        id: 21,
+        name: 'Zero-G Holographic Bomber',
+        price: 1295,
+        priceText: '$1,295 USD',
+        category: 'bomber',
+        image: 'images/space-jacket.jpg',
+        hoverImage: 'images/space-jacket.jpg',
+        collection: 'space',
+        isNew: true,
+        description: 'Experience weightlessness in style. This holographic bomber features a shimmering shell that changes color with the viewing angle, mimicking the event horizon.',
+        features: ['Holographic tech-shell', 'Zero-gravity insulation', 'Vacuum-sealed pockets', 'NASA-grade velcro patches', 'Thermal regulation lining']
+    },
+    {
+        id: 22,
+        name: 'Sonic Wave Bomber',
+        price: 795,
+        priceText: '$795 USD',
+        category: 'bomber',
+        image: 'images/music-jacket.jpg',
+        hoverImage: 'images/music-jacket.jpg',
+        collection: 'music',
+        isNew: true,
+        description: 'Visualizing sound. The Sonic Wave Bomber parses audio frequencies into a visual textile pattern. Perfect for the audiophile who lives loud.',
+        features: ['Sound-wave quilted pattern', 'Acoustic-dampening foam', 'Speaker-mesh pockets', 'Equalizer LED trim', 'Headphone cable routing']
+    },
+    {
+        id: 23,
+        name: 'Geometric Void Limited',
+        price: 1595,
+        priceText: '$1,595 USD',
+        category: 'leather',
+        image: 'images/new-release-jacket.jpg',
+        hoverImage: 'images/new-release-jacket.jpg',
+        collection: 'new',
+        isNew: true,
+        description: 'Stare into the abyss. The Geometric Void features vantablack panels that absorb light, contrasted with stark white geometric structures. A limited edition masterpiece.',
+        features: ['Vantablack light-absorbing panels', 'Structured geometric shoulders', 'Minimalist hardware', 'Silk void lining', 'Limited edition numbering']
+    },
+    {
+        id: 24,
+        name: 'Aurora Tech Sports',
         price: 695,
         priceText: '$695 USD',
-        category: 'varsity',
-        image: 'images/product-3.jpg',
-        hoverImage: 'images/product-3-hover.jpg',
-        collection: 'inferno',
-        isNew: true
+        category: 'sports',
+        image: 'images/sports-jacket.jpg',
+        hoverImage: 'images/sports-jacket.jpg',
+        collection: 'sports',
+        isNew: false,
+        description: 'Performance meets the northern lights. This activewear shell features a gradient print inspired by the aurora borealis, designed for movement and speed.',
+        features: ['Hydrophobic gradient shell', 'Aerodynamic cut', 'Breathable mesh vents', 'Reflective safety strips', 'Packable hood']
     },
     {
-        id: 4,
-        name: 'Cosmic Visions Trucker',
+        id: 25,
+        name: 'Cosmic Explorer Kids',
+        price: 395,
+        priceText: '$395 USD',
+        category: 'kids',
+        image: 'images/kids-jacket.jpg',
+        hoverImage: 'images/kids-jacket.jpg',
+        collection: 'kids',
+        isNew: false,
+        description: 'For the next generation of astronauts. This durable, fun jacket features glow-in-the-dark star maps and patches from the galactic federation.',
+        features: ['Durable ripstop nylon', 'Glow-in-the-dark constellations', 'Grow-with-me cuffs', 'Secret treasure pocket', 'Machine washable']
+    },
+    {
+        id: 26,
+        name: 'Nebula Drifter',
         price: 995,
         priceText: '$995 USD',
-        category: 'trucker',
-        image: 'images/product-4.jpg',
-        hoverImage: 'images/product-4-hover.jpg',
-        collection: 'inferno',
-        isNew: true
+        category: 'bomber',
+        image: 'images/space-jacket-2.jpg',
+        hoverImage: 'images/space-jacket-2.jpg',
+        collection: 'space',
+        isNew: true,
+        description: 'Drift through the cosmos. The Nebula Drifter features a high-definition deep space print and embedded fiber-optic accents for a subtle glow.',
+        features: ['HD Nebula print', 'Fiber-optic accent piping', 'Rechargeable battery pack', 'Gravity-strap harness', 'Soft velvet collar']
     },
     {
-        id: 5,
-        name: 'Snake & Skull Denim',
+        id: 27,
+        name: 'Cyber Punk Rider',
+        price: 1195,
+        priceText: '$1,195 USD',
+        category: 'moto',
+        image: 'images/retro-jacket-2.jpg',
+        hoverImage: 'images/retro-jacket-2.jpg',
+        collection: 'retro',
+        isNew: false,
+        description: 'High-speed style for the neon city. This moto jacket combines armored aesthetics with street-ready comfort. The ultimate night-rider gear.',
+        features: ['Armored aesthetic panels', 'Neon pink racing stripes', 'Water-resistant tech fabric', 'Cyber-glyph prints', 'Adjustable waist belts']
+    },
+    {
+        id: 28,
+        name: 'Void Star Denim',
         price: 595,
         priceText: '$595 USD',
         category: 'denim',
         image: 'images/essential-1.jpg',
         hoverImage: 'images/essential-1.jpg',
-        collection: 'essentials',
-        isNew: false
+        collection: 'space',
+        isNew: false,
+        description: 'The classic denim jacket, lost in space. Deep indigo dye with constellations embroidered in silver thread.',
+        features: ['Japanese raw denim', 'Silver thread embroidery', 'Meteorite-finish buttons', 'Selvedge details', 'Relaxed fit']
     },
     {
-        id: 6,
-        name: 'Grateful Spirit Canvas',
+        id: 29,
+        name: 'Lunar Canvas Work',
         price: 495,
         priceText: '$495 USD',
         category: 'canvas',
         image: 'images/essential-2.jpg',
         hoverImage: 'images/essential-2.jpg',
-        collection: 'essentials',
-        isNew: false
+        collection: 'space',
+        isNew: false,
+        description: 'Workwear for the moon base. Heavy-duty silver canvas with industrial orange accents. Built to last under any atmosphere.',
+        features: ['Silver-coated heavy canvas', 'Industrial orange webbing', 'Utility tool pockets', 'Thermal lining', 'Reinforced elbows']
     },
     {
-        id: 7,
-        name: 'Zen Master Coach',
+        id: 30,
+        name: 'Orbit Tech Coach',
         price: 395,
         priceText: '$395 USD',
         category: 'coach',
         image: 'images/essential-3.jpg',
         hoverImage: 'images/essential-3.jpg',
-        collection: 'essentials',
-        isNew: false
+        collection: 'space',
+        isNew: false,
+        description: 'Streamlined for orbit. A minimalist coach jacket in matte black with iridescent details that catch the starlight.',
+        features: ['Matte black tech-nylon', 'Iridescent logo print', 'Snap-front closure', 'Drawstring hem', 'Lightweight mesh lining']
     },
     {
-        id: 8,
-        name: 'Acid Trip Field Jacket',
+        id: 31,
+        name: 'Nebula Utility Field',
         price: 450,
         priceText: '$450 USD',
         category: 'field',
         image: 'images/essential-4.jpg',
         hoverImage: 'images/essential-4.jpg',
-        collection: 'essentials',
-        isNew: false
-    },
-    {
-        id: 9,
-        name: 'Mystic Eye Patched Leather',
-        price: 1195,
-        priceText: '$1,195 USD',
-        category: 'leather',
-        image: 'images/look-1.jpg',
-        hoverImage: 'images/look-1.jpg',
-        collection: 'inferno',
-        isNew: false
-    },
-    {
-        id: 10,
-        name: 'Psychedelic Dreams Bomber',
-        price: 945,
-        priceText: '$945 USD',
-        category: 'bomber',
-        image: 'images/look-2.jpg',
-        hoverImage: 'images/look-2.jpg',
-        collection: 'phoenix',
-        isNew: false
-    },
-    {
-        id: 11,
-        name: 'Rock Legend Varsity',
-        price: 795,
-        priceText: '$795 USD',
-        category: 'varsity',
-        image: 'images/look-3.jpg',
-        hoverImage: 'images/look-3.jpg',
-        collection: 'phoenix',
-        isNew: false
+        collection: 'space',
+        isNew: false,
+        description: 'Tactical gear for the nebula. A multi-pocket field jacket featuring a subtle cosmic dust wash and utility straps.',
+        features: ['Cosmic-wash cotton blend', '4 cargo pockets', 'Tactical d-rings', 'Packable hood', 'Adjustable field fit']
     }
 ];
 
@@ -673,20 +708,26 @@ function createFilterPanel() {
         </div>
         <div class="filter-section">
             <h4>Collection</h4>
-            <div class="filter-options">
                 <label class="filter-option">
-                    <input type="checkbox" value="inferno" onchange="applyFilter('collection', 'inferno', this.checked)">
-                    <span>Inferno Collection</span>
+                    <input type="checkbox" value="space" onchange="applyFilter('collection', 'space', this.checked)">
+                    <span>Space Collection</span>
                 </label>
                 <label class="filter-option">
-                    <input type="checkbox" value="phoenix" onchange="applyFilter('collection', 'phoenix', this.checked)">
-                    <span>Phoenix Collection</span>
+                    <input type="checkbox" value="retro" onchange="applyFilter('collection', 'retro', this.checked)">
+                    <span>Retro Wave</span>
                 </label>
                 <label class="filter-option">
-                    <input type="checkbox" value="essentials" onchange="applyFilter('collection', 'essentials', this.checked)">
-                    <span>Essentials</span>
+                    <input type="checkbox" value="sports" onchange="applyFilter('collection', 'sports', this.checked)">
+                    <span>Sports Tech</span>
                 </label>
-            </div>
+                <label class="filter-option">
+                    <input type="checkbox" value="kids" onchange="applyFilter('collection', 'kids', this.checked)">
+                    <span>Space Kids</span>
+                </label>
+                <label class="filter-option">
+                    <input type="checkbox" value="music" onchange="applyFilter('collection', 'music', this.checked)">
+                    <span>Music Legends</span>
+                </label>
         </div>
         <div class="filter-section">
             <h4>Price</h4>

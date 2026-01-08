@@ -204,53 +204,53 @@
             <a href="collections.html" class="view-all">View All</a>
         </div>
         <div class="products-grid">
-            <article class="product-card" data-id="2">
-                <a href="product.html?id=2" class="product-link">
+            <article class="product-card" data-id="20">
+                <a href="product.html?id=20" class="product-link">
                     <div class="product-image">
-                        <img src="images/product-2.jpg" alt="Hip-Hop Legends Bomber">
+                        <img src="images/retro-jacket.jpg" alt="Synthwave Retro Varsity">
                     </div>
                     <div class="product-info">
-                        <h3 class="product-name">Hip-Hop Legends Bomber</h3>
+                        <h3 class="product-name">Synthwave Retro Varsity</h3>
                         <p class="product-price">$895 USD</p>
                     </div>
                 </a>
-                <button class="quick-add-btn" data-product-id="2">+ Quick Add</button>
+                <button class="quick-add-btn" data-product-id="20">+ Quick Add</button>
             </article>
-            <article class="product-card" data-id="3">
-                <a href="product.html?id=3" class="product-link">
+            <article class="product-card" data-id="21">
+                <a href="product.html?id=21" class="product-link">
                     <div class="product-image">
-                        <img src="images/product-3.jpg" alt="Rock Icons Varsity">
+                        <img src="images/space-jacket.jpg" alt="Zero-G Holographic Bomber">
                     </div>
                     <div class="product-info">
-                        <h3 class="product-name">Rock Icons Varsity</h3>
-                        <p class="product-price">$695 USD</p>
+                        <h3 class="product-name">Zero-G Holographic Bomber</h3>
+                        <p class="product-price">$1,295 USD</p>
                     </div>
                 </a>
-                <button class="quick-add-btn" data-product-id="3">+ Quick Add</button>
+                <button class="quick-add-btn" data-product-id="21">+ Quick Add</button>
             </article>
-            <article class="product-card" data-id="4">
-                <a href="product.html?id=4" class="product-link">
+            <article class="product-card" data-id="27">
+                <a href="product.html?id=27" class="product-link">
                     <div class="product-image">
-                        <img src="images/product-4.jpg" alt="Cosmic Visions Trucker">
+                        <img src="images/retro-jacket-2.jpg" alt="Cyber Punk Rider">
                     </div>
                     <div class="product-info">
-                        <h3 class="product-name">Cosmic Visions Trucker</h3>
-                        <p class="product-price">$995 USD</p>
-                    </div>
-                </a>
-                <button class="quick-add-btn" data-product-id="4">+ Quick Add</button>
-            </article>
-            <article class="product-card" data-id="9">
-                <a href="product.html?id=9" class="product-link">
-                    <div class="product-image">
-                        <img src="images/look-1.jpg" alt="Mystic Eye Patched Leather">
-                    </div>
-                    <div class="product-info">
-                        <h3 class="product-name">Mystic Eye Patched Leather</h3>
+                        <h3 class="product-name">Cyber Punk Rider</h3>
                         <p class="product-price">$1,195 USD</p>
                     </div>
                 </a>
-                <button class="quick-add-btn" data-product-id="9">+ Quick Add</button>
+                <button class="quick-add-btn" data-product-id="27">+ Quick Add</button>
+            </article>
+            <article class="product-card" data-id="26">
+                <a href="product.html?id=26" class="product-link">
+                    <div class="product-image">
+                        <img src="images/space-jacket-2.jpg" alt="Nebula Drifter">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Nebula Drifter</h3>
+                        <p class="product-price">$995 USD</p>
+                    </div>
+                </a>
+                <button class="quick-add-btn" data-product-id="26">+ Quick Add</button>
             </article>
         </div>
     </section>
@@ -351,133 +351,13 @@
 
     <script src="script.js"></script>
     <script>
-        // Product catalog (same as in script.js)
-        const products = [
-            {
-                id: 1,
-                name: 'Third Eye Patched Leather',
-                price: '$1,295 USD',
-                priceNum: 1295,
-                category: 'leather',
-                image: 'images/product-1.jpg',
-                hoverImage: 'images/product-1-hover.jpg',
-                description: 'Crafted from premium Italian leather, the Third Eye Patched Leather Jacket features hand-stitched mystical eye patches inspired by ancient symbolism. Each jacket is individually numbered as part of our limited Inferno Collection.',
-                features: ['100% Italian Lambskin Leather', 'Hand-embroidered eye patches', 'Quilted satin lining', 'YKK zippers throughout', 'Two exterior pockets, two interior pockets']
-            },
-            {
-                id: 2,
-                name: 'Hip-Hop Legends Bomber',
-                price: '$895 USD',
-                priceNum: 895,
-                category: 'bomber',
-                image: 'images/product-2.jpg',
-                hoverImage: 'images/product-2-hover.jpg',
-                description: 'A tribute to the golden era of hip-hop, this bomber jacket features iconic imagery and premium materials. Perfect for those who want to make a statement.',
-                features: ['Premium nylon shell', 'Custom hip-hop patch work', 'Ribbed cuffs and hem', 'Satin lining', 'Interior pocket']
-            },
-            {
-                id: 3,
-                name: 'Rock Icons Varsity',
-                price: '$695 USD',
-                priceNum: 695,
-                category: 'varsity',
-                image: 'images/product-3.jpg',
-                hoverImage: 'images/product-3-hover.jpg',
-                description: 'Channel your inner rock star with this varsity jacket featuring iconic rock and roll imagery. Classic American style meets rebellious attitude.',
-                features: ['Wool body with leather sleeves', 'Custom embroidered patches', 'Snap button closure', 'Ribbed collar and cuffs', 'Two side pockets']
-            },
-            {
-                id: 4,
-                name: 'Cosmic Visions Trucker',
-                price: '$995 USD',
-                priceNum: 995,
-                category: 'trucker',
-                image: 'images/product-4.jpg',
-                hoverImage: 'images/product-4-hover.jpg',
-                description: 'Explore the cosmos with this psychedelic trucker jacket. Features hand-painted celestial designs that glow under UV light.',
-                features: ['Heavy-duty denim', 'Hand-painted cosmic designs', 'UV-reactive paint elements', 'Sherpa lining', 'Classic trucker fit']
-            },
-            {
-                id: 5,
-                name: 'Snake & Skull Denim',
-                price: '$595 USD',
-                priceNum: 595,
-                category: 'denim',
-                image: 'images/essential-1.jpg',
-                hoverImage: 'images/essential-1.jpg',
-                description: 'A bold statement piece featuring intricate snake and skull artwork on premium denim. Part of our Essentials collection.',
-                features: ['Premium Japanese denim', 'Hand-painted artwork', 'Distressed details', 'Button closure', 'Classic fit']
-            },
-            {
-                id: 6,
-                name: 'Grateful Spirit Canvas',
-                price: '$495 USD',
-                priceNum: 495,
-                category: 'canvas',
-                image: 'images/essential-2.jpg',
-                hoverImage: 'images/essential-2.jpg',
-                description: 'Inspired by the free spirit of the 60s, this canvas jacket features vibrant artwork celebrating peace and love.',
-                features: ['Heavy-duty canvas', 'Screen-printed artwork', 'Blanket lining', 'Button closure', 'Relaxed fit']
-            },
-            {
-                id: 7,
-                name: 'Zen Master Coach',
-                price: '$395 USD',
-                priceNum: 395,
-                category: 'coach',
-                image: 'images/essential-3.jpg',
-                hoverImage: 'images/essential-3.jpg',
-                description: 'Find your inner peace with this minimalist coach jacket featuring subtle zen-inspired artwork.',
-                features: ['Lightweight nylon', 'Subtle embroidery', 'Snap button closure', 'Side pockets', 'Relaxed fit']
-            },
-            {
-                id: 8,
-                name: 'Acid Trip Field Jacket',
-                price: '$450 USD',
-                priceNum: 450,
-                category: 'field',
-                image: 'images/essential-4.jpg',
-                hoverImage: 'images/essential-4.jpg',
-                description: 'A field jacket reimagined with psychedelic artwork. Functional and stylish for any adventure.',
-                features: ['Cotton canvas', 'All-over print', 'Multiple pockets', 'Adjustable waist', 'Classic field jacket fit']
-            },
-            {
-                id: 9,
-                name: 'Mystic Eye Patched Leather',
-                price: '$1,195 USD',
-                priceNum: 1195,
-                category: 'leather',
-                image: 'images/look-1.jpg',
-                hoverImage: 'images/look-1.jpg',
-                description: 'A mystical leather jacket featuring hand-stitched eye patches and premium Italian craftsmanship.',
-                features: ['100% Italian Lambskin Leather', 'Hand-embroidered patches', 'Quilted satin lining', 'YKK zippers', 'Two interior pockets']
-            },
-            {
-                id: 10,
-                name: 'Psychedelic Dreams Bomber',
-                price: '$945 USD',
-                priceNum: 945,
-                category: 'bomber',
-                image: 'images/look-2.jpg',
-                hoverImage: 'images/look-2.jpg',
-                description: 'Enter a world of psychedelic dreams with this vibrant bomber jacket featuring trippy artwork.',
-                features: ['Premium satin shell', 'All-over psychedelic print', 'Ribbed cuffs and hem', 'Interior pocket', 'Relaxed fit']
-            },
-            {
-                id: 11,
-                name: 'Rock Legend Varsity',
-                price: '$795 USD',
-                priceNum: 795,
-                category: 'varsity',
-                image: 'images/look-3.jpg',
-                hoverImage: 'images/look-3.jpg',
-                description: 'A varsity jacket that pays tribute to rock legends. Classic style with rebellious attitude.',
-                features: ['Wool body, leather sleeves', 'Custom embroidered patches', 'Snap button closure', 'Chenille lettering', 'Two side pockets']
-            }
-        ];
-
-        // Current product data
+        // Use global productCatalog from script.js
         let currentProduct = null;
+
+        // Ensure productCatalog is available
+        if (typeof productCatalog === 'undefined') {
+            console.error('productCatalog not loaded from script.js');
+        }
 
         // Product page specific functionality
         document.addEventListener('DOMContentLoaded', () => {
@@ -490,9 +370,15 @@
 
         function loadProductData() {
             const urlParams = new URLSearchParams(window.location.search);
-            const productId = parseInt(urlParams.get('id')) || 1;
+            // Default to first product if no ID
+            const productId = parseInt(urlParams.get('id')) || (productCatalog && productCatalog[0].id) || 20;
 
-            currentProduct = products.find(p => p.id === productId) || products[0];
+            if (typeof productCatalog !== 'undefined') {
+                currentProduct = productCatalog.find(p => p.id === productId) || productCatalog[0];
+            } else {
+                // Fallback if script.js fails
+                return;
+            }
 
             // Update page title
             document.title = `${currentProduct.name} | Flaming Diva`;
@@ -501,7 +387,7 @@
             document.querySelector('.product-title').textContent = currentProduct.name;
 
             // Update price
-            document.querySelector('.product-price-detail').textContent = currentProduct.price;
+            document.querySelector('.product-price-detail').textContent = currentProduct.priceText;
 
             // Update main image
             document.getElementById('main-image').src = currentProduct.image;

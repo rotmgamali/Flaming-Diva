@@ -12,32 +12,32 @@
 }
 
 :root {
-    --black: #000000;
+    --black: #050505;
     --white: #ffffff;
-    --gray-100: #f7f7f7;
-    --gray-200: #ebebeb;
-    --gray-300: #d4d4d4;
-    --gray-400: #a3a3a3;
-    --gray-500: #737373;
-    --gray-600: #525252;
-    --gray-700: #404040;
-    --gray-800: #262626;
-    --gray-900: #171717;
+    --gray-100: #1a1a2e;
+    --gray-200: #2b2b40;
+    --gray-300: #3f3f5a;
+    --gray-400: #5c5c7a;
+    --gray-500: #7e7e9e;
+    --gray-600: #a3a3c2;
+    --gray-700: #cbcbdb;
+    --gray-800: #e6e6e6;
+    --gray-900: #f2f2f2;
 
-    /* Flame Theme Colors */
-    --flame-orange: #FF6B35;
-    --flame-ember: #FF4500;
-    --flame-gold: #FFB347;
-    --flame-deep: #D4380D;
-    --flame-glow: rgba(255, 107, 53, 0.4);
-    --flame-glow-soft: rgba(255, 107, 53, 0.15);
+    /* Interstellar Theme Colors */
+    --cosmic-purple: #9D00FF;
+    --neon-blue: #00D4FF;
+    --stardust-pink: #FF00CC;
+    --nebula-teal: #00FF9D;
+    --cosmic-glow: rgba(157, 0, 255, 0.4);
+    --cosmic-glow-soft: rgba(0, 212, 255, 0.15);
 
     /* Gradient definitions */
-    --flame-gradient: linear-gradient(135deg, var(--flame-ember) 0%, var(--flame-orange) 50%, var(--flame-gold) 100%);
-    --flame-gradient-subtle: linear-gradient(135deg, var(--flame-deep) 0%, var(--flame-orange) 100%);
-    --ember-glow: 0 0 20px var(--flame-glow), 0 0 40px var(--flame-glow-soft);
+    --flame-gradient: linear-gradient(135deg, var(--cosmic-purple) 0%, var(--neon-blue) 50%, var(--stardust-pink) 100%);
+    --flame-gradient-subtle: linear-gradient(135deg, var(--stardust-pink) 0%, var(--cosmic-purple) 100%);
+    --ember-glow: 0 0 20px var(--cosmic-glow), 0 0 40px var(--cosmic-glow-soft);
 
-    --font-main: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    --font-main: 'Inter', -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
     --header-height: 60px;
     --announcement-height: 36px;
 }
@@ -50,8 +50,8 @@ html {
 
 body {
     font-family: var(--font-main);
-    color: var(--black);
-    background: var(--white);
+    color: var(--white);
+    background: #050509;
     line-height: 1.5;
     /* No padding-top - hero goes edge-to-edge like Fear of God */
     padding-top: 0;
@@ -90,11 +90,11 @@ img {
 
     0%,
     100% {
-        box-shadow: 0 0 5px var(--flame-glow-soft), 0 0 15px var(--flame-glow-soft);
+        box-shadow: 0 0 5px var(--cosmic-glow-soft), 0 0 15px var(--cosmic-glow-soft);
     }
 
     50% {
-        box-shadow: 0 0 15px var(--flame-glow), 0 0 30px var(--flame-glow-soft);
+        box-shadow: 0 0 15px var(--cosmic-glow), 0 0 30px var(--cosmic-glow-soft);
     }
 }
 
@@ -636,8 +636,9 @@ img {
 }
 
 .mobile-link:hover {
-    color: var(--flame-orange);
+    color: var(--neon-blue);
     padding-left: 8px;
+    text-shadow: 0 0 8px var(--cosmic-glow);
 }
 
 .mobile-divider {
