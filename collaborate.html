@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Contact Flaming Diva - Get in touch with Diva">
-    <title>Contact | Flaming Diva</title>
+    <meta name="description" content="Collaborate with Flaming Diva - Design Custom Signature Pieces">
+    <title>Collaborate | Flaming Diva</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -32,7 +32,7 @@
                     <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
                     <li class="nav-item"><a href="collections.html" class="nav-link">Shop All</a></li>
                     <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
-                    <li class="nav-item"><a href="collaborate.html" class="nav-link">Collaborate</a></li>
+                    <li class="nav-item"><a href="collaborate.html" class="nav-link active">Collaborate</a></li>
                     <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
                 </ul>
             </div>
@@ -79,21 +79,23 @@
         </div>
     </div>
 
-    <!-- Contact Page -->
+    <!-- Collaborate Page -->
     <main class="contact-page">
         <div class="contact-header">
-            <h1>Get In Touch</h1>
-            <p>Have a question or want to discuss a custom piece? Send me a message.</p>
+            <h1>Create Your Signature</h1>
+            <p>Design signature pieces with Diva that truly express your soul. Collaborate and celebrate your
+                self-expression—whether you are a performer, a band, or simply seek a more individualized and curated
+                experience. Let's create.</p>
         </div>
 
         <div class="contact-grid">
             <div class="contact-form-container">
-                <form class="contact-form" id="contact-form" action="https://formsubmit.co/diva@flamingdiva.com"
-                    method="POST">
+                <form class="contact-form" id="collab-form" action="https://formsubmit.co/diva@flamingdiva.com"
+                    method="POST" enctype="multipart/form-data">
                     <!-- FormSubmit configuration -->
-                    <input type="hidden" name="_subject" value="New Contact from Flaming Diva Website">
+                    <input type="hidden" name="_subject" value="New Collaboration Request - Flaming Diva">
                     <input type="hidden" name="_captcha" value="false">
-                    <input type="hidden" name="_next" value="https://flamingdiva.com/contact.html?success=true">
+                    <input type="hidden" name="_next" value="https://flamingdiva.com/collaborate.html?success=true">
                     <input type="text" name="_honey" style="display:none">
 
                     <div class="form-row">
@@ -110,40 +112,66 @@
                         <label for="email">Email</label>
                         <input type="email" id="email" name="email" required>
                     </div>
-                    <div class="form-group">
-                        <label for="subject">Subject</label>
-                        <select id="subject" name="subject" required>
-                            <option value="">Select a topic</option>
-                            <option value="order">Order Inquiry</option>
-                            <option value="custom">Custom Order Request</option>
-                            <option value="product">Product Question</option>
-                            <option value="collaboration">Collaboration</option>
-                            <option value="other">Other</option>
-                        </select>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="iam">I am a...</label>
+                            <select id="iam" name="iam" required>
+                                <option value="">Select option</option>
+                                <option value="Individual">Individual</option>
+                                <option value="Performer">Performer/Artist</option>
+                                <option value="Band">Band/Group</option>
+                                <option value="Stylist">Stylist</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="projectType">Project Type</label>
+                            <select id="projectType" name="projectType" required>
+                                <option value="">Select option</option>
+                                <option value="Custom Design">Custom Design (From Scratch)</option>
+                                <option value="Customize My Garment">Customize My Own Garment</option>
+                                <option value="Bulk Order">Bulk/Group Order</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
                     </div>
+
                     <div class="form-group">
-                        <label for="message">Message</label>
-                        <textarea id="message" name="message" rows="6" required></textarea>
+                        <label for="attachment">Upload Your Garment (Optional)</label>
+                        <p style="font-size: 0.8rem; color: #888; margin-bottom: 8px;">If you have a garment you'd like
+                            customized, please upload a photo.</p>
+                        <input type="file" id="attachment" name="attachment" accept="image/*"
+                            style="border: 1px solid #333; padding: 10px; width: 100%;">
                     </div>
-                    <button type="submit" class="contact-btn" id="submit-btn">Send Message</button>
+
+                    <div class="form-group">
+                        <label for="message">Tell us about your vision</label>
+                        <textarea id="message" name="message" rows="6" required
+                            placeholder="Describe your style, ideas, or what you're looking for..."></textarea>
+                    </div>
+                    <button type="submit" class="contact-btn" id="submit-btn"
+                        style="background-color: var(--cosmic-purple); border-color: var(--cosmic-purple);">Start
+                        Collaboration</button>
                 </form>
             </div>
 
             <div class="contact-info">
+                <div class="contact-info-item">
+                    <h3>Custom Process</h3>
+                    <p>1. <strong>Submit Request</strong>: Tell us about your vision or upload your garment.</p>
+                    <p>2. <strong>Consultation</strong>: Diva will review and discuss ideas via email.</p>
+                    <p>3. <strong>Creation</strong>: Your piece is hand-crafted with patches, distressing, and soul.</p>
+                </div>
+
                 <div class="contact-info-item">
                     <h3>Email</h3>
                     <a href="mailto:diva@flamingdiva.com">diva@flamingdiva.com</a>
                 </div>
 
                 <div class="contact-info-item">
-                    <h3>Follow Along</h3>
-                    <a href="https://instagram.com/flamingdiva" target="_blank" rel="noopener">@flamingdiva on
-                        Instagram</a>
-                </div>
-
-                <div class="contact-info-item">
                     <h3>Response Time</h3>
-                    <p>I personally read and respond to every message. Please allow 1-2 business days for a reply.</p>
+                    <p>Custom inquiries are reviewed personally. Expect a reply within 2-3 business days.</p>
                 </div>
             </div>
         </div>
@@ -240,8 +268,8 @@
         if (params.get('success') === 'true') {
             document.querySelector('.contact-form-container').innerHTML = `
                 <div class="contact-success">
-                    <h3>Message Sent!</h3>
-                    <p>Thank you for reaching out. I'll get back to you within 1-2 business days.</p>
+                    <h3>Request Sent!</h3>
+                    <p>Thank you for submitting your collaboration idea. Diva will review it shortly.</p>
                     <a href="collections.html" class="contact-btn" style="display: inline-block; margin-top: 24px;">Continue Shopping</a>
                 </div>
             `;
