@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO Meta Tags -->
+    <meta name="description"
+        content="Flaming Diva - Coming Soon. Premium upcycled thrift jackets and mystical streetwear launching soon.">
+    <meta name="keywords"
+        content="custom jackets, thrift jackets, vintage denim, hoodies, mystical fashion, premium outerwear, coming soon">
+    <meta name="author" content="Flaming Diva">
+    <meta name="robots" content="noindex, nofollow">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://flamingdiva.com/">
+    <meta property="og:title" content="Flaming Diva | Coming Soon">
+    <meta property="og:description"
+        content="Premium upcycled thrift jackets and mystical streetwear. Vintage souls drifting in the cosmos. Coming Soon.">
+    <meta property="og:image" content="images/hero-mystic.jpg">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Flaming Diva | Coming Soon">
+    <meta name="twitter:description"
+        content="Premium upcycled thrift jackets and mystical streetwear. Vintage souls drifting in the cosmos. Coming Soon.">
+    <meta name="twitter:image" content="images/hero-mystic.jpg">
+
+    <title>Flaming Diva | Coming Soon</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+    <style>
+        /* Reset & Base */
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --black: #050505;
+            --white: #ffffff;
+            --gray-100: #1a1a2e;
+            --gray-200: #2b2b40;
+            --gray-300: #3f3f5a;
+            --gray-400: #5c5c7a;
+            --gray-500: #7e7e9e;
+            --gray-600: #a3a3c2;
+            --gray-700: #cbcbdb;
+            --gray-800: #e6e6e6;
+            --gray-900: #f2f2f2;
+
+            /* Interstellar Theme Colors */
+            --cosmic-purple: #9D00FF;
+            --neon-blue: #00D4FF;
+            --stardust-pink: #FF00CC;
+            --nebula-teal: #00FF9D;
+            --cosmic-glow: rgba(157, 0, 255, 0.4);
+            --cosmic-glow-soft: rgba(0, 212, 255, 0.15);
+
+            /* Gradient definitions */
+            --flame-gradient: linear-gradient(135deg, var(--cosmic-purple) 0%, var(--neon-blue) 50%, var(--stardust-pink) 100%);
+            --flame-gradient-subtle: linear-gradient(135deg, var(--stardust-pink) 0%, var(--cosmic-purple) 100%);
+            --ember-glow: 0 0 20px var(--cosmic-glow), 0 0 40px var(--cosmic-glow-soft);
+
+            --font-main: 'Inter', -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
+        }
+
+        html {
+            font-size: 16px;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        body {
+            font-family: var(--font-main);
+            color: var(--white);
+            background: #050509;
+            line-height: 1.5;
+            min-height: 100vh;
+            overflow: hidden;
+        }
+
+        /* Coming Soon Container */
+        .coming-soon {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            overflow: hidden;
+        }
+
+        /* Background with animated gradient */
+        .coming-soon-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background:
+                radial-gradient(ellipse at 20% 50%, rgba(157, 0, 255, 0.15) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 50%, rgba(0, 212, 255, 0.15) 0%, transparent 50%),
+                radial-gradient(ellipse at 50% 100%, rgba(255, 0, 204, 0.1) 0%, transparent 50%),
+                #050509;
+            animation: bgPulse 8s ease-in-out infinite;
+        }
+
+        @keyframes bgPulse {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.8;
+            }
+        }
+
+        /* Stars animation */
+        .stars {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .star {
+            position: absolute;
+            background: var(--white);
+            border-radius: 50%;
+            animation: twinkle 3s ease-in-out infinite;
+        }
+
+        @keyframes twinkle {
+
+            0%,
+            100% {
+                opacity: 0.3;
+                transform: scale(1);
+            }
+
+            50% {
+                opacity: 1;
+                transform: scale(1.2);
+            }
+        }
+
+        /* Side Logos */
+        .side-logo {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            height: 200px;
+            width: auto;
+            opacity: 0.15;
+            filter: drop-shadow(0 0 30px var(--cosmic-glow));
+            animation: logoGlow 4s ease-in-out infinite;
+        }
+
+        .side-logo.left {
+            left: 5%;
+        }
+
+        .side-logo.right {
+            right: 5%;
+        }
+
+        @keyframes logoGlow {
+
+            0%,
+            100% {
+                filter: drop-shadow(0 0 30px var(--cosmic-glow)) drop-shadow(0 0 60px rgba(0, 212, 255, 0.3));
+                opacity: 0.15;
+            }
+
+            50% {
+                filter: drop-shadow(0 0 50px var(--cosmic-glow)) drop-shadow(0 0 80px rgba(255, 0, 204, 0.4));
+                opacity: 0.25;
+            }
+        }
+
+        /* Main Content */
+        .content {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            padding: 20px;
+            max-width: 600px;
+        }
+
+        /* Main Logo */
+        .main-logo {
+            width: 180px;
+            height: auto;
+            margin-bottom: 40px;
+            filter: drop-shadow(0 0 20px var(--cosmic-glow-soft));
+            animation: floatLogo 6s ease-in-out infinite;
+        }
+
+        @keyframes floatLogo {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        /* Coming Soon Title */
+        .title {
+            font-size: clamp(28px, 6vw, 48px);
+            font-weight: 300;
+            letter-spacing: 12px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            background: var(--flame-gradient);
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: gradientShimmer 3s ease infinite;
+        }
+
+        @keyframes gradientShimmer {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        /* Subtitle */
+        .subtitle {
+            font-size: 14px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--gray-600);
+            margin-bottom: 50px;
+            opacity: 0.8;
+        }
+
+        /* Divider Line */
+        .divider {
+            width: 60px;
+            height: 1px;
+            background: var(--flame-gradient);
+            margin: 0 auto 50px;
+            animation: expandDivider 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes expandDivider {
+            0% {
+                width: 60px;
+                opacity: 0.5;
+            }
+
+            100% {
+                width: 100px;
+                opacity: 1;
+            }
+        }
+
+        /* Newsletter Form */
+        .newsletter {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .newsletter-label {
+            font-size: 11px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--gray-500);
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 0;
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .newsletter-input {
+            flex: 1;
+            padding: 16px 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--gray-300);
+            border-right: none;
+            color: var(--white);
+            font-family: var(--font-main);
+            font-size: 13px;
+            letter-spacing: 0.5px;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        .newsletter-input::placeholder {
+            color: var(--gray-500);
+        }
+
+        .newsletter-input:focus {
+            border-color: var(--cosmic-purple);
+            background: rgba(157, 0, 255, 0.05);
+        }
+
+        .newsletter-btn {
+            padding: 16px 28px;
+            background: transparent;
+            border: 1px solid var(--gray-300);
+            color: var(--white);
+            font-family: var(--font-main);
+            font-size: 11px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .newsletter-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--flame-gradient);
+            transition: left 0.4s ease;
+            z-index: -1;
+        }
+
+        .newsletter-btn:hover {
+            border-color: var(--cosmic-purple);
+        }
+
+        .newsletter-btn:hover::before {
+            left: 0;
+        }
+
+        /* Social Links */
+        .social {
+            margin-top: 50px;
+            display: flex;
+            gap: 24px;
+            justify-content: center;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid var(--gray-400);
+            border-radius: 50%;
+            color: var(--gray-600);
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            border-color: var(--cosmic-purple);
+            color: var(--white);
+            box-shadow: 0 0 20px var(--cosmic-glow);
+        }
+
+        .social-link svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        /* Footer */
+        .footer-text {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 10px;
+            letter-spacing: 1px;
+            color: var(--gray-500);
+            text-transform: uppercase;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .side-logo {
+                height: 120px;
+                opacity: 0.1;
+            }
+
+            .side-logo.left {
+                left: 2%;
+            }
+
+            .side-logo.right {
+                right: 2%;
+            }
+
+            .main-logo {
+                width: 140px;
+                margin-bottom: 30px;
+            }
+
+            .title {
+                letter-spacing: 8px;
+            }
+
+            .subtitle {
+                letter-spacing: 2px;
+                margin-bottom: 30px;
+            }
+
+            .newsletter-form {
+                flex-direction: column;
+            }
+
+            .newsletter-input {
+                border-right: 1px solid var(--gray-300);
+                border-bottom: none;
+            }
+
+            .newsletter-btn {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .side-logo {
+                height: 80px;
+            }
+
+            .title {
+                letter-spacing: 6px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="coming-soon">
+        <!-- Animated Background -->
+        <div class="coming-soon-bg"></div>
+
+        <!-- Stars -->
+        <div class="stars" id="stars"></div>
+
+        <!-- Left Logo -->
+        <img src="images/logo.png" alt="Flaming Diva" class="side-logo left">
+
+        <!-- Right Logo -->
+        <img src="images/logo.png" alt="Flaming Diva" class="side-logo right">
+
+        <!-- Main Content -->
+        <div class="content">
+            <!-- Main Logo -->
+            <img src="images/logo.png" alt="Flaming Diva" class="main-logo">
+
+            <h1 class="title">Coming Soon</h1>
+            <p class="subtitle">Cosmic Designs</p>
+
+            <div class="divider"></div>
+
+            <!-- Newsletter Signup -->
+            <div class="newsletter">
+                <span class="newsletter-label">Be the first to know</span>
+                <form class="newsletter-form" id="newsletter-form">
+                    <input type="email" class="newsletter-input" placeholder="Enter your email" required>
+                    <button type="submit" class="newsletter-btn">Notify Me</button>
+                </form>
+            </div>
+
+            <!-- Social Links -->
+            <div class="social">
+                <a href="https://instagram.com/flamingdiva" target="_blank" rel="noopener" class="social-link"
+                    aria-label="Instagram">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                    </svg>
+                </a>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <p class="footer-text">© 2024 Flaming Diva</p>
+    </div>
+
+    <script>
+        // Generate random stars
+        function createStars() {
+            const starsContainer = document.getElementById('stars');
+            const numStars = 50;
+
+            for (let i = 0; i < numStars; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                star.style.left = Math.random() * 100 + '%';
+                star.style.top = Math.random() * 100 + '%';
+                star.style.width = Math.random() * 2 + 1 + 'px';
+                star.style.height = star.style.width;
+                star.style.animationDelay = Math.random() * 3 + 's';
+                star.style.animationDuration = (Math.random() * 2 + 2) + 's';
+                starsContainer.appendChild(star);
+            }
+        }
+
+        // Initialize stars
+        createStars();
+
+        // Newsletter form handling
+        document.getElementById('newsletter-form').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const email = this.querySelector('input[type="email"]').value;
+
+            // Here you would typically send this to your backend/mailing list service
+            alert('Thank you! We\'ll notify you when we launch.');
+            this.reset();
+        });
+    </script>
+</body>
+
+</html>
+</CodeContent>
+<parameter name="EmptyFile">false
