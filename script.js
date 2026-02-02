@@ -3,6 +3,19 @@
  * JavaScript - Enhanced E-commerce Functionality
  */
 
+// Global Redirect to Coming Soon
+(function () {
+    const isLandingPage = window.location.pathname === '/' ||
+        window.location.pathname.endsWith('index.html') ||
+        window.location.pathname === '/index.html' ||
+        window.location.pathname.endsWith('coming-soon.html');
+
+    // If not on landing page, redirect to index
+    if (!isLandingPage) {
+        window.location.href = 'index.html';
+    }
+})();
+
 // Product catalog for search and filtering
 const productCatalog = [
     {

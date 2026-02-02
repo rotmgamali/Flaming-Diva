@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO Meta Tags -->
+    <meta name="description"
+        content="Flaming Diva - Premium upcycled thrift jackets and mystical streetwear. Shop our exclusive Cosmic Thrift and Interstellar collections.">
+    <meta name="keywords"
+        content="custom jackets, thrift jackets, vintage denim, hoodies, mystical fashion, premium outerwear">
+    <meta name="author" content="Flaming Diva">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://flamingdiva.com/">
+    <meta property="og:title" content="Flaming Diva | Mystical Thrift & Cosmic Streetwear">
+    <meta property="og:description"
+        content="Premium upcycled thrift jackets and mystical streetwear. Vintage souls drifting in the cosmos.">
+    <meta property="og:image" content="images/hero-mystic.jpg">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Flaming Diva | Mystical Thrift & Cosmic Streetwear">
+    <meta name="twitter:description"
+        content="Premium upcycled thrift jackets and mystical streetwear. Vintage souls drifting in the cosmos.">
+    <meta name="twitter:image" content="images/hero-mystic.jpg">
+
+    <title>Flaming Diva | Mystical Thrift & Cosmic Streetwear</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Announcement Bar -->
+    <div class="announcement-bar">
+        <div class="announcement-slider">
+            <p>Complimentary Shipping & Returns</p>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="header" id="header">
+        <nav class="nav">
+            <div class="nav-left">
+                <button class="nav-toggle" id="nav-toggle" aria-label="Menu" onclick="toggleMobileMenu()">
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="collections.html" class="nav-link">Shop All</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="about.html" class="nav-link">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="collaborate.html" class="nav-link">Collaborate</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="contact.html" class="nav-link">Contact</a>
+                    </li>
+                </ul>
+            </div>
+
+            <a href="index.html" class="logo">
+                <img src="images/logo.png" alt="Flaming Diva" class="logo-img">
+            </a>
+
+            <div class="nav-right">
+                <button class="nav-icon search-btn" aria-label="Search">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="1.5">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <path d="m21 21-4.35-4.35"></path>
+                    </svg>
+                </button>
+                <a href="account.html" class="nav-icon" aria-label="Account">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="1.5">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="12" cy="7" r="4"></circle>
+                    </svg>
+                </a>
+                <button class="nav-icon cart-btn" id="cart-toggle" aria-label="Cart" onclick="toggleCart()">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="1.5">
+                        <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                        <path d="M16 10a4 4 0 0 1-8 0"></path>
+                    </svg>
+                    <span class="cart-count">0</span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay" id="mobile-menu-overlay" onclick="toggleMobileMenu()"></div>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobile-menu">
+        <button class="mobile-menu-close" onclick="toggleMobileMenu()" aria-label="Close menu">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+        </button>
+        <div class="mobile-menu-content">
+            <a href="index.html" class="mobile-link">Home</a>
+            <a href="collections.html" class="mobile-link">Shop All</a>
+            <a href="about.html" class="mobile-link">About</a>
+            <a href="collaborate.html" class="mobile-link">Collaborate</a>
+            <a href="contact.html" class="mobile-link">Contact</a>
+            <div class="mobile-divider"></div>
+            <a href="account.html" class="mobile-link-sm">Account</a>
+            <a href="orders.html" class="mobile-link-sm">Orders</a>
+        </div>
+    </div>
+
+    <!-- Inline Mobile Menu Script -->
+    <script>
+        function toggleMobileMenu() {
+            var menu = document.getElementById('mobile-menu');
+            var overlay = document.getElementById('mobile-menu-overlay');
+            var toggle = document.getElementById('nav-toggle');
+            var isActive = menu.classList.contains('active');
+
+            if (isActive) {
+                menu.classList.remove('active');
+                overlay.classList.remove('active');
+                document.body.classList.remove('no-scroll');
+                if (toggle) toggle.classList.remove('active');
+            } else {
+                menu.classList.add('active');
+                overlay.classList.add('active');
+                document.body.classList.add('no-scroll');
+                if (toggle) toggle.classList.add('active');
+            }
+        }
+    </script>
+
+    <!-- Hero Section - Full Screen -->
+    <!-- Hero Section - Full Screen -->
+    <section class="hero">
+        <div class="hero-slide active">
+            <div class="hero-image">
+                <img src="images/hero-mystic.jpg" alt="Cosmic Thrift Collection" class="hero-bg">
+                <div class="hero-overlay-dark"></div>
+            </div>
+            <div class="hero-content">
+                <span class="hero-label">Vintage Souls x Interstellar Voids</span>
+                <h1 class="hero-title flame-text">COSMIC THRIFT</h1>
+                <a href="collections.html" class="hero-cta">Enter the Void</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Shop the Look Section -->
+    <section class="shop-look">
+        <div class="shop-look-header">
+            <h2>Shop the Look</h2>
+        </div>
+        <div class="shop-look-grid">
+            <div class="look-card">
+                <div class="look-image">
+                    <img src="images/denim-nebula.jpg" alt="Rainbow Flame Denim">
+                </div>
+                <div class="look-info">
+                    <a href="product.html?id=40" class="look-name">Rainbow Flame Denim</a>
+                </div>
+            </div>
+            <div class="look-card">
+                <div class="look-image">
+                    <img src="images/retro-jacket-2.jpg" alt="Void Rocker Denim">
+                </div>
+                <div class="look-info">
+                    <a href="product.html?id=41" class="look-name">Void Rocker Denim</a>
+                </div>
+            </div>
+            <div class="look-card">
+                <div class="look-image">
+                    <img src="images/hoodie-space.jpg" alt="Fractal Geometry Hoodie">
+                </div>
+                <div class="look-info">
+                    <a href="product.html?id=42" class="look-name">Fractal Geometry Hoodie</a>
+                </div>
+            </div>
+            <div class="look-card">
+                <div class="look-image">
+                    <img src="images/hoodie-retro.jpg" alt="Psychedelic Drift Hoodie">
+                </div>
+                <div class="look-info">
+                    <a href="product.html?id=43" class="look-name">Psychedelic Drift Hoodie</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lookbook Banner -->
+    <section class="lookbook-banner">
+        <a href="collections.html" class="lookbook-link">
+            <div class="lookbook-image">
+                <img src="images/lookbook-banner.jpg" alt="Lookbook">
+            </div>
+            <div class="lookbook-content">
+                <span class="lookbook-label">Flaming Diva Interstellar Collection 2026</span>
+                <span class="lookbook-cta">View Lookbook</span>
+            </div>
+        </a>
+    </section>
+
+    <!-- Product Grid Section -->
+    <section class="products-section">
+        <div class="products-header">
+            <h2>New Arrivals</h2>
+            <a href="collections.html" class="view-all">View All</a>
+        </div>
+        <div class="products-grid">
+            <article class="product-card" data-id="46">
+                <a href="product.html?id=46" class="product-link">
+                    <div class="product-image">
+                        <img src="images/essential-4.jpg" alt="Nebula Field Jacket">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Nebula Field Jacket</h3>
+                        <p class="product-price">$220 USD</p>
+                    </div>
+                </a>
+                <button class="quick-add-btn" data-product-id="46">+ Quick Add</button>
+            </article>
+            <article class="product-card" data-id="40">
+                <a href="product.html?id=40" class="product-link">
+                    <div class="product-image">
+                        <img src="images/denim-nebula.jpg" alt="Rainbow Flame Denim">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Rainbow Flame Denim</h3>
+                        <p class="product-price">$350 USD</p>
+                    </div>
+                </a>
+                <button class="quick-add-btn" data-product-id="40">+ Quick Add</button>
+            </article>
+            <article class="product-card" data-id="44">
+                <a href="product.html?id=44" class="product-link">
+                    <div class="product-image">
+                        <img src="images/cap-space.jpg" alt="Interstellar Dad Hat">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Interstellar Dad Hat</h3>
+                        <p class="product-price">$55 USD</p>
+                    </div>
+                </a>
+                <button class="quick-add-btn" data-product-id="44">+ Quick Add</button>
+            </article>
+            <article class="product-card" data-id="45">
+                <a href="product.html?id=45" class="product-link">
+                    <div class="product-image">
+                        <img src="images/cap-retro.jpg" alt="Mystic Eye Cap">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Mystic Eye Cap</h3>
+                        <p class="product-price">$60 USD</p>
+                    </div>
+                </a>
+                <button class="quick-add-btn" data-product-id="45">+ Quick Add</button>
+            </article>
+        </div>
+    </section>
+
+    <!-- Category Cards -->
+    <section class="category-section">
+        <div class="category-grid">
+            <a href="collections.html?category=hoodie" class="category-card">
+                <div class="category-image">
+                    <img src="images/hoodie-space.jpg" alt="Hoodie Collection">
+                </div>
+                <div class="category-content">
+                    <h3>Interstellar Hoodies</h3>
+                    <span class="category-cta">Shop Now</span>
+                </div>
+            </a>
+            <a href="collections.html?category=cap" class="category-card">
+                <div class="category-image">
+                    <img src="images/cap-space.jpg" alt="Cap Collection">
+                </div>
+                <div class="category-content">
+                    <h3>Mystic Caps</h3>
+                    <span class="category-cta">Shop Now</span>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <!-- More Products -->
+    <section class="products-section">
+        <div class="products-header">
+            <h2>Interstellar Essentials</h2>
+            <a href="collections.html" class="view-all">View All</a>
+        </div>
+        <div class="products-grid">
+            <article class="product-card" data-id="42">
+                <a href="product.html?id=42" class="product-link">
+                    <div class="product-image">
+                        <img src="images/hoodie-space.jpg" alt="Fractal Geometry Hoodie">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Fractal Geometry Hoodie</h3>
+                        <p class="product-price">$150 USD</p>
+                    </div>
+                </a>
+                <button class="quick-add-btn" data-product-id="42">+ Quick Add</button>
+            </article>
+            <article class="product-card" data-id="43">
+                <a href="product.html?id=43" class="product-link">
+                    <div class="product-image">
+                        <img src="images/hoodie-retro.jpg" alt="Psychedelic Drift Hoodie">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Psychedelic Drift Hoodie</h3>
+                        <p class="product-price">$165 USD</p>
+                    </div>
+                </a>
+                <button class="quick-add-btn" data-product-id="43">+ Quick Add</button>
+            </article>
+            <article class="product-card" data-id="40">
+                <a href="product.html?id=40" class="product-link">
+                    <div class="product-image">
+                        <img src="images/denim-nebula.jpg" alt="Rainbow Flame Denim">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Rainbow Flame Denim</h3>
+                        <p class="product-price">$350 USD</p>
+                    </div>
+                </a>
+                <button class="quick-add-btn" data-product-id="40">+ Quick Add</button>
+            </article>
+            <article class="product-card" data-id="41">
+                <a href="product.html?id=41" class="product-link">
+                    <div class="product-image">
+                        <img src="images/retro-jacket-2.jpg" alt="Void Rocker Denim">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Void Rocker Denim</h3>
+                        <p class="product-price">$295 USD</p>
+                    </div>
+                </a>
+                <button class="quick-add-btn" data-product-id="41">+ Quick Add</button>
+            </article>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-logo">
+            <a href="index.html">
+                <img src="images/logo.png" alt="Flaming Diva" class="footer-logo-img">
+            </a>
+        </div>
+        <div class="footer-main">
+            <div class="footer-column">
+                <h4>Shop</h4>
+                <ul>
+                    <li><a href="collections.html">All Jackets</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="about.html">About Diva</a></li>
+                    <li><a href="collaborate.html">Collaborate</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Connect</h4>
+                <ul>
+                    <li><a href="https://instagram.com/flamingdiva" target="_blank" rel="noopener">Instagram</a></li>
+                </ul>
+            </div>
+            <div class="footer-column footer-newsletter">
+                <h4>Newsletter</h4>
+                <p>Sign up to receive Flaming Diva updates</p>
+                <form class="newsletter-form" id="newsletter-form">
+                    <input type="email" placeholder="Email Address" required>
+                    <button type="submit">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7" />
+                        </svg>
+                    </button>
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="footer-legal">
+                <span>&copy; 2024 Flaming Diva</span>
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="terms.html">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Search Overlay -->
+    <div class="search-overlay" id="search-overlay">
+        <div class="search-container">
+            <form class="search-form">
+                <input type="text" placeholder="Search" autofocus>
+                <button type="button" class="search-close" id="search-close">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="1.5">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+            </form>
+            <div class="search-suggestions">
+                <div class="suggestions-column">
+                    <span class="suggestions-title">Popular Searches</span>
+                    <a href="#">Leather Jacket</a>
+                    <a href="#">Bomber</a>
+                    <a href="#">Varsity</a>
+                    <a href="#">Custom</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cart Drawer -->
+    <div class="cart-drawer" id="cart-drawer">
+        <div class="cart-header">
+            <h3>SHOPPING CART</h3>
+            <button class="cart-close" id="cart-close">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+        </div>
+        <div class="cart-content" id="cart-content">
+            <div class="cart-empty">
+                <p>Your cart is currently empty.</p>
+                <a href="#" class="continue-shopping">Continue Shopping</a>
+            </div>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-subtotal">
+                <span>Subtotal</span>
+                <span id="cart-total">$0.00</span>
+            </div>
+            <p class="cart-note">Shipping & taxes calculated at checkout</p>
+            <button class="checkout-btn" disabled>Checkout</button>
+        </div>
+    </div>
+    <div class="overlay" id="overlay"></div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
