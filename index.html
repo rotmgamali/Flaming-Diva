@@ -493,138 +493,6 @@
                 letter-spacing: 6px;
             }
         }
-
-        /* Gallery Styles - Compact & Integrated (Restored) */
-        .artist-gallery {
-            display: flex;
-            justify-content: center;
-            gap: 16px;
-            margin: 60px auto 40px;
-            /* Increased top margin to push to bottom */
-            width: 100%;
-            max-width: 900px;
-            padding: 0 20px;
-            flex-wrap: wrap;
-        }
-
-        .artist-card {
-            flex: 0 1 180px;
-            min-width: 160px;
-            max-width: 200px;
-            text-align: center;
-            opacity: 0;
-            transform: translateY(20px);
-            animation: fadeInUp 0.8s ease forwards;
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 12px;
-            padding: 12px;
-            backdrop-filter: blur(5px);
-            transition: all 0.4s ease;
-        }
-
-        .artist-card:nth-child(1) {
-            animation-delay: 0.2s;
-        }
-
-        .artist-card:nth-child(2) {
-            animation-delay: 0.4s;
-        }
-
-        .artist-card:nth-child(3) {
-            animation-delay: 0.6s;
-        }
-
-        @keyframes fadeInUp {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .artist-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--cosmic-purple);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3), 0 0 15px var(--cosmic-glow);
-        }
-
-        .artist-img-wrapper {
-            position: relative;
-            overflow: hidden;
-            border-radius: 8px;
-            aspect-ratio: 4/5;
-            margin-bottom: 12px;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-        }
-
-        .artist-card img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.6s ease;
-        }
-
-        .artist-card:hover img {
-            transform: scale(1.08);
-        }
-
-        .artist-caption {
-            font-size: 10px;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            color: var(--gray-600);
-            line-height: 1.5;
-            padding: 0 4px;
-            transition: color 0.3s ease;
-        }
-
-        .artist-card:hover .artist-caption {
-            color: var(--white);
-        }
-
-        /* Mobile Layout: Horizontal Swipe */
-        @media (max-width: 768px) {
-            .artist-gallery {
-                display: flex;
-                flex-wrap: nowrap;
-                justify-content: flex-start;
-                overflow-x: auto;
-                scroll-snap-type: x mandatory;
-                padding: 10px 20px 30px;
-                /* Bottom padding for shadow/scroll */
-                gap: 16px;
-                margin: 30px 0;
-                width: 100%;
-                max-width: 100%;
-                -webkit-overflow-scrolling: touch;
-                scrollbar-width: none;
-                /* Firefox */
-            }
-
-            .artist-gallery::-webkit-scrollbar {
-                display: none;
-                /* Chrome/Safari */
-            }
-
-            .artist-card {
-                flex: 0 0 60vw;
-                /* Show 60% of card to hint at scroll */
-                min-width: unset;
-                max-width: 220px;
-                scroll-snap-align: center;
-                transform: translateY(0);
-                /* Remove initial offset for smoother load */
-                animation: none;
-                /* Simplify mobile animation */
-                opacity: 1;
-            }
-
-            /* Center alignment for first/last items in scroll */
-            .artist-gallery::after {
-                content: '';
-                flex: 0 0 20px;
-            }
-        }
     </style>
 </head>
 
@@ -647,34 +515,14 @@
             <!-- Main Logo -->
             <img src="images/logo.png" alt="Flaming Diva" class="main-logo">
 
-            <h1 class="title">Coming Soon</h1>
+            <h1 class="title">Flaming Diva</h1>
             <p class="subtitle">One of a kind patch designs</p>
 
-            <div class="divider"></div>
+            <p
+                style="text-transform: uppercase; letter-spacing: 4px; font-size: 12px; color: var(--gray-500); margin-top: -30px; margin-bottom: 40px;">
+                Coming Soon</p>
 
-            <!-- Artist Gallery (Integrated) -->
-            <div class="artist-gallery">
-                <div class="artist-card">
-                    <div class="artist-img-wrapper">
-                        <img src="images/diva-space-suit.jpg"
-                            alt="The artist herself, Diva featuring the custom space suit at powder mountain">
-                    </div>
-                    <p class="artist-caption">The artist herself, Diva featuring the custom space suit at powder
-                        mountain</p>
-                </div>
-                <div class="artist-card">
-                    <div class="artist-img-wrapper">
-                        <img src="images/diva-vegas.jpg" alt="Diva in Vegas">
-                    </div>
-                    <p class="artist-caption">Diva in Vegas</p>
-                </div>
-                <div class="artist-card">
-                    <div class="artist-img-wrapper">
-                        <img src="images/diva-rainbow-teddy.jpg" alt="Diva in her custom rainbow teddy bear piece">
-                    </div>
-                    <p class="artist-caption">Diva in her custom rainbow teddy bear piece</p>
-                </div>
-            </div>
+            <div class="divider"></div>
 
             <!-- Newsletter Signup -->
             <div class="newsletter">
