@@ -86,21 +86,23 @@
             min-height: 100vh;
             overflow-x: hidden;
             overflow-y: auto;
+            /* Enable scroll */
         }
 
         /* Coming Soon Container */
         .coming-soon {
-            position: fixed;
-            top: 0;
-            left: 0;
+            position: relative;
+            /* Changed from fixed to allow scroll */
             width: 100%;
-            height: 100%;
+            min-height: 100vh;
+            /* Changed from height: 100% to allow expansion */
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             z-index: 9999;
-            overflow: hidden;
+            padding: 40px 0;
+            /* Add padding for vertical spacing */
         }
 
         /* Background with animated gradient */
@@ -495,59 +497,6 @@
             }
         }
     </style>
-    <style>
-        /* Bottom Gallery Styles */
-        .artist-gallery {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin: 60px auto 40px;
-            width: 100%;
-            max-width: 900px;
-            padding: 0 20px;
-            flex-wrap: wrap;
-        }
-
-        .artist-card {
-            flex: 0 1 200px;
-            max-width: 220px;
-            border-radius: 12px;
-            overflow: hidden;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: transform 0.3s ease;
-        }
-
-        .artist-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--cosmic-purple);
-        }
-
-        .artist-img-wrapper {
-            aspect-ratio: 4/5;
-            width: 100%;
-        }
-
-        .artist-img-wrapper img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        @media (max-width: 768px) {
-            .artist-gallery {
-                flex-wrap: nowrap;
-                justify-content: flex-start;
-                overflow-x: auto;
-                scroll-snap-type: x mandatory;
-                padding-bottom: 20px;
-            }
-
-            .artist-card {
-                flex: 0 0 60vw;
-                scroll-snap-align: center;
-            }
-        }
-    </style>
 </head>
 
 <body>
@@ -597,26 +546,6 @@
                         <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
                     </svg>
                 </a>
-            </div>
-
-            <!-- Artist Gallery (Bottom) -->
-            <div class="artist-gallery">
-                <div class="artist-card">
-                    <div class="artist-img-wrapper">
-                        <img src="images/diva-space-suit.jpg"
-                            alt="The artist herself, Diva featuring the custom space suit at powder mountain">
-                    </div>
-                </div>
-                <div class="artist-card">
-                    <div class="artist-img-wrapper">
-                        <img src="images/diva-vegas.jpg" alt="Diva in Vegas">
-                    </div>
-                </div>
-                <div class="artist-card">
-                    <div class="artist-img-wrapper">
-                        <img src="images/diva-rainbow-teddy.jpg" alt="Diva in her custom rainbow teddy bear piece">
-                    </div>
-                </div>
             </div>
         </div>
 
