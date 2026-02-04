@@ -301,21 +301,38 @@
             margin: 0 auto 2vh;
         }
 
-        /* Single Feature Image Stylings */
-        .feature-img-container {
+        /* Dual Feature Image Stylings */
+        .feature-pair {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
             margin: 0 auto 2vh;
-            max-width: 150px;
             width: 100%;
+            max-width: 400px;
             animation: fadeInUp 1s ease forwards;
         }
 
-        .feature-img {
-            width: 100%;
-            height: auto;
-            border-radius: 10px;
+        .feature-img-card {
+            flex: 0 1 140px;
+            border-radius: 8px;
+            overflow: hidden;
             border: 1px solid rgba(255, 255, 255, 0.1);
             filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.5));
-            transition: transform 0.3s ease;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .feature-img-card img {
+            width: 100%;
+            height: auto;
+            aspect-ratio: 4/5;
+            object-fit: cover;
+            display: block;
+        }
+
+        .feature-img-card:hover {
+            transform: scale(1.05);
+            border-color: var(--cosmic-purple);
         }
 
         @keyframes fadeInUp {
@@ -401,15 +418,19 @@
             <p class="subtitle">One of a kind patch designs</p>
 
             <p
-                style="text-transform: uppercase; letter-spacing: 3px; font-size: 9px; color: var(--gray-500); margin-top: -1.5vh; margin-bottom: 2vh;">
+                style="text-transform: uppercase; letter-spacing: 3px; font-size: 9px; color: var(--gray-500); margin-top: 0; margin-bottom: 2vh;">
                 Coming Soon</p>
 
             <div class="divider"></div>
 
-            <!-- Single Feature Image -->
-            <div class="feature-img-container">
-                <img src="images/diva-space-suit.jpg" alt="The artist in her custom Flaming Diva space suit"
-                    class="feature-img">
+            <!-- Dual Feature Images -->
+            <div class="feature-pair">
+                <div class="feature-img-card">
+                    <img src="images/diva-space-suit.jpg" alt="Diva in Space Suit">
+                </div>
+                <div class="feature-img-card">
+                    <img src="images/diva-vegas.jpg" alt="Diva in Vegas">
+                </div>
             </div>
 
             <!-- Newsletter Signup -->
