@@ -203,11 +203,10 @@
             max-width: 600px;
         }
 
-        /* Main Logo */
         .main-logo {
-            width: 140px;
+            width: 100px;
             height: auto;
-            margin-bottom: 20px;
+            margin-bottom: 2vh;
             /* Base float + Burning Effect */
             animation: floatLogo 6s ease-in-out infinite, rainbowBurn 3s infinite;
         }
@@ -258,13 +257,12 @@
             }
         }
 
-        /* Coming Soon Title */
         .title {
-            font-size: clamp(28px, 6vw, 48px);
+            font-size: clamp(20px, 4vw, 32px);
             font-weight: 300;
-            letter-spacing: 12px;
+            letter-spacing: 8px;
             text-transform: uppercase;
-            margin-bottom: 10px;
+            margin-bottom: 1vh;
             background: var(--flame-gradient);
             background-size: 200% 200%;
             -webkit-background-clip: text;
@@ -287,22 +285,49 @@
             }
         }
 
-        /* Subtitle */
         .subtitle {
-            font-size: 14px;
-            letter-spacing: 3px;
+            font-size: 11px;
+            letter-spacing: 2px;
             text-transform: uppercase;
             color: var(--gray-600);
-            margin-bottom: 50px;
+            margin-bottom: 2vh;
             opacity: 0.8;
         }
 
-        /* Divider Line */
+        /* Feature Image Stylings */
+        .feature-img-container {
+            margin: 0 auto 2vh;
+            max-width: 120px;
+            width: 100%;
+            animation: fadeInUp 1s ease forwards;
+        }
+
+        .feature-img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.5));
+            transition: transform 0.3s ease;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
         .divider {
-            width: 60px;
+            width: 50px;
             height: 1px;
             background: var(--flame-gradient);
-            margin: 0 auto 50px;
+            margin: 0 auto 2vh;
             animation: expandDivider 2s ease-in-out infinite alternate;
         }
 
@@ -331,7 +356,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 20px;
+            gap: 1.5vh;
         }
 
         .newsletter-label {
@@ -406,11 +431,10 @@
             left: 0;
         }
 
-        /* Social Links */
         .social {
-            margin-top: 30px;
+            margin-top: 1vh;
             display: flex;
-            gap: 24px;
+            gap: 16px;
             justify-content: center;
         }
 
@@ -451,100 +475,8 @@
 
         /* Responsive */
         @media (max-width: 768px) {
-            .side-logo {
-                height: 120px;
-                opacity: 0.1;
-            }
-
-            .side-logo.left {
-                left: 2%;
-            }
-
-            .side-logo.right {
-                right: 2%;
-            }
-
-            .main-logo {
-                width: 110px;
-                margin-bottom: 20px;
-            }
-
-            .title {
-                font-size: 28px;
-                letter-spacing: 6px;
-                margin-bottom: 8px;
-            }
-
-            .subtitle {
-                font-size: 11px;
-                letter-spacing: 2px;
-                margin-bottom: 20px;
-            }
-
-            .feature-img-container {
-                max-width: 130px;
-                margin-bottom: 20px;
-            }
-
-            .divider {
-                margin-bottom: 30px;
-            }
-
             .social {
-                margin-top: 30px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .side-logo {
-                height: 80px;
-            }
-
-            .title {
-                letter-spacing: 6px;
-            }
-
-            .main-logo {
-                width: 120px;
-            }
-
-            .subtitle {
-                font-size: 12px;
-                letter-spacing: 2px;
-            }
-        }
-
-        /* Feature Image Stylings */
-        .feature-img-container {
-            margin: 0 auto 40px;
-            max-width: 200px;
-            width: 100%;
-            animation: fadeInUp 1s ease forwards;
-        }
-
-        .feature-img {
-            width: 100%;
-            height: auto;
-            border-radius: 12px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            filter: drop-shadow(0 0 15px rgba(0, 0, 0, 0.5));
-            transition: transform 0.3s ease;
-        }
-
-        .feature-img:hover {
-            transform: scale(1.02);
-            border-color: var(--cosmic-purple);
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
+                margin-top: 15px;
             }
         }
     </style>
