@@ -381,37 +381,68 @@
             letter-spacing: 1.5px;
             text-transform: uppercase;
             color: var(--gray-500);
-            margin-bottom: 0.5vh;
+            margin-bottom: 1vh;
         }
 
-        .social {
-            margin-top: 2vh;
+        .newsletter-form {
             display: flex;
-            gap: 15px;
-            justify-content: center;
+            gap: 0;
+            width: 100%;
+            max-width: 360px;
         }
 
-        .social-link {
-            width: 32px;
-            height: 32px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: 1px solid var(--gray-400);
-            border-radius: 50%;
-            color: var(--gray-600);
+        .newsletter-input {
+            flex: 1;
+            padding: 12px 15px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--gray-300);
+            border-right: none;
+            color: var(--white);
+            font-family: var(--font-main);
+            font-size: 12px;
+            outline: none;
+        }
+
+        .newsletter-btn {
+            padding: 12px 20px;
+            background: transparent;
+            border: 1px solid var(--gray-300);
+            color: var(--white);
+            font-family: var(--font-main);
+            font-size: 10px;
+            text-transform: uppercase;
+            cursor: pointer;
             transition: all 0.3s ease;
         }
 
-        .footer-text {
-            position: absolute;
-            bottom: 15px;
-            left: 50%;
-            transform: translateX(-50%);
-            font-size: 9px;
-            letter-spacing: 1px;
+        .newsletter-btn:hover {
+            border-color: var(--cosmic-purple);
+            background: rgba(157, 0, 255, 0.1);
+        }
+
+        .feature-caption {
+            font-size: 8px;
             color: var(--gray-500);
+            padding: 8px 5px;
             text-transform: uppercase;
+            letter-spacing: 1px;
+            line-height: 1.2;
+        }
+
+        @media (max-width: 768px) {
+            .newsletter-form {
+                flex-direction: column;
+                max-width: 280px;
+            }
+
+            .newsletter-input {
+                border-right: 1px solid var(--gray-300);
+                border-bottom: none;
+            }
+
+            .social {
+                margin-top: 15px;
+            }
         }
     </style>
 </head>
@@ -445,9 +476,11 @@
                 <div class="coming-soon-overlay">Coming Soon</div>
                 <div class="feature-img-card">
                     <img src="images/diva-space-suit.jpg" alt="Diva in Space Suit">
+                    <p class="feature-caption">Space Suit at Powder Mountain</p>
                 </div>
                 <div class="feature-img-card">
                     <img src="images/diva-vegas.jpg" alt="Diva in Vegas">
+                    <p class="feature-caption">Diva in Vegas</p>
                 </div>
             </div>
 
