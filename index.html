@@ -84,25 +84,22 @@
             background: #050509;
             line-height: 1.5;
             min-height: 100vh;
-            overflow-x: hidden;
-            overflow-y: auto;
-            /* Enable scroll */
+            overflow: hidden;
         }
 
         /* Coming Soon Container */
         .coming-soon {
-            position: relative;
-            /* Changed from fixed to allow scroll */
+            position: fixed;
+            top: 0;
+            left: 0;
             width: 100%;
-            min-height: 100vh;
-            /* Changed from height: 100% to allow expansion */
+            height: 100%;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             z-index: 9999;
-            padding: 40px 0;
-            /* Add padding for vertical spacing */
+            overflow: hidden;
         }
 
         /* Background with animated gradient */
@@ -110,8 +107,6 @@
             position: absolute;
             top: 0;
             left: 0;
-            right: 0;
-            bottom: 0;
             width: 100%;
             height: 100%;
             background:
@@ -499,89 +494,6 @@
             }
         }
     </style>
-
-    /* Bottom Gallery Styles */
-    .artist-gallery {
-    position: relative;
-    z-index: 10;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    gap: 24px;
-    margin: 40px auto 80px;
-    width: 100%;
-    max-width: 1000px;
-    padding: 0 40px;
-    flex-wrap: nowrap; /* Force side-by-side */
-    }
-
-    .artist-card {
-    flex: 1;
-    min-width: 0; /* Allow shrinking to stay side-by-side */
-    max-width: 300px;
-    border-radius: 12px;
-    overflow: hidden;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    background: rgba(255, 255, 255, 0.03);
-    transition: transform 0.3s ease, border-color 0.3s ease;
-    display: flex;
-    flex-direction: column;
-    }
-
-    .artist-card:hover {
-    transform: translateY(-5px);
-    border-color: var(--cosmic-purple);
-    background: rgba(255, 255, 255, 0.05);
-    }
-
-    .artist-card img {
-    width: 100%;
-    height: auto;
-    aspect-ratio: 4/5;
-    object-fit: cover;
-    display: block;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-    }
-
-    .artist-caption {
-    font-size: 10px;
-    line-height: 1.5;
-    color: var(--gray-600);
-    padding: 15px 12px;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    transition: color 0.3s ease;
-    text-align: center;
-    flex-grow: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    }
-
-    .artist-card:hover .artist-caption {
-    color: var(--white);
-    }
-
-    @media (max-width: 768px) {
-    .artist-gallery {
-    flex-wrap: nowrap;
-    justify-content: flex-start;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    padding-bottom: 30px;
-    padding-left: 20px;
-    padding-right: 20px;
-    margin-top: 20px;
-    -webkit-overflow-scrolling: touch;
-    gap: 16px;
-    }
-    .artist-card {
-    flex: 0 0 75vw;
-    max-width: none;
-    scroll-snap-align: center;
-    }
-    }
-    </style>
 </head>
 
 <body>
@@ -634,24 +546,8 @@
             </div>
         </div>
 
-        <!-- Artist Gallery -->
-        <div class="artist-gallery">
-            <div class="artist-card">
-                <img src="images/diva-space-suit.jpg" alt="Diva in custom space suit">
-                <p class="artist-caption">Diva featuring the custom Flaming Diva space suit at Powder Mountain</p>
-            </div>
-            <div class="artist-card">
-                <img src="images/diva-vegas.jpg" alt="Diva in Vegas">
-                <p class="artist-caption">Diva in Vegas</p>
-            </div>
-            <div class="artist-card">
-                <img src="images/diva-rainbow-teddy.jpg" alt="Diva in rainbow teddy bear piece">
-                <p class="artist-caption">The Artist, Known as Diva</p>
-            </div>
-        </div>
-
         <!-- Footer -->
-        <p class="footer-text" style="position: relative; bottom: auto; margin-bottom: 40px;">© 2024 Flaming Diva</p>
+        <p class="footer-text">© 2024 Flaming Diva</p>
     </div>
 
     <script>
