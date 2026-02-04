@@ -63,6 +63,7 @@
             --nebula-teal: #00FF9D;
             --cosmic-glow: rgba(157, 0, 255, 0.4);
             --cosmic-glow-soft: rgba(0, 212, 255, 0.15);
+            --text-glow: 0 0 10px rgba(157, 0, 255, 0.8), 0 0 20px rgba(0, 212, 255, 0.5);
 
             /* Gradient definitions */
             --flame-gradient: linear-gradient(135deg, var(--cosmic-purple) 0%, var(--neon-blue) 50%, var(--stardust-pink) 100%);
@@ -301,7 +302,6 @@
             margin: 0 auto 2vh;
         }
 
-        /* Dual Feature Image Stylings */
         .feature-pair {
             display: flex;
             justify-content: center;
@@ -310,7 +310,28 @@
             margin: 0 auto 2vh;
             width: 100%;
             max-width: 400px;
+            position: relative;
+            /* Added for text overlap */
             animation: fadeInUp 1s ease forwards;
+        }
+
+        .coming-soon-overlay {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 20;
+            font-size: clamp(32px, 8vw, 60px);
+            font-weight: 500;
+            letter-spacing: 15px;
+            text-transform: uppercase;
+            color: var(--white);
+            text-shadow: var(--text-glow);
+            white-space: nowrap;
+            pointer-events: none;
+            mix-blend-mode: overlay;
+            /* Optional: makes it feel more integrated */
+            opacity: 0.9;
         }
 
         .feature-img-card {
@@ -417,14 +438,11 @@
             <h1 class="title">Flaming Diva</h1>
             <p class="subtitle">One of a kind patch designs</p>
 
-            <p
-                style="text-transform: uppercase; letter-spacing: 3px; font-size: 9px; color: var(--gray-500); margin-top: 0; margin-bottom: 2vh;">
-                Coming Soon</p>
-
             <div class="divider"></div>
 
-            <!-- Dual Feature Images -->
+            <!-- Dual Feature Images with Overlapping Text -->
             <div class="feature-pair">
+                <div class="coming-soon-overlay">Coming Soon</div>
                 <div class="feature-img-card">
                     <img src="images/diva-space-suit.jpg" alt="Diva in Space Suit">
                 </div>
