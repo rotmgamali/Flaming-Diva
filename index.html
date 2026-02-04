@@ -204,9 +204,9 @@
         }
 
         .main-logo {
-            width: 100px;
+            width: 130px;
             height: auto;
-            margin-bottom: 2vh;
+            margin-bottom: 1.5vh;
             /* Base float + Burning Effect */
             animation: floatLogo 6s ease-in-out infinite, rainbowBurn 3s infinite;
         }
@@ -258,11 +258,11 @@
         }
 
         .title {
-            font-size: clamp(20px, 4vw, 32px);
+            font-size: clamp(24px, 5vw, 40px);
             font-weight: 300;
-            letter-spacing: 8px;
+            letter-spacing: 10px;
             text-transform: uppercase;
-            margin-bottom: 1vh;
+            margin-bottom: 0.5vh;
             background: var(--flame-gradient);
             background-size: 200% 200%;
             -webkit-background-clip: text;
@@ -286,18 +286,25 @@
         }
 
         .subtitle {
-            font-size: 11px;
+            font-size: 12px;
             letter-spacing: 2px;
             text-transform: uppercase;
             color: var(--gray-600);
-            margin-bottom: 2vh;
+            margin-bottom: 1.5vh;
             opacity: 0.8;
         }
 
-        /* Feature Image Stylings */
+        .divider {
+            width: 40px;
+            height: 1px;
+            background: var(--flame-gradient);
+            margin: 0 auto 2vh;
+        }
+
+        /* Single Feature Image Stylings */
         .feature-img-container {
             margin: 0 auto 2vh;
-            max-width: 120px;
+            max-width: 150px;
             width: 100%;
             animation: fadeInUp 1s ease forwards;
         }
@@ -305,7 +312,7 @@
         .feature-img {
             width: 100%;
             height: auto;
-            border-radius: 8px;
+            border-radius: 10px;
             border: 1px solid rgba(255, 255, 255, 0.1);
             filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.5));
             transition: transform 0.3s ease;
@@ -323,124 +330,32 @@
             }
         }
 
-        .divider {
-            width: 50px;
-            height: 1px;
-            background: var(--flame-gradient);
-            margin: 0 auto 2vh;
-            animation: expandDivider 2s ease-in-out infinite alternate;
-        }
-
-        @keyframes expandDivider {
-            0% {
-                width: 60px;
-                opacity: 0.5;
-            }
-
-            100% {
-                width: 100px;
-                opacity: 1;
-            }
-        }
-
-        /* Feature Image Stylings */
-        .feature-img-container {
-            margin: 0 auto 30px;
-            max-width: 160px;
-            width: 100%;
-            animation: fadeInUp 1s ease forwards;
-        }
-
-        /* Newsletter Form */
+        /* Newsletter & Social */
         .newsletter {
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 1.5vh;
+            gap: 1vh;
         }
 
         .newsletter-label {
-            font-size: 11px;
-            letter-spacing: 2px;
+            font-size: 10px;
+            letter-spacing: 1.5px;
             text-transform: uppercase;
             color: var(--gray-500);
-        }
-
-        .newsletter-form {
-            display: flex;
-            gap: 0;
-            width: 100%;
-            max-width: 400px;
-        }
-
-        .newsletter-input {
-            flex: 1;
-            padding: 16px 20px;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid var(--gray-300);
-            border-right: none;
-            color: var(--white);
-            font-family: var(--font-main);
-            font-size: 13px;
-            letter-spacing: 0.5px;
-            outline: none;
-            transition: all 0.3s ease;
-        }
-
-        .newsletter-input::placeholder {
-            color: var(--gray-500);
-        }
-
-        .newsletter-input:focus {
-            border-color: var(--cosmic-purple);
-            background: rgba(157, 0, 255, 0.05);
-        }
-
-        .newsletter-btn {
-            padding: 16px 28px;
-            background: transparent;
-            border: 1px solid var(--gray-300);
-            color: var(--white);
-            font-family: var(--font-main);
-            font-size: 11px;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            cursor: pointer;
-            transition: all 0.4s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .newsletter-btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: var(--flame-gradient);
-            transition: left 0.4s ease;
-            z-index: -1;
-        }
-
-        .newsletter-btn:hover {
-            border-color: var(--cosmic-purple);
-        }
-
-        .newsletter-btn:hover::before {
-            left: 0;
+            margin-bottom: 0.5vh;
         }
 
         .social {
-            margin-top: 1vh;
+            margin-top: 2vh;
             display: flex;
-            gap: 16px;
+            gap: 15px;
             justify-content: center;
         }
 
         .social-link {
-            width: 40px;
-            height: 40px;
+            width: 32px;
+            height: 32px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -450,34 +365,15 @@
             transition: all 0.3s ease;
         }
 
-        .social-link:hover {
-            border-color: var(--cosmic-purple);
-            color: var(--white);
-            box-shadow: 0 0 20px var(--cosmic-glow);
-        }
-
-        .social-link svg {
-            width: 16px;
-            height: 16px;
-        }
-
-        /* Footer */
         .footer-text {
             position: absolute;
-            bottom: 30px;
+            bottom: 15px;
             left: 50%;
             transform: translateX(-50%);
-            font-size: 10px;
+            font-size: 9px;
             letter-spacing: 1px;
             color: var(--gray-500);
             text-transform: uppercase;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .social {
-                margin-top: 15px;
-            }
         }
     </style>
 </head>
@@ -505,7 +401,7 @@
             <p class="subtitle">One of a kind patch designs</p>
 
             <p
-                style="text-transform: uppercase; letter-spacing: 4px; font-size: 10px; color: var(--gray-500); margin-top: -30px; margin-bottom: 30px;">
+                style="text-transform: uppercase; letter-spacing: 3px; font-size: 9px; color: var(--gray-500); margin-top: -1.5vh; margin-bottom: 2vh;">
                 Coming Soon</p>
 
             <div class="divider"></div>
