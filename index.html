@@ -84,7 +84,8 @@
             background: #050509;
             line-height: 1.5;
             min-height: 100vh;
-            overflow: hidden;
+            overflow-x: hidden;
+            overflow-y: auto;
         }
 
         /* Coming Soon Container */
@@ -99,7 +100,7 @@
             justify-content: center;
             align-items: center;
             z-index: 9999;
-            overflow: hidden;
+            padding: 40px 20px;
         }
 
         /* Background with animated gradient */
@@ -492,6 +493,49 @@
             .title {
                 letter-spacing: 6px;
             }
+
+            .main-logo {
+                width: 120px;
+            }
+
+            .subtitle {
+                font-size: 12px;
+                letter-spacing: 2px;
+            }
+        }
+
+        /* Feature Image Stylings */
+        .feature-img-container {
+            margin: 0 auto 40px;
+            max-width: 200px;
+            width: 100%;
+            animation: fadeInUp 1s ease forwards;
+        }
+
+        .feature-img {
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            filter: drop-shadow(0 0 15px rgba(0, 0, 0, 0.5));
+            transition: transform 0.3s ease;
+        }
+
+        .feature-img:hover {
+            transform: scale(1.02);
+            border-color: var(--cosmic-purple);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
     </style>
 </head>
@@ -523,6 +567,12 @@
                 Coming Soon</p>
 
             <div class="divider"></div>
+
+            <!-- Single Feature Image -->
+            <div class="feature-img-container">
+                <img src="images/diva-space-suit.jpg" alt="The artist in her custom Flaming Diva space suit"
+                    class="feature-img">
+            </div>
 
             <!-- Newsletter Signup -->
             <div class="newsletter">
