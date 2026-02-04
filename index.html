@@ -207,9 +207,9 @@
         .main-logo {
             width: 180px;
             height: auto;
-            margin-bottom: 40px;
-            filter: drop-shadow(0 0 20px var(--cosmic-glow-soft));
-            animation: floatLogo 6s ease-in-out infinite;
+            margin-bottom: 30px;
+            /* Base float + Burning Effect */
+            animation: floatLogo 6s ease-in-out infinite, rainbowBurn 3s infinite;
         }
 
         @keyframes floatLogo {
@@ -221,6 +221,40 @@
 
             50% {
                 transform: translateY(-10px);
+            }
+        }
+
+        @keyframes rainbowBurn {
+            0% {
+                filter: drop-shadow(0 -4px 10px rgba(255, 0, 0, 0.7)) drop-shadow(0 0 20px rgba(255, 100, 0, 0.5));
+            }
+
+            14% {
+                filter: drop-shadow(0 -6px 12px rgba(255, 165, 0, 0.7)) drop-shadow(-2px -2px 20px rgba(255, 0, 0, 0.5));
+            }
+
+            28% {
+                filter: drop-shadow(0 -8px 14px rgba(255, 255, 0, 0.7)) drop-shadow(2px -4px 20px rgba(255, 165, 0, 0.5));
+            }
+
+            42% {
+                filter: drop-shadow(0 -5px 12px rgba(0, 255, 0, 0.7)) drop-shadow(0 -2px 20px rgba(255, 255, 0, 0.5));
+            }
+
+            57% {
+                filter: drop-shadow(0 -7px 15px rgba(0, 0, 255, 0.7)) drop-shadow(-2px -5px 20px rgba(0, 255, 255, 0.5));
+            }
+
+            71% {
+                filter: drop-shadow(0 -5px 11px rgba(75, 0, 130, 0.7)) drop-shadow(2px -3px 20px rgba(0, 0, 255, 0.5));
+            }
+
+            85% {
+                filter: drop-shadow(0 -6px 13px rgba(238, 130, 238, 0.7)) drop-shadow(0 -2px 20px rgba(75, 0, 130, 0.5));
+            }
+
+            100% {
+                filter: drop-shadow(0 -4px 10px rgba(255, 0, 0, 0.7)) drop-shadow(0 0 20px rgba(255, 100, 0, 0.5));
             }
         }
 
@@ -460,7 +494,7 @@
             }
         }
 
-        /* Gallery Styles - Compact & Integrated */
+        /* Gallery Styles - Compact & Integrated (Restored) */
         .artist-gallery {
             display: flex;
             justify-content: center;
@@ -612,12 +646,16 @@
             <!-- Main Logo -->
             <img src="images/logo.png" alt="Flaming Diva" class="main-logo">
 
-            <h1 class="title">Coming Soon</h1>
-            <p class="subtitle">Cosmic Designs</p>
+            <h1 class="title">Flaming Diva</h1>
+            <p class="subtitle">One of a kind patch designs</p>
+
+            <p
+                style="text-transform: uppercase; letter-spacing: 4px; font-size: 12px; color: var(--gray-500); margin-top: -30px; margin-bottom: 40px;">
+                Coming Soon</p>
 
             <div class="divider"></div>
 
-            <!-- Artist Gallery -->
+            <!-- Artist Gallery (Integrated) -->
             <div class="artist-gallery">
                 <div class="artist-card">
                     <div class="artist-img-wrapper">
