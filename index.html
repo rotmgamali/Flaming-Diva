@@ -84,8 +84,7 @@
             background: #050509;
             line-height: 1.5;
             min-height: 100vh;
-            overflow-x: hidden;
-            overflow-y: auto;
+            overflow: hidden;
         }
 
         /* Coming Soon Container */
@@ -100,7 +99,7 @@
             justify-content: center;
             align-items: center;
             z-index: 9999;
-            padding: 40px 20px;
+            overflow: hidden;
         }
 
         /* Background with animated gradient */
@@ -166,7 +165,7 @@
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            height: 200px;
+            height: 150px;
             width: auto;
             opacity: 0.15;
             filter: drop-shadow(0 0 30px var(--cosmic-glow));
@@ -206,9 +205,9 @@
 
         /* Main Logo */
         .main-logo {
-            width: 180px;
+            width: 140px;
             height: auto;
-            margin-bottom: 30px;
+            margin-bottom: 20px;
             /* Base float + Burning Effect */
             animation: floatLogo 6s ease-in-out infinite, rainbowBurn 3s infinite;
         }
@@ -265,7 +264,7 @@
             font-weight: 300;
             letter-spacing: 12px;
             text-transform: uppercase;
-            margin-bottom: 20px;
+            margin-bottom: 10px;
             background: var(--flame-gradient);
             background-size: 200% 200%;
             -webkit-background-clip: text;
@@ -317,6 +316,14 @@
                 width: 100px;
                 opacity: 1;
             }
+        }
+
+        /* Feature Image Stylings */
+        .feature-img-container {
+            margin: 0 auto 30px;
+            max-width: 160px;
+            width: 100%;
+            animation: fadeInUp 1s ease forwards;
         }
 
         /* Newsletter Form */
@@ -401,7 +408,7 @@
 
         /* Social Links */
         .social {
-            margin-top: 50px;
+            margin-top: 30px;
             display: flex;
             gap: 24px;
             justify-content: center;
@@ -458,30 +465,33 @@
             }
 
             .main-logo {
-                width: 140px;
-                margin-bottom: 30px;
+                width: 110px;
+                margin-bottom: 20px;
             }
 
             .title {
-                letter-spacing: 8px;
+                font-size: 28px;
+                letter-spacing: 6px;
+                margin-bottom: 8px;
             }
 
             .subtitle {
+                font-size: 11px;
                 letter-spacing: 2px;
+                margin-bottom: 20px;
+            }
+
+            .feature-img-container {
+                max-width: 130px;
+                margin-bottom: 20px;
+            }
+
+            .divider {
                 margin-bottom: 30px;
             }
 
-            .newsletter-form {
-                flex-direction: column;
-            }
-
-            .newsletter-input {
-                border-right: 1px solid var(--gray-300);
-                border-bottom: none;
-            }
-
-            .newsletter-btn {
-                width: 100%;
+            .social {
+                margin-top: 30px;
             }
         }
 
@@ -563,7 +573,7 @@
             <p class="subtitle">One of a kind patch designs</p>
 
             <p
-                style="text-transform: uppercase; letter-spacing: 4px; font-size: 12px; color: var(--gray-500); margin-top: -30px; margin-bottom: 40px;">
+                style="text-transform: uppercase; letter-spacing: 4px; font-size: 10px; color: var(--gray-500); margin-top: -30px; margin-bottom: 30px;">
                 Coming Soon</p>
 
             <div class="divider"></div>
