@@ -429,6 +429,47 @@
             line-height: 1.2;
         }
 
+        .social {
+            margin-top: 2vh;
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+        }
+
+        .social-link {
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid var(--gray-400);
+            border-radius: 50%;
+            color: var(--gray-600);
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            border-color: var(--cosmic-purple);
+            color: var(--white);
+            box-shadow: 0 0 15px var(--cosmic-glow);
+        }
+
+        .social-link svg {
+            width: 14px;
+            height: 14px;
+        }
+
+        .footer-text {
+            position: absolute;
+            bottom: min(15px, 2vh);
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 9px;
+            letter-spacing: 1px;
+            color: var(--gray-500);
+            text-transform: uppercase;
+        }
+
         @media (max-width: 768px) {
             .newsletter-form {
                 flex-direction: column;
@@ -441,7 +482,7 @@
             }
 
             .social {
-                margin-top: 15px;
+                margin-top: 1.5vh;
             }
         }
     </style>
